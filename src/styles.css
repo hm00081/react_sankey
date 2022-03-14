@@ -1,0 +1,13 @@
+.container {
+    max-width: 70vw;
+    max-height: 60vh;
+    margin-left: 200px;
+}
+
+path {
+    opacity: 0.32;
+}
+
+path:hover {
+    opacity: 1;
+}

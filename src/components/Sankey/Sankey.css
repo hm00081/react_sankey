@@ -1,0 +1,20 @@
+.hello {
+    justify-content: center;
+    align-items: center;
+}
+
+.font {
+    font-size: 14px;
+}
+
+rect {
+    opacity: 1;
+}
+
+rect:not(:hover) {
+    opacity: 1;
+}
+
+rect:hover {
+    opacity: 1;
+}
