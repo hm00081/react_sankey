@@ -70,13 +70,17 @@ export const Node = ({ node, width, height }: Props) => {
     const textTitleSize = Math.log(10) * 4;
     // const textTitleSize = node.value / 3;
     const textValueSize = (size / 100) * 1;
-    const textXPosition = textX + textMargin;
-    const textYPosition = node.y + node.height / 2 + 3.5;
+    let textXPosition = textX + textMargin - node.width * 1.2;
+    let textYPosition = node.y + node.height + textMargin * 1.9;
     var hover = {
         opacity: 1,
     };
     const [state, setState] = useState(0);
     // console.log(node.type);
+    if (node.type === 'Vis_var&tech') {
+        textXPosition = textXPosition + node.width * 2.3;
+        textYPosition = textYPosition - textMargin * 3.9;
+    }
 
     return (
         <NodePos>

@@ -1,6 +1,6 @@
 // Types
 import { SankeyData, SankeyNode, SankeyLink, SankeyStatus } from '../../types/sankey';
-
+import { useState, useEffect } from 'react';
 // Components
 import { Link } from './Link';
 import { Node } from './Node';
@@ -8,10 +8,9 @@ import './Sankey.css';
 // Utils
 import { calcSankeyNodes, calcSankeyLinks } from '../../utils/';
 import styled from 'styled-components';
-
-const BigBox = styled.g`
-    background-color: #eee;
-`;
+import ParentSize from '@visx/responsive/lib/components/ParentSizeModern';
+import Word from '../WordCloud/Word';
+import './sandbox-styles.css';
 
 // Props
 type Props = {
@@ -34,9 +33,11 @@ type Props = {
 // Component
 export const Sankey = ({ width, height, data, paddingTop = 0, paddingLeft = 0, nodeWidth = 20, nodeHeight = 20, nodeMargin = 5, minLinkBreadth, maxLinkBreadth }: Props) => {
     const nodes = calcSankeyNodes(data, width, height, paddingTop, paddingLeft, nodeWidth, nodeHeight, nodeMargin, maxLinkBreadth);
-
+    const [hover, setHover] = useState(false);
+    const onMouseOver = () => setHover(true);
+    const onMouseLeave = () => setHover(false);
     const links = calcSankeyLinks(data, height, nodes, nodeWidth, minLinkBreadth, maxLinkBreadth);
-    // console.log(links);
+    const word = <ParentSize>{({ width, height }) => <Word width={width} height={height} />}</ParentSize>;
     const columns = nodes.map((node) => node.type).filter((type, pos, arr) => arr.indexOf(type) === pos);
 
     return (

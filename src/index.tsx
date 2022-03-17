@@ -1,6 +1,5 @@
 import { render } from 'react-dom';
-
-import FinalSankey from './FinalSankey';
+import App from './App';
 
 const rootElement = document.getElementById('root');
-render(<FinalSankey />, rootElement);
+render(<App />, rootElement);

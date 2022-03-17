@@ -43,6 +43,21 @@ import { YSK14 } from './YSK14';
 import { CSL16 } from './CSL16';
 import { RRR19 } from './RRR19';
 import { YCC20 } from './YCC20';
+import { MDDD16 } from './MDDD16';
+import { GYS14 } from './GYS14';
+import { MDJW07 } from './MDJW07';
+import { KWL09 } from './KWL09';
+import { FOOD } from './FOOD';
+import { MLG } from './MLG';
+import { FA20 } from './FA20';
+import { GGS12STCOPY } from './GGS12ST copy';
+import { YFS10COPY } from './YFS10 copy';
+import { LGX16COPY } from './LGX16 copy';
+import { FAKM15COPY } from './FAKM15 copy';
+import { FA20COPY } from './FA20 copy';
+import { WHWS12COPY } from './WHWS12 copy';
+
+import { link } from 'fs';
 
 // const AllPaperDatas = { ...CAA20, ...CGK21, ...CSL12 };
 //@ts-ignore
@@ -51,14 +66,15 @@ const TargetAA = [MEV16.links, CAA20.links];
 const TargetAB = [XWS16.links, LLN14.links, LWW13.links, FCF09.links, SRJ13.links, RSRY12.links];
 const TargetBA = [XWL17.links, JX17.links, HYZ13.links, CGK21.links];
 const TargetBB = [YFS10.links, LGX16.links, JSM16.links, JTM11.links, RSRY12.links, GGS12TPS.links, GGS12ST.links, GGS12MT.links];
-const TargetCA = [MDD10.links, MHK16.links, MA16.links, ZLW13.links, FAKM15.links, SCS17.links];
+const TargetCA = [MDD10.links, MHK16.links, MA16.links, ZLW13.links, FAKM15.links, YCC20.links, SCS17.links];
 const RepA = [SCS19.links, EYG15.links, SCS17.links, SCS16.links];
-const RepB = [CAA20.links, SCS19.links, SCS17.links, JTM11.links, MDD10.links, LJC18.links, CGK21.links, YSK14.links];
-const RepC = [GGS12MT.links, JSM16.links, XWS16.links, LWW13.links, XD99.links, CSL12.links, MHK16.links, VWH13.links];
+const RepB = [CAA20.links, SCS19.links, JTM11.links, MDD10.links, LJC18.links, CGK21.links, YSK14.links, GYS14.links, MDJW07.links, MDDD16.links];
+const RepC = [GGS12MT.links, JSM16.links, XWS16.links, LWW13.links, XD99.links, CSL12.links, MHK16.links, VWH13.links, YCC20.links];
 const RepD = [LGX16.links, JX17.links, MVM17.links, ZGWZ14.links, CSL16.links, KSBK15.links, SRJ13.links, RSRY12.links];
-const RepEA = [GGS12ST.links, YFS10.links, LGX16.links];
+const RepEA = [GGS12ST.links, YFS10.links, LGX16.links, FAKM15.links, FOOD.links, FA20.links];
 const RepEB = [CGK21.links, CAA20.links, MEV16.links, SCS19.links];
 const RepF = [YFS10.links, MEV16.links, SCS16.links, HYZ13.links, MDD10.links, SSK12.links, LJC18.links, FAKM15.links];
+const ChangeRepEA = [YFS10COPY.links, LGX16COPY.links, FAKM15COPY.links, FA20COPY.links, WHWS12COPY.links, GGS12STCOPY.links];
 //@ts-ignore
 const PaperString = [
     CAA20.links,
@@ -106,6 +122,13 @@ const PaperString = [
     CSL16.links,
     RRR19.links,
     YCC20.links,
+    MDDD16.links,
+    GYS14.links,
+    MDJW07.links,
+    KWL09.links,
+    FOOD.links,
+    MLG.links,
+    FA20.links,
 ];
 
 const Papers = [
@@ -154,6 +177,13 @@ const Papers = [
     CSL16,
     RRR19,
     YCC20,
+    MDDD16,
+    GYS14,
+    MDJW07,
+    KWL09,
+    FOOD,
+    MLG,
+    FA20,
 ];
 
 //@ts-ignore
@@ -253,7 +283,7 @@ const Emptys = [].concat.apply([], Empty).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -276,7 +306,7 @@ const AllPaperDatas = [].concat.apply([], PaperString).reduce((result, value) =>
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -287,7 +317,7 @@ const TargetAAs = [].concat.apply([], TargetAA).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -298,7 +328,7 @@ const TargetABs = [].concat.apply([], TargetAB).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -309,7 +339,7 @@ const TargetBAs = [].concat.apply([], TargetBA).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -320,7 +350,7 @@ const TargetBBs = [].concat.apply([], TargetBB).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -331,7 +361,7 @@ const TargetCAs = [].concat.apply([], TargetCA).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -342,7 +372,7 @@ const RepAs = [].concat.apply([], RepA).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -353,18 +383,19 @@ const RepBs = [].concat.apply([], RepB).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
 }, []);
+console.log(RepBs);
 
 //@ts-ignore
 const RepCs = [].concat.apply([], RepC).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -375,7 +406,7 @@ const RepDs = [].concat.apply([], RepD).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -386,7 +417,7 @@ const RepEAs = [].concat.apply([], RepEA).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -397,7 +428,7 @@ const RepEBs = [].concat.apply([], RepEB).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -408,7 +439,18 @@ const RepFs = [].concat.apply([], RepF).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: 1 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
+    //@ts-ignore
+    else target.value += 1;
+    return result;
+}, []);
+
+//@ts-ignore
+const ChangeRepEAs = [].concat.apply([], ChangeRepEA).reduce((result, value) => {
+    //@ts-ignore
+    const target = result.find((r) => r.source === value.source && r.target === value.target);
+    //@ts-ignore
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -418,4 +460,4 @@ const RepFs = [].concat.apply([], RepF).reduce((result, value) => {
 const Node = CAA20.nodes;
 // const LinkData = [AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys];
 
-export { Status, Node, Papers, AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys };
+export { Status, Node, Papers, AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys, ChangeRepEAs };

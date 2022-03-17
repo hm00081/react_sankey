@@ -39,8 +39,8 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
     // Calculate the path based on the positions of source and target node
     extendedLinks.forEach((link) => {
         if (link.sourceNode.x === link.targetNode.x) {
-            const startPoint = [link.sourceNode.x + proportionalNodeWidth, link.sourceNode.height / 2 + link.sourceNode.y] as const;
-            const endPoint = [link.targetNode.x + proportionalNodeWidth, link.targetNode.height / 2 + link.targetNode.y] as const;
+            const startPoint = [link.sourceNode.x + proportionalNodeWidth, link.sourceNode.height / 2 + link.sourceNode.y - nodeWidth / 2] as const;
+            const endPoint = [link.targetNode.x + proportionalNodeWidth, link.targetNode.height / 2 + link.targetNode.y - nodeWidth / 2] as const;
             // console.log(startPoint);
             const data = [startPoint, [startPoint[0] + 5, startPoint[1]], [startPoint[0] + 20, (endPoint[1] - startPoint[1]) / 2 + startPoint[1]], [endPoint[0] + 5, endPoint[1]], endPoint] as [
                 number,
@@ -58,8 +58,8 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
         }
 
         // source, targetCenter는 link의 좌표를 나타냄
-        const sourceCenter = (d: typeof extendedLinks[0]) => [d.sourceNode.x + proportionalNodeWidth, d.sourceNode.height / 2 + d.sourceNode.y - nodeWidth * 1.5];
-        const targetCenter = (d: typeof extendedLinks[0]) => [d.targetNode.x, d.targetNode.height / 2 + d.targetNode.y - nodeWidth * 1.5];
+        const sourceCenter = (d: typeof extendedLinks[0]) => [d.sourceNode.x + proportionalNodeWidth, d.sourceNode.height / 2 + d.sourceNode.y - nodeWidth / 2];
+        const targetCenter = (d: typeof extendedLinks[0]) => [d.targetNode.x, d.targetNode.height / 2 + d.targetNode.y - nodeWidth / 2];
 
         // d3-linkHorizontal
         let path = linkHorizontal<typeof extendedLinks[0], {}>().source(sourceCenter).target(targetCenter)(link);
