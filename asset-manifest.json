@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react_sankey/static/css/main.0e7257df.css",
+    "main.js": "/react_sankey/static/js/main.ca19bd80.js",
+    "index.html": "/react_sankey/index.html",
+    "main.0e7257df.css.map": "/react_sankey/static/css/main.0e7257df.css.map",
+    "main.ca19bd80.js.map": "/react_sankey/static/js/main.ca19bd80.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e7257df.css",
+    "static/js/main.ca19bd80.js"
+  ]
+}
