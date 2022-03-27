@@ -1,42 +1,16 @@
-const data = {
-    nodes: [{ id: 'Income' }, { id: 'Bill' }, { id: 'Food' }, { id: 'Travel' }, { id: 'Going Out' }, { id: 'Misc' }, { id: 'Savings' }, { id: 'Sex' }],
-    links: [
-        {
-            source: 'Income',
-            target: 'Bill',
-            value: 50,
-        },
-        {
-            source: 'Income',
-            target: 'Food',
-            value: 10,
-        },
-        {
-            source: 'Income',
-            target: 'Travel',
-            value: 7,
-        },
-        {
-            source: 'Income',
-            target: 'Going Out',
-            value: 8,
-        },
-        {
-            source: 'Income',
-            target: 'Misc',
-            value: 20,
-        },
-        {
-            source: 'Income',
-            target: 'Savings',
-            value: 45,
-        },
-        {
-            source: 'Bill',
-            target: 'Sex',
-            value: 25,
-        },
-    ],
-};
+const a = [
+    { source: 5, target: 13, value: 1 },
+    { source: 13, target: 49, value: 1 },
+    { source: 49, target: 68, value: 1 },
+    { source: 68, target: 98, value: 1 },
+];
 
-export { data };
+const b = [].concat.apply([], [a]);
+const c = [];
+// for (let i = 0; i < a.length; i++) {
+//     if (a[i].target === a[i + 1].source) {
+//         c.push(a[i].target);
+//     } else console.log('There is no link');
+// }
+
+console.log('hello');

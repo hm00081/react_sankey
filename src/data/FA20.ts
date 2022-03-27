@@ -106,8 +106,33 @@ export const FA20: SankeyData = {
 
     links: [
         {
-            source: 6,
-            target: 41,
+            source: 151,
+            target: 11,
+            value: 1,
+        },
+        {
+            source: 151,
+            target: 12,
+            value: 1,
+        },
+        {
+            source: 151,
+            target: 13,
+            value: 1,
+        },
+        {
+            source: 151,
+            target: 14,
+            value: 1,
+        },
+        {
+            source: 151,
+            target: 15,
+            value: 1,
+        },
+        {
+            source: 151,
+            target: 16,
             value: 1,
         },
         {
@@ -132,12 +157,32 @@ export const FA20: SankeyData = {
         },
         {
             source: 15,
+            target: 49,
+            value: 1,
+        },
+        {
+            source: 11,
+            target: 41,
+            value: 1,
+        },
+        {
+            source: 12,
+            target: 41,
+            value: 1,
+        },
+        {
+            source: 13,
+            target: 41,
+            value: 1,
+        },
+        {
+            source: 14,
             target: 41,
             value: 1,
         },
         {
             source: 15,
-            target: 49,
+            target: 41,
             value: 1,
         },
         {
@@ -148,7 +193,7 @@ export const FA20: SankeyData = {
         {
             source: 41,
             target: 59,
-            value: 1,
+            value: 2,
         },
         {
             source: 49,
@@ -158,7 +203,7 @@ export const FA20: SankeyData = {
         {
             source: 59,
             target: 77,
-            value: 1,
+            value: 2,
         },
     ],
 

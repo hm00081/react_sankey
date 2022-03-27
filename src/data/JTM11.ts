@@ -106,6 +106,41 @@ export const JTM11: SankeyData = {
 
     links: [
         {
+            source: 111,
+            target: 5,
+            value: 1,
+        },
+        {
+            source: 111,
+            target: 12,
+            value: 2,
+        },
+        {
+            source: 111,
+            target: 17,
+            value: 1,
+        },
+        {
+            source: 111,
+            target: 18,
+            value: 1,
+        },
+        {
+            source: 111,
+            target: 19,
+            value: 1,
+        },
+        {
+            source: 111,
+            target: 22,
+            value: 1,
+        },
+        {
+            source: 111,
+            target: 24,
+            value: 1,
+        },
+        {
             source: 5,
             target: 46,
             value: 1,
@@ -153,12 +188,12 @@ export const JTM11: SankeyData = {
         {
             source: 49,
             target: 54,
-            value: 1,
+            value: 2,
         },
         {
             source: 54,
             target: 83,
-            value: 1,
+            value: 3,
         },
         {
             source: 54,
@@ -183,7 +218,7 @@ export const JTM11: SankeyData = {
         {
             source: 46,
             target: 70,
-            value: 1,
+            value: 2,
         },
         {
             source: 70,
@@ -198,7 +233,7 @@ export const JTM11: SankeyData = {
         {
             source: 70,
             target: 98,
-            value: 1,
+            value: 2,
         },
     ],
     status: [

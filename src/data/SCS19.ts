@@ -106,6 +106,46 @@ export const SCS19: SankeyData = {
 
     links: [
         {
+            source: 129,
+            target: 2,
+            value: 1,
+        },
+        {
+            source: 129,
+            target: 4,
+            value: 1,
+        },
+        {
+            source: 129,
+            target: 11,
+            value: 2,
+        },
+        {
+            source: 129,
+            target: 16,
+            value: 3,
+        },
+        {
+            source: 129,
+            target: 18,
+            value: 4,
+        },
+        {
+            source: 129,
+            target: 22,
+            value: 1,
+        },
+        {
+            source: 129,
+            target: 24,
+            value: 1,
+        },
+        {
+            source: 129,
+            target: 27,
+            value: 1,
+        },
+        {
             source: 2,
             target: 48,
             value: 1,
@@ -143,7 +183,7 @@ export const SCS19: SankeyData = {
         {
             source: 18,
             target: 46,
-            value: 1,
+            value: 2,
         },
         {
             source: 18,
@@ -173,12 +213,12 @@ export const SCS19: SankeyData = {
         {
             source: 44,
             target: 63,
-            value: 1,
+            value: 2,
         },
         {
             source: 46,
             target: 54,
-            value: 1,
+            value: 2,
         },
         {
             source: 46,
@@ -193,7 +233,7 @@ export const SCS19: SankeyData = {
         {
             source: 48,
             target: 54,
-            value: 1,
+            value: 2,
         },
         {
             source: 48,
@@ -213,7 +253,7 @@ export const SCS19: SankeyData = {
         {
             source: 54,
             target: 78,
-            value: 1,
+            value: 4,
         },
         {
             source: 59,
@@ -223,7 +263,7 @@ export const SCS19: SankeyData = {
         {
             source: 63,
             target: 78,
-            value: 1,
+            value: 2,
         },
         {
             source: 63,
@@ -233,12 +273,12 @@ export const SCS19: SankeyData = {
         {
             source: 63,
             target: 92,
-            value: 1,
+            value: 2,
         },
         {
             source: 73,
             target: 98,
-            value: 1,
+            value: 2,
         },
     ],
     status: [

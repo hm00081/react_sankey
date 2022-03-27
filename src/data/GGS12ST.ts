@@ -106,6 +106,21 @@ export const GGS12ST: SankeyData = {
 
     links: [
         {
+            source: 108,
+            target: 3,
+            value: 1,
+        }, // a[0]
+        {
+            source: 108,
+            target: 12,
+            value: 1,
+        }, // a[1]
+        {
+            source: 108,
+            target: 23,
+            value: 1,
+        }, // a[2]
+        {
             source: 3,
             target: 45,
             value: 1,
@@ -138,40 +153,30 @@ export const GGS12ST: SankeyData = {
         {
             source: 45,
             target: 59,
-            value: 1,
+            value: 2,
         }, // a[6]
         {
-            source: 48,
-            target: 59,
+            source: 46,
+            target: 75,
             value: 1,
         }, // a[7]
         {
-            source: 46,
-            target: 71,
+            source: 48,
+            target: 59,
             value: 1,
         }, // a[8]
         {
             source: 59,
             target: 77,
-            value: 1,
+            value: 2,
         }, // a[9]
-        // {
-        //     source: 77,
-        //     target: 77,
-        //     value: 1,
-        // }, // a[9]
         {
-            source: 71,
+            source: 75,
             target: 78,
             value: 1,
         }, // a[10]
-        // {
-        //     source: 78,
-        //     target: 78,
-        //     value: 1,
-        // }, // a[9]
         {
-            source: 71,
+            source: 75,
             target: 98,
             value: 1,
         }, // a[11]

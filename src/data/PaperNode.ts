@@ -1,8 +1,8 @@
 import { SankeyData } from '../types/sankey';
 
-export const YFS10COPY: SankeyData = {
+export const PaperNode: SankeyData = {
     nodes: [
-        { name: 'person', type: 'Target', subtype: '0' },
+        { name: 'person', type: 'Target', subtype: '0' }, // 0
         { name: 'behavior', type: 'Target', subtype: '0' },
         { name: 'psychology', type: 'Target', subtype: '0' },
         { name: 'place', type: 'Target', subtype: '0' },
@@ -101,100 +101,144 @@ export const YFS10COPY: SankeyData = {
         { name: 'parallel_coordinate', type: 'Vis_var&tech', subtype: '1' },
         { name: 'pixel_based_plot', type: 'Vis_var&tech', subtype: '1' },
         { name: 'time_oriented_visualization', type: 'Vis_var&tech', subtype: '1' },
-        { name: 'spatial_based_visualization', type: 'Vis_var&tech', subtype: '1' },
+        { name: 'spatial_based_visualization', type: 'Vis_var&tech', subtype: '1' }, // 99
+        { name: 'CAA20', type: 'Paper' }, // 100
+        { name: 'CGK21', type: 'Paper' },
+        { name: 'CSL12', type: 'Paper' },
+        { name: 'DMC09', type: 'Paper' },
+        { name: 'EAIA17', type: 'Paper' }, // 105
+        { name: 'EYG15', type: 'Paper' },
+        { name: 'FCF09', type: 'Paper' },
+        { name: 'GGS12MT', type: 'Paper' },
+        { name: 'GGS12ST', type: 'Paper' },
+        { name: 'GGS12TPS', type: 'Paper' },
+        { name: 'HYZ13', type: 'Paper' }, // 110
+        { name: 'JTM11', type: 'Paper' },
+        { name: 'JSM16', type: 'Paper' },
+        { name: 'JX17', type: 'Paper' },
+        { name: 'KSBK15', type: 'Paper' },
+        { name: 'LGX16', type: 'Paper' }, // 115
+        { name: 'LJC18', type: 'Paper' },
+        { name: 'LLN14', type: 'Paper' },
+        { name: 'LWW13', type: 'Paper' },
+        { name: 'MA16', type: 'Paper' },
+        { name: 'MDD10', type: 'Paper' }, // 120
+        { name: 'MEV16', type: 'Paper' },
+        { name: 'MHK16', type: 'Paper' },
+        { name: 'MVM17', type: 'Paper' },
+        { name: 'MWSO08', type: 'Paper' },
+        { name: 'PC15PV', type: 'Paper' }, // 125
+        { name: 'REP15', type: 'Paper' },
+        { name: 'SCS16', type: 'Paper' },
+        { name: 'SCS17', type: 'Paper' },
+        { name: 'SCS19', type: 'Paper' },
+        { name: 'SSK12', type: 'Paper' }, // 130
+        { name: 'VWH13', type: 'Paper' },
+        { name: 'XD99', type: 'Paper' },
+        { name: 'XWL17', type: 'Paper' },
+        { name: 'XWS16', type: 'Paper' },
+        { name: 'YFS10', type: 'Paper' }, // 135
+        { name: 'ZGWZ14', type: 'Paper' },
+        { name: 'ZLW13', type: 'Paper' },
+        { name: 'SRJ13', type: 'Paper' },
+        { name: 'RSRY12', type: 'Paper' },
+        { name: 'FAKM15', type: 'Paper' }, // 140
+        { name: 'YSK14', type: 'Paper' },
+        { name: 'CSL16', type: 'Paper' },
+        { name: 'RRR19', type: 'Paper' },
+        { name: 'YCC20', type: 'Paper' },
+        { name: 'MDDD16', type: 'Paper' }, // 145
+        { name: 'GYS14', type: 'Paper' },
+        { name: 'MDJW07', type: 'Paper' },
+        { name: 'KWL09', type: 'Paper' },
+        { name: 'BN11B', type: 'Paper' },
+        { name: 'MLG06', type: 'Paper' }, // 150
+        { name: 'FA20', type: 'Paper' },
+        { name: 'WHWS12', type: 'Paper' }, // 152
     ],
-
-    links: [
-        {
-            source: 5,
-            target: 45,
-            value: 10,
-        }, // a[0]
-        {
-            source: 11,
-            target: 45,
-            value: 25,
-        }, // a[1]
-        {
-            source: 12,
-            target: 34,
-            value: 25,
-        }, // a[2]
-        {
-            source: 16,
-            target: 45,
-            value: 25,
-        }, // a[3]
-        {
-            source: 24,
-            target: 46,
-            value: 15,
-        }, // a[4]
-        {
-            source: 34,
-            target: 60,
-            value: 25,
-        }, // a[5]
-        {
-            source: 45,
-            target: 59,
-            value: 20,
-        }, // a[6]
-        {
-            source: 45,
-            target: 60,
-            value: 40,
-        }, // a[7]
-        {
-            source: 46,
-            target: 59,
-            value: 15,
-        }, // a[8]
-        {
-            source: 59,
-            target: 77,
-            value: 9,
-        }, // a[9]
-        {
-            source: 59,
-            target: 86,
-            value: 9,
-        }, // a[10]
-        {
-            source: 59,
-            target: 94,
-            value: 9,
-        }, // a[11]
-        {
-            source: 59,
-            target: 98,
-            value: 8,
-        }, // a[12]
-        {
-            source: 60,
-            target: 76,
-            value: 25,
-        }, // a[13]
-        {
-            source: 60,
-            target: 48,
-            value: 25,
-        }, // a[14]
-        {
-            source: 60,
-            target: 92,
-            value: 15,
-        }, // a[15]
-    ],
-    status: [
-        {
-            status: 'TargetBB',
-        },
-        {
-            status: 'RepEA',
-        },
-        {
-            status: 'RepF',
-        },
-    ],
+    links: [],
+    status: [],
 };
+
+export const PaperID: SankeyData = {
+    nodes: [
+        { name: 'CAA20', type: 'Paper' }, // 100
+        { name: 'CGK21', type: 'Paper' },
+        { name: 'CSL12', type: 'Paper' },
+        { name: 'DMC09', type: 'Paper' },
+        { name: 'EAIA17', type: 'Paper' },
+        { name: 'EYG15', type: 'Paper' },
+        { name: 'FCF09', type: 'Paper' },
+        { name: 'GGS12MT', type: 'Paper' },
+        { name: 'GGS12ST', type: 'Paper' },
+        { name: 'GGS12TPS', type: 'Paper' },
+        { name: 'HYZ13', type: 'Paper' },
+        { name: 'JTM11', type: 'Paper' },
+        { name: 'JSM16', type: 'Paper' },
+        { name: 'JX17', type: 'Paper' },
+        { name: 'KSBK15', type: 'Paper' },
+        { name: 'LGX16', type: 'Paper' },
+        { name: 'LJC18', type: 'Paper' },
+        { name: 'LLN14', type: 'Paper' },
+        { name: 'LWW13', type: 'Paper' },
+        { name: 'MA16', type: 'Paper' },
+        { name: 'MDD10', type: 'Paper' },
+        { name: 'MEV16', type: 'Paper' },
+        { name: 'MHK16', type: 'Paper' },
+        { name: 'MVM17', type: 'Paper' },
+        { name: 'MWSO08', type: 'Paper' },
+        { name: 'PC15PV', type: 'Paper' },
+        { name: 'REP15', type: 'Paper' },
+        { name: 'SCS16', type: 'Paper' },
+        { name: 'SCS17', type: 'Paper' },
+        { name: 'SCS19', type: 'Paper' },
+        { name: 'SSK12', type: 'Paper' },
+        { name: 'VWH13', type: 'Paper' },
+        { name: 'XD99', type: 'Paper' },
+        { name: 'XWL17', type: 'Paper' },
+        { name: 'XWS16', type: 'Paper' },
+        { name: 'YFS10', type: 'Paper' },
+        { name: 'ZGWZ14', type: 'Paper' },
+        { name: 'ZLW13', type: 'Paper' },
+        { name: 'SRJ13', type: 'Paper' },
+        { name: 'RSRY12', type: 'Paper' },
+        { name: 'FAKM15', type: 'Paper' },
+        { name: 'YSK14', type: 'Paper' },
+        { name: 'CSL16', type: 'Paper' },
+        { name: 'RRR19', type: 'Paper' },
+        { name: 'YCC20', type: 'Paper' },
+        { name: 'MDDD16', type: 'Paper' },
+        { name: 'GYS14', type: 'Paper' },
+        { name: 'MDJW07', type: 'Paper' },
+        { name: 'KWL09', type: 'Paper' },
+        { name: 'BN11B', type: 'Paper' },
+        { name: 'MLG06', type: 'Paper' },
+        { name: 'FA20', type: 'Paper' },
+        { name: 'WHWS12', type: 'Paper' }, // 152
+    ],
+    links: [],
+    status: [],
+};
+
+// export const result = Array.prototype.push.apply(PaperNode.nodes, PaperID.nodes);
+
+// console.log(PaperNode.nodes.length);
+// console.log(PaperNode.nodes[PaperNode.nodes.length - 2]);
+
+const proxy = new Proxy(PaperNode, {
+    get(nodes, prop) {
+        //@ts-ignore
+        if (!isNaN(prop)) {
+            //@ts-ignore
+            prop = parseInt(prop, 10);
+            //@ts-ignore
+            if (prop < 0) {
+                //@ts-ignore
+                prop += nodes.length;
+            }
+        }
+        //@ts-ignore
+        return nodes[prop];
+    },
+});
+console.log(proxy.nodes[-1]);

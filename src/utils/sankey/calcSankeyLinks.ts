@@ -3,42 +3,48 @@ import { linkHorizontal, line, curveCardinal } from 'd3-shape';
 
 // Types
 import { SankeyData, SankeyLinkExtended, SankeyNodeExtended } from '../../types';
+import _, { forEach } from 'lodash';
 
 export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyNodeExtended[], nodeWidth: number, minLinkBreadth?: number, maxLinkBreadth?: number): SankeyLinkExtended[] => {
     // Extract to const so its in a closure
     const { links } = data;
-
+    // console.log(data);
     // Calc proportional size value
     const proportionalNodeWidth = nodeWidth * (height / 100);
     const proportionalMaxLinkBreadth = maxLinkBreadth && maxLinkBreadth * (height / 100);
     const proportionalMinLinkBreadth = minLinkBreadth && minLinkBreadth * (height / 100);
 
-    const totalValue = nodes.map((node) => node.value).reduce((acc, cur) => (acc += cur));
+    const totalValue = nodes.map((node) => node.value).reduce((acc, cur) => (acc += cur), 0);
 
     // Extend Links to add additional data
     const extendedLinks = links.map((link) => {
         const sourceNode = nodes.filter((node) => node.index === link.source)[0];
         const targetNode = nodes.filter((node) => node.index === link.target)[0];
-
         const breadth = (link.value / totalValue) * height;
-
         const maxBreadth = proportionalMaxLinkBreadth ? Math.min(breadth, proportionalMaxLinkBreadth) : breadth;
-
         const minBreadth = proportionalMinLinkBreadth ? Math.max(breadth, proportionalMinLinkBreadth) : breadth;
-
         const linkBreadth = breadth > maxBreadth ? maxBreadth : minBreadth;
-
-        return {
+        const extendedLink: SankeyLinkExtended = {
             ...link,
             sourceNode,
+            sourceNodeLink: 0, // 링크 분리를 위한 값(type) 추가  0으로 해도 상관 없음.
             targetNode,
+            targetNodeLink: targetNode.targetNodeType, // 링크 분리를 위한 값(type) 추가
             breadth: linkBreadth ? linkBreadth : 0,
             path: '',
+            sourceOrderIndex: 0,
+            nodeOrderIndex: 0,
         };
+        // sourceNode.sourceNodeType += link.value;
+        targetNode.targetNodeType += link.value;
+
+        return extendedLink;
     });
+
     // Calculate the path based on the positions of source and target node
     extendedLinks.forEach((link) => {
         if (link.sourceNode.x === link.targetNode.x) {
+            // console.log(link.sourceNode.subtype);
             const startPoint = [link.sourceNode.x + proportionalNodeWidth, link.sourceNode.height / 2 + link.sourceNode.y - nodeWidth / 2] as const;
             const endPoint = [link.targetNode.x + proportionalNodeWidth, link.targetNode.height / 2 + link.targetNode.y - nodeWidth / 2] as const;
             // console.log(startPoint);
@@ -56,10 +62,47 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
 
             return;
         }
+    });
 
+    //node.breadth === value의 값이 높은 순으로 나열.
+    //같은 source, target에서의 값이 여러개일 경우 조건을 주기!!
+
+    // source, targetCenter는 link의 좌표를 나타냄
+    //노드 세로 길이 / 2만큼 위치를 조절??
+
+    // const linksByEachGroup =
+    //     {
+    //         node1: [link, link, link],
+    //         node2: [],
+    //         node3: []
+    //     }
+
+    // 딕셔너리 or 해시테이블
+    const sourceNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
+    // console.log(sourceNodeNameLinksDict);
+    extendedLinks.forEach((link) => {
+        // console.log(link.sourceNode.name);
+        if (link.sourceNode.name! in sourceNodeNameLinksDict) {
+            sourceNodeNameLinksDict[link.sourceNode.name!].push(link);
+        } else {
+            sourceNodeNameLinksDict[link.sourceNode.name!] = [link];
+        }
+    });
+    // sort [key, value] entries.
+    for (const [nodeName, linksOfNode] of Object.entries(sourceNodeNameLinksDict)) {
+        linksOfNode.sort((a, b) => b.value - a.value);
+        linksOfNode.forEach((link, orderIndex) => {
+            link.sourceNodeLink = link.sourceNode.sourceNodeType;
+            link.sourceNode.sourceNodeType += link.value;
+            link.nodeOrderIndex = link.sourceNode.value;
+            link.sourceOrderIndex = orderIndex;
+        });
+    }
+
+    extendedLinks.forEach((link) => {
         // source, targetCenter는 link의 좌표를 나타냄
-        const sourceCenter = (d: typeof extendedLinks[0]) => [d.sourceNode.x + proportionalNodeWidth, d.sourceNode.height / 2 + d.sourceNode.y - nodeWidth / 2];
-        const targetCenter = (d: typeof extendedLinks[0]) => [d.targetNode.x, d.targetNode.height / 2 + d.targetNode.y - nodeWidth / 2];
+        const sourceCenter = (d: typeof extendedLinks[0]) => [d.sourceNode.x + proportionalNodeWidth, d.sourceNode.y + d.sourceNodeLink + d.value / 2];
+        const targetCenter = (d: typeof extendedLinks[0]) => [d.targetNode.x, d.targetNode.y + d.targetNodeLink + d.value / 2];
 
         // d3-linkHorizontal
         let path = linkHorizontal<typeof extendedLinks[0], {}>().source(sourceCenter).target(targetCenter)(link);

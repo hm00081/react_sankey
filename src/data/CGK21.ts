@@ -106,110 +106,140 @@ export const CGK21: SankeyData = {
 
     links: [
         {
+            source: 101,
+            target: 5,
+            value: 2,
+        },
+        {
+            source: 101,
+            target: 6,
+            value: 2,
+        },
+        {
+            source: 101,
+            target: 15,
+            value: 3,
+        },
+        {
+            source: 101,
+            target: 16,
+            value: 2,
+        },
+        {
+            source: 101,
+            target: 23,
+            value: 1,
+        },
+        {
             source: 5,
             target: 32,
-            value: 1,
-        }, // a[0]
+            value: 2,
+        },
         {
             source: 6,
             target: 32,
-            value: 1,
-        }, // a[1]
+            value: 2,
+        },
         {
             source: 15,
             target: 32,
             value: 1,
-        }, // a[2]
+        },
         {
             source: 15,
             target: 41,
             value: 1,
-        }, // a[3]
+        },
         {
             source: 15,
             target: 46,
             value: 1,
-        }, // a[4]
+        },
         {
             source: 16,
             target: 41,
-            value: 1,
-        }, // a[5]
+            value: 2,
+        },
         {
             source: 23,
             target: 46,
             value: 1,
-        }, // a[6]
+        },
+        {
+            source: 32,
+            target: 54,
+            value: 1,
+        },
         {
             source: 32,
             target: 59,
-            value: 1,
-        }, // a[7]
+            value: 2,
+        },
         {
             source: 41,
             target: 54,
-            value: 1,
-        }, // a[8]
+            value: 2,
+        },
         {
             source: 41,
             target: 59,
             value: 1,
-        }, // a[9]
+        },
         {
             source: 46,
             target: 54,
-            value: 1,
-        }, // a[10]
+            value: 2,
+        },
         {
             source: 54,
             target: 77,
-            value: 1,
-        }, // a[11]
+            value: 4,
+        },
         {
             source: 59,
             target: 77,
-            value: 1,
-        }, // a[12]
+            value: 2,
+        },
         {
             source: 54,
             target: 78,
-            value: 1,
-        }, // a[13]
+            value: 4,
+        },
         {
             source: 59,
             target: 78,
-            value: 1,
-        }, // a[14]
+            value: 2,
+        },
         {
             source: 59,
             target: 79,
-            value: 1,
-        }, // a[15]
+            value: 2,
+        },
         {
             source: 59,
             target: 80,
             value: 1,
-        }, // a[16]
+        },
         {
             source: 54,
             target: 87,
-            value: 1,
-        }, // a[17]
+            value: 2,
+        },
         {
             source: 59,
             target: 88,
             value: 1,
-        }, // a[18]
+        },
         {
             source: 59,
             target: 95,
-            value: 1,
-        }, // a[19]
+            value: 2,
+        },
         {
             source: 54,
             target: 98,
-            value: 1,
-        }, // a[20]
+            value: 2,
+        },
     ],
     status: [
         {

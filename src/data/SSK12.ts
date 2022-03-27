@@ -106,100 +106,110 @@ export const SSK12: SankeyData = {
 
     links: [
         {
+            source: 130,
+            target: 1,
+            value: 1,
+        },
+        {
+            source: 130,
+            target: 3,
+            value: 1,
+        },
+        {
+            source: 130,
+            target: 11,
+            value: 1,
+        },
+        {
+            source: 130,
+            target: 13,
+            value: 1,
+        },
+        {
+            source: 130,
+            target: 23,
+            value: 2,
+        },
+        {
+            source: 130,
+            target: 24,
+            value: 1,
+        },
+        {
             source: 1,
             target: 39,
             value: 1,
-        }, // a[0]
+        },
         {
             source: 3,
             target: 39,
             value: 1,
-        }, // a[1]
+        },
         {
             source: 11,
             target: 39,
             value: 1,
-        }, // a[2]
+        },
+        {
+            source: 13,
+            target: 39,
+            value: 1,
+        },
         {
             source: 23,
             target: 46,
-            value: 1,
-        }, // a[3]
+            value: 2,
+        },
         {
             source: 24,
             target: 46,
             value: 1,
-        }, // a[4]
+        },
         {
             source: 39,
             target: 60,
             value: 1,
-        }, // a[5]
+        },
+        {
+            source: 46,
+            target: 60,
+            value: 1,
+        },
         {
             source: 46,
             target: 68,
             value: 1,
-        }, // a[6]
+        },
         {
             source: 60,
             target: 77,
             value: 1,
-        }, // a[7]
-        // {
-        //     source: 77,
-        //     target: 77,
-        //     value: 1,
-        // }, // a[7]
+        },
         {
             source: 60,
             target: 78,
             value: 1,
-        }, // a[8]
-        // {
-        //     source: 78,
-        //     target: 78,
-        //     value: 1,
-        // }, // a[7]
+        },
         {
             source: 60,
             target: 80,
             value: 1,
-        }, // a[9]
-        // {
-        //     source: 80,
-        //     target: 80,
-        //     value: 1,
-        // }, // a[7]
+        },
         {
             source: 60,
             target: 81,
             value: 1,
-        }, // a[10]
-        // {
-        //     source: 81,
-        //     target: 81,
-        //     value: 1,
-        // }, // a[7]
+        },
         {
             source: 60,
             target: 85,
             value: 1,
-        }, // a[11]
-        // {
-        //     source: 85,
-        //     target: 85,
-        //     value: 1,
-        // }, // a[7]
+        },
         {
             source: 68,
             target: 98,
             value: 1,
-        }, // a[12]
-        // {
-        //     source: 98,
-        //     target: 98,
-        //     value: 1,
-        // }, // a[7]
+        },
     ],
     status: [
         {

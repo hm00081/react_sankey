@@ -106,108 +106,88 @@ export const LGX16: SankeyData = {
 
     links: [
         {
-            source: 4,
-            target: 45,
-            value: 1,
+            source: 115,
+            target: 4,
+            value: 2,
         }, // a[0]
+        {
+            source: 115,
+            target: 5,
+            value: 1,
+        }, // a[1]
+        {
+            source: 115,
+            target: 11,
+            value: 1,
+        }, // a[2]
+        {
+            source: 115,
+            target: 12,
+            value: 1,
+        }, // a[3]
+        {
+            source: 115,
+            target: 17,
+            value: 1,
+        }, // a[4]
+        {
+            source: 115,
+            target: 19,
+            value: 1,
+        }, // a[5]
+        {
+            source: 4,
+            target: 40,
+            value: 2,
+        }, // a[6]
         {
             source: 5,
             target: 40,
             value: 1,
-        }, // a[1]
-        {
-            source: 40,
-            target: 59,
-            value: 1,
-        }, // a[2]
-        {
-            source: 59,
-            target: 80,
-            value: 1,
-        }, // a[3]
-        {
-            source: 17,
-            target: 45,
-            value: 1,
-        }, // a[4]
-        {
-            source: 19,
-            target: 45,
-            value: 1,
-        }, // a[5]
-        {
-            source: 45,
-            target: 60,
-            value: 1,
-        }, // a[6]
-        {
-            source: 60,
-            target: 77,
-            value: 1,
-        }, // a[21]
-        {
-            source: 45,
-            target: 55,
-            value: 1,
         }, // a[7]
-        {
-            source: 45,
-            target: 68,
-            value: 1,
-        }, // a[8]
-        {
-            source: 55,
-            target: 77,
-            value: 1,
-        }, // a[9]
-        // {
-        //     source: 77,
-        //     target: 77,
-        //     value: 1,
-        // }, // a[9]
-        {
-            source: 55,
-            target: 78,
-            value: 1,
-        }, // a[10]
-        // {
-        //     source: 78,
-        //     target: 78,
-        //     value: 1,
-        // }, // a[9]
-        {
-            source: 55,
-            target: 80,
-            value: 1,
-        }, // a[11]
-        // {
-        //     source: 80,
-        //     target: 80,
-        //     value: 1,
-        // }, // a[9]
-        {
-            source: 68,
-            target: 77,
-            value: 1,
-        }, // a[12]
-        {
-            source: 68,
-            target: 78,
-            value: 1,
-        }, // a[13]
-        {
-            source: 68,
-            target: 80,
-            value: 1,
-        }, // a[14]
         {
             source: 11,
             target: 33,
             value: 1,
-        }, // a[15]
+        }, // a[8]
+        {
+            source: 11,
+            target: 45,
+            value: 1,
+        }, // a[9]
         {
             source: 12,
             target: 33,
+            value: 1,
+        }, // a[10]
+        {
+            source: 12,
+            target: 45,
+            value: 1,
+        }, // a[11]
+        {
+            source: 17,
+            target: 45,
+            value: 1,
+        }, // a[12]
+        {
+            source: 19,
+            target: 45,
+            value: 1,
+        }, // a[13]
+        {
+            source: 40,
+            target: 70,
+            value: 1,
+        }, // a[14]
+        {
+            source: 40,
+            target: 60,
+            value: 1,
+        }, // a[15]
+        {
+            source: 40,
+            target: 55,
             value: 1,
         }, // a[16]
         {
@@ -216,25 +196,65 @@ export const LGX16: SankeyData = {
             value: 1,
         }, // a[17]
         {
-            source: 59,
-            target: 76,
+            source: 45,
+            target: 59,
             value: 1,
         }, // a[18]
-        // {
-        //     source: 76,
-        //     target: 76,
-        //     value: 1,
-        // }, // a[9]
         {
             source: 45,
-            target: 70,
+            target: 68,
             value: 1,
         }, // a[19]
         {
             source: 70,
+            target: 80,
+            value: 1,
+        }, // a[20]
+        {
+            source: 60,
+            target: 77,
+            value: 1,
+        }, // a[21]
+        {
+            source: 60,
+            target: 78,
+            value: 1,
+        }, // a[22]
+        {
+            source: 55,
+            target: 77,
+            value: 1,
+        }, // a[23]
+        {
+            source: 55,
+            target: 78,
+            value: 1,
+        }, // a[24]
+        {
+            source: 55,
             target: 85,
             value: 1,
-        },
+        }, // a[25]
+        {
+            source: 59,
+            target: 76,
+            value: 1,
+        }, // a[26]
+        {
+            source: 59,
+            target: 77,
+            value: 1,
+        }, // a[27]
+        {
+            source: 59,
+            target: 80,
+            value: 1,
+        }, // a[28]
+        {
+            source: 68,
+            target: 80,
+            value: 1,
+        }, // a[29]
     ],
     status: [
         {

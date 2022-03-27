@@ -106,6 +106,31 @@ export const MDD10: SankeyData = {
 
     links: [
         {
+            source: 120,
+            target: 7,
+            value: 1,
+        },
+        {
+            source: 120,
+            target: 11,
+            value: 2,
+        },
+        {
+            source: 120,
+            target: 15,
+            value: 1,
+        },
+        {
+            source: 120,
+            target: 16,
+            value: 1,
+        },
+        {
+            source: 120,
+            target: 22,
+            value: 2,
+        },
+        {
             source: 7,
             target: 39,
             value: 1,
@@ -136,19 +161,29 @@ export const MDD10: SankeyData = {
             value: 1,
         },
         {
+            source: 39,
+            target: 54,
+            value: 2,
+        },
+        {
+            source: 40,
+            target: 54,
+            value: 2,
+        },
+        {
             source: 54,
             target: 77,
-            value: 1,
+            value: 3,
         },
         {
             source: 54,
             target: 78,
-            value: 1,
+            value: 3,
         },
         {
             source: 54,
             target: 86,
-            value: 1,
+            value: 2,
         },
         {
             source: 16,
@@ -163,7 +198,7 @@ export const MDD10: SankeyData = {
         {
             source: 22,
             target: 46,
-            value: 1,
+            value: 2,
         },
         {
             source: 22,
@@ -173,6 +208,16 @@ export const MDD10: SankeyData = {
         {
             source: 46,
             target: 60,
+            value: 2,
+        },
+        {
+            source: 46,
+            target: 54,
+            value: 1,
+        },
+        {
+            source: 49,
+            target: 54,
             value: 1,
         },
         {
@@ -183,7 +228,7 @@ export const MDD10: SankeyData = {
         {
             source: 60,
             target: 98,
-            value: 1,
+            value: 3,
         },
     ],
     status: [

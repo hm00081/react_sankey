@@ -106,70 +106,85 @@ export const MDDD16: SankeyData = {
 
     links: [
         {
+            source: 145,
+            target: 5,
+            value: 2,
+        },
+        {
+            source: 145,
+            target: 12,
+            value: 4,
+        },
+        {
+            source: 145,
+            target: 23,
+            value: 1,
+        },
+        {
             source: 5,
             target: 45,
-            value: 1,
-        }, // a[0]
-        {
-            source: 12,
-            target: 45,
-            value: 1,
-        }, // a[2]
-        {
-            source: 23,
-            target: 46,
-            value: 1,
-        }, // a[3]
+            value: 2,
+        },
         {
             source: 12,
             target: 37,
+            value: 2,
+        },
+        {
+            source: 12,
+            target: 45,
+            value: 2,
+        },
+        {
+            source: 23,
+            target: 46,
             value: 1,
         },
         {
             source: 37,
             target: 54,
             value: 1,
-        }, // a[4]
+        },
         {
             source: 37,
             target: 70,
             value: 1,
-        }, // a[5]
+        },
         {
             source: 45,
             target: 54,
             value: 1,
-        }, // a[6]
+        },
         {
             source: 45,
             target: 70,
             value: 1,
-        }, // a[7]
+        },
         {
             source: 46,
             target: 70,
             value: 1,
-        }, // a[8]
+        },
         {
             source: 54,
             target: 77,
-            value: 1,
-        }, // a[9]
+            value: 2,
+        },
         {
             source: 54,
             target: 78,
             value: 1,
-        }, // a[10]
+        },
         {
             source: 54,
             target: 92,
             value: 1,
-        }, // a[11]
+        },
         {
             source: 70,
             target: 98,
             value: 3,
-        }, // a[12]
+        },
     ],
     status: [
         {

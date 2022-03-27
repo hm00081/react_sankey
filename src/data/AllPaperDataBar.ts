@@ -319,7 +319,7 @@ const TargetAAs = [].concat.apply([], TargetAA).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -330,7 +330,7 @@ const TargetABs = [].concat.apply([], TargetAB).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -341,7 +341,7 @@ const TargetBAs = [].concat.apply([], TargetBA).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -352,7 +352,7 @@ const TargetBBs = [].concat.apply([], TargetBB).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -363,7 +363,7 @@ const TargetCAs = [].concat.apply([], TargetCA).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -374,7 +374,7 @@ const RepAs = [].concat.apply([], RepA).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -385,7 +385,7 @@ const RepBs = [].concat.apply([], RepB).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -397,7 +397,7 @@ const RepCs = [].concat.apply([], RepC).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -408,7 +408,7 @@ const RepDs = [].concat.apply([], RepD).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -419,7 +419,7 @@ const RepEAs = [].concat.apply([], RepEA).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -430,7 +430,7 @@ const RepEBs = [].concat.apply([], RepEB).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;
@@ -441,7 +441,7 @@ const RepFs = [].concat.apply([], RepF).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
     //@ts-ignore
     else target.value += 1;
     return result;

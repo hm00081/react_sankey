@@ -106,110 +106,125 @@ export const LJC18: SankeyData = {
 
     links: [
         {
+            source: 116,
+            target: 3,
+            value: 3,
+        },
+        {
+            source: 116,
+            target: 11,
+            value: 4,
+        },
+        {
+            source: 116,
+            target: 23,
+            value: 2,
+        },
+        {
             source: 3,
             target: 45,
             value: 1,
-        }, // a[0]
+        },
         {
             source: 11,
             target: 39,
             value: 1,
-        }, // a[1]
+        },
         {
             source: 11,
             target: 45,
             value: 1,
-        }, // a[2]
+        },
         {
             source: 23,
             target: 46,
             value: 1,
-        }, // a[3]
+        },
         {
             source: 3,
             target: 49,
-            value: 1,
-        }, // a[4]
+            value: 2,
+        },
         {
             source: 11,
             target: 49,
-            value: 1,
-        }, // a[5]
+            value: 2,
+        },
         {
             source: 23,
             target: 49,
             value: 1,
-        }, // a[6]
+        },
         {
             source: 39,
             target: 54,
             value: 1,
-        }, // a[7]
+        },
         {
             source: 45,
             target: 54,
-            value: 1,
-        }, // a[8]
+            value: 2,
+        },
         {
             source: 46,
             target: 54,
             value: 1,
-        }, // a[9]
+        },
         {
             source: 49,
             target: 60,
-            value: 1,
-        }, // a[10]
+            value: 2,
+        },
         {
             source: 49,
             target: 62,
             value: 1,
-        }, // a[11]
+        },
         {
             source: 49,
             target: 63,
-            value: 1,
-        }, // a[12]
+            value: 2,
+        },
         {
             source: 54,
             target: 77,
-            value: 1,
-        }, // a[13]
+            value: 3,
+        },
         {
             source: 63,
             target: 88,
-            value: 1,
-        }, // a[14]
+            value: 2,
+        },
         {
             source: 54,
             target: 92,
-            value: 1,
-        }, // a[15]
+            value: 3,
+        },
         {
             source: 54,
             target: 98,
-            value: 1,
-        }, // a[16]
+            value: 2,
+        },
         {
             source: 60,
             target: 98,
             value: 1,
-        }, // a[17]
+        },
         {
             source: 60,
             target: 99,
-            value: 1,
-        }, // a[18]
+            value: 2,
+        },
         {
             source: 62,
             target: 99,
             value: 1,
-        }, // a[19]
+        },
         {
             source: 63,
             target: 99,
-            value: 1,
-        }, // a[20]
+            value: 3,
+        },
     ],
     status: [
         {

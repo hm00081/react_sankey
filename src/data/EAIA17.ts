@@ -106,6 +106,21 @@ export const EAIA17: SankeyData = {
 
     links: [
         {
+            source: 104,
+            target: 15,
+            value: 2,
+        },
+        {
+            source: 104,
+            target: 18,
+            value: 1,
+        },
+        {
+            source: 104,
+            target: 21,
+            value: 1,
+        },
+        {
             source: 15,
             target: 41,
             value: 1,
@@ -122,52 +137,7 @@ export const EAIA17: SankeyData = {
         },
         {
             source: 15,
-            target: 46,
-            value: 1,
-        },
-        {
-            source: 15,
             target: 48,
-            value: 1,
-        },
-        {
-            source: 41,
-            target: 52,
-            value: 1,
-        },
-        {
-            source: 43,
-            target: 52,
-            value: 1,
-        },
-        {
-            source: 48,
-            target: 52,
-            value: 1,
-        },
-        {
-            source: 52,
-            target: 77,
-            value: 1,
-        },
-        {
-            source: 52,
-            target: 78,
-            value: 1,
-        },
-        {
-            source: 52,
-            target: 79,
-            value: 1,
-        },
-        {
-            source: 52,
-            target: 81,
-            value: 1,
-        },
-        {
-            source: 18,
-            target: 41,
             value: 1,
         },
         {
@@ -191,9 +161,49 @@ export const EAIA17: SankeyData = {
             value: 1,
         },
         {
+            source: 41,
+            target: 52,
+            value: 2,
+        },
+        {
+            source: 42,
+            target: 52,
+            value: 2,
+        },
+        {
+            source: 43,
+            target: 52,
+            value: 2,
+        },
+        {
+            source: 48,
+            target: 52,
+            value: 1,
+        },
+        {
             source: 46,
             target: 52,
             value: 1,
+        },
+        {
+            source: 52,
+            target: 77,
+            value: 1,
+        },
+        {
+            source: 52,
+            target: 78,
+            value: 1,
+        },
+        {
+            source: 52,
+            target: 79,
+            value: 2,
+        },
+        {
+            source: 52,
+            target: 81,
+            value: 2,
         },
     ],
     status: [

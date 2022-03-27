@@ -106,95 +106,110 @@ export const YFS10: SankeyData = {
 
     links: [
         {
-            source: 5,
-            target: 45,
+            source: 136,
+            target: 11,
             value: 1,
         }, // a[0]
         {
-            source: 11,
-            target: 34,
+            source: 136,
+            target: 12,
             value: 1,
         }, // a[1]
         {
-            source: 12,
-            target: 34,
+            source: 136,
+            target: 16,
             value: 1,
         }, // a[2]
         {
-            source: 11,
-            target: 45,
+            source: 136,
+            target: 24,
             value: 1,
         }, // a[3]
         {
-            source: 12,
-            target: 45,
+            source: 11,
+            target: 34,
             value: 1,
         }, // a[4]
         {
-            source: 16,
+            source: 11,
             target: 45,
             value: 1,
         }, // a[5]
         {
-            source: 24,
-            target: 46,
+            source: 12,
+            target: 34,
             value: 1,
         }, // a[6]
         {
-            source: 34,
-            target: 60,
+            source: 12,
+            target: 45,
             value: 1,
         }, // a[7]
+        {
+            source: 16,
+            target: 45,
+            value: 1,
+        }, // a[8]
+        {
+            source: 24,
+            target: 46,
+            value: 1,
+        }, // a[9]
+        {
+            source: 34,
+            target: 60,
+            value: 2,
+        }, // a[10]
+        {
+            source: 45,
+            target: 60,
+            value: 2,
+        }, // a[11]
         {
             source: 45,
             target: 59,
             value: 1,
-        }, // a[8]
-        {
-            source: 45,
-            target: 60,
-            value: 1,
-        }, // a[9]
+        }, // a[12]
         {
             source: 46,
             target: 59,
             value: 1,
-        }, // a[10]
+        }, // a[13]
         {
-            source: 59,
+            source: 60,
             target: 76,
-            value: 1,
-        }, // a[11]
+            value: 2,
+        }, // a[14]
+        {
+            source: 60,
+            target: 78,
+            value: 2,
+        }, // a[15]
+        {
+            source: 60,
+            target: 92,
+            value: 2,
+        }, // a[16]
         {
             source: 59,
             target: 77,
             value: 1,
-        }, // a[12]
-        {
-            source: 59,
-            target: 78,
-            value: 1,
-        }, // a[13]
-        {
-            source: 59,
-            target: 86,
-            value: 1,
-        }, // a[14]
+        }, // a[17]
         {
             source: 59,
             target: 94,
             value: 1,
-        }, // a[15]
+        }, // a[18]
+        {
+            source: 59,
+            target: 86,
+            value: 1,
+        }, // a[19]
         {
             source: 59,
             target: 98,
             value: 1,
-        }, // a[16]
-        {
-            source: 60,
-            target: 92,
-            value: 1,
-        }, // a[17]
+        }, // a[20]
     ],
     status: [
         {

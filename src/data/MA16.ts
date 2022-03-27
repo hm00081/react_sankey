@@ -106,110 +106,115 @@ export const MA16: SankeyData = {
 
     links: [
         {
+            source: 119,
+            target: 11,
+            value: 2,
+        },
+        {
+            source: 119,
+            target: 16,
+            value: 1,
+        },
+        {
+            source: 119,
+            target: 21,
+            value: 1,
+        },
+        {
+            source: 119,
+            target: 27,
+            value: 1,
+        },
+        {
+            source: 119,
+            target: 30,
+            value: 1,
+        },
+        {
             source: 11,
             target: 39,
-            value: 1,
-        }, // a[0]
+            value: 2,
+        },
         {
             source: 16,
             target: 48,
             value: 1,
-        }, // a[1]
+        },
         {
             source: 21,
             target: 46,
             value: 1,
-        }, // a[2]
+        },
         {
             source: 27,
             target: 46,
             value: 1,
-        }, // a[3]
+        },
         {
             source: 30,
             target: 46,
             value: 1,
-        }, // a[4]
+        },
         {
             source: 39,
             target: 67,
             value: 1,
-        }, // a[5]
+        },
         {
             source: 39,
             target: 68,
             value: 1,
-        }, // a[6]
+        },
         {
             source: 48,
             target: 67,
             value: 1,
-        }, // a[7]
+        },
         {
             source: 46,
             target: 66,
             value: 1,
-        }, // a[8]
-        {
-            source: 66,
-            target: 98,
-            value: 1,
-        }, // a[8]
+        },
         {
             source: 46,
-            target: 71,
+            target: 68,
             value: 1,
-        }, // a[9]
+        },
+        {
+            source: 46,
+            target: 74,
+            value: 1,
+        },
         {
             source: 68,
             target: 77,
             value: 1,
-        }, // a[10]
-        // {
-        //     source: 77,
-        //     target: 77,
-        //     value: 1,
-        // }, // a[10]
+        },
         {
             source: 68,
             target: 82,
             value: 1,
-        }, // a[11]
-        // {
-        //     source: 82,
-        //     target: 82,
-        //     value: 1,
-        // }, // a[10]
+        },
         {
             source: 67,
             target: 83,
             value: 1,
-        }, // a[12]
-        // {
-        //     source: 83,
-        //     target: 83,
-        //     value: 1,
-        // }, // a[10]
+        },
         {
             source: 67,
             target: 92,
-            value: 1,
-        }, // a[13]
-        // {
-        //     source: 92,
-        //     target: 92,
-        //     value: 1,
-        // }, // a[10]
+            value: 2,
+        },
         {
-            source: 71,
+            source: 74,
             target: 98,
             value: 1,
-        }, // a[14]
-        // {
-        //     source: 98,
-        //     target: 98,
-        //     value: 1,
-        // }, // a[10]
+        },
+        {
+            source: 66,
+            target: 98,
+            value: 1,
+        },
     ],
     status: [
         {

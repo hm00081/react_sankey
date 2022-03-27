@@ -106,53 +106,23 @@ export const VWH13: SankeyData = {
 
     links: [
         {
-            source: 0,
-            target: 34,
+            source: 131,
+            target: 11,
             value: 1,
         },
         {
-            source: 1,
-            target: 34,
+            source: 131,
+            target: 12,
             value: 1,
         },
         {
-            source: 2,
-            target: 34,
+            source: 131,
+            target: 14,
             value: 1,
         },
         {
-            source: 3,
-            target: 34,
-            value: 1,
-        },
-        {
-            source: 4,
-            target: 34,
-            value: 1,
-        },
-        {
-            source: 5,
-            target: 34,
-            value: 1,
-        },
-        {
-            source: 6,
-            target: 34,
-            value: 1,
-        },
-        {
-            source: 7,
-            target: 34,
-            value: 1,
-        },
-        {
-            source: 34,
-            target: 54,
-            value: 1,
-        },
-        {
-            source: 34,
-            target: 66,
+            source: 131,
+            target: 15,
             value: 1,
         },
         {
@@ -191,44 +161,44 @@ export const VWH13: SankeyData = {
             value: 1,
         },
         {
-            source: 11,
-            target: 48,
-            value: 1,
-        },
-        {
-            source: 12,
-            target: 48,
-            value: 1,
-        },
-        {
-            source: 14,
-            target: 48,
-            value: 1,
-        },
-        {
             source: 15,
+            target: 46,
+            value: 1,
+        },
+        {
+            source: 16,
             target: 48,
             value: 1,
         },
         {
-            source: 11,
-            target: 49,
-            value: 1,
+            source: 21,
+            target: 46,
+            value: 2,
         },
         {
-            source: 12,
-            target: 49,
-            value: 1,
+            source: 23,
+            target: 46,
+            value: 2,
         },
         {
-            source: 14,
-            target: 49,
-            value: 1,
+            source: 21,
+            target: 48,
+            value: 2,
         },
         {
-            source: 15,
+            source: 23,
+            target: 48,
+            value: 2,
+        },
+        {
+            source: 21,
             target: 49,
-            value: 1,
+            value: 2,
+        },
+        {
+            source: 23,
+            target: 49,
+            value: 2,
         },
         {
             source: 44,
@@ -238,28 +208,43 @@ export const VWH13: SankeyData = {
         {
             source: 46,
             target: 53,
-            value: 1,
+            value: 2,
         },
         {
-            source: 49,
-            target: 54,
-            value: 1,
-        },
-        {
-            source: 46,
+            source: 48,
             target: 66,
             value: 1,
         },
         {
-            source: 53,
-            target: 89,
+            source: 48,
+            target: 53,
             value: 1,
         },
-        // {
-        //     source: 89,
-        //     target: 89,
-        //     value: 1,
-        // },
+        {
+            source: 49,
+            target: 53,
+            value: 1,
+        },
+        {
+            source: 46,
+            target: 60,
+            value: 1,
+        },
+        {
+            source: 48,
+            target: 60,
+            value: 1,
+        },
+        {
+            source: 49,
+            target: 60,
+            value: 1,
+        },
+        {
+            source: 53,
+            target: 77,
+            value: 2,
+        },
         {
             source: 66,
             target: 77,
@@ -276,88 +261,8 @@ export const VWH13: SankeyData = {
             value: 1,
         },
         {
-            source: 16,
-            target: 48,
-            value: 1,
-        },
-        {
-            source: 48,
-            target: 53,
-            value: 1,
-        },
-        {
-            source: 48,
-            target: 54,
-            value: 1,
-        },
-        {
-            source: 48,
-            target: 66,
-            value: 1,
-        },
-        {
             source: 53,
-            target: 77,
-            value: 1,
-        },
-        {
-            source: 54,
-            target: 77,
-            value: 1,
-        },
-        {
-            source: 53,
-            target: 78,
-            value: 1,
-        },
-        {
-            source: 54,
-            target: 78,
-            value: 1,
-        },
-        {
-            source: 23,
-            target: 46,
-            value: 1,
-        },
-        {
-            source: 21,
-            target: 48,
-            value: 1,
-        },
-        {
-            source: 23,
-            target: 48,
-            value: 1,
-        },
-        {
-            source: 21,
-            target: 49,
-            value: 1,
-        },
-        {
-            source: 23,
-            target: 49,
-            value: 1,
-        },
-        {
-            source: 46,
-            target: 60,
-            value: 1,
-        },
-        {
-            source: 48,
-            target: 60,
-            value: 1,
-        },
-        {
-            source: 49,
-            target: 60,
-            value: 1,
-        },
-        {
-            source: 49,
-            target: 53,
+            target: 98,
             value: 1,
         },
         {
@@ -368,11 +273,6 @@ export const VWH13: SankeyData = {
         {
             source: 60,
             target: 84,
-            value: 1,
-        },
-        {
-            source: 60,
-            target: 86,
             value: 1,
         },
         {

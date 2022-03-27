@@ -106,13 +106,13 @@ export const HYZ13: SankeyData = {
 
     links: [
         {
-            source: 5,
-            target: 41,
+            source: 110,
+            target: 11,
             value: 1,
         },
         {
-            source: 5,
-            target: 49,
+            source: 110,
+            target: 12,
             value: 1,
         },
         {
@@ -203,11 +203,6 @@ export const HYZ13: SankeyData = {
         {
             source: 60,
             target: 92,
-            value: 1,
-        },
-        {
-            source: 16,
-            target: 41,
             value: 1,
         },
     ],

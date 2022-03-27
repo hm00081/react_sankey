@@ -2,7 +2,7 @@ import { SankeyData } from '../types/sankey';
 
 export const CAA20: SankeyData = {
     nodes: [
-        { name: 'person', type: 'Target', subtype: '0' },
+        { name: 'person', type: 'Target', subtype: '0' }, // 0
         { name: 'behavior', type: 'Target', subtype: '0' },
         { name: 'psychology', type: 'Target', subtype: '0' },
         { name: 'place', type: 'Target', subtype: '0' },
@@ -11,7 +11,7 @@ export const CAA20: SankeyData = {
         { name: 'product', type: 'Target', subtype: '0' },
         { name: 'event', type: 'Target', subtype: '0' },
         { name: 'simple', type: 'Target', subtype: '1' },
-        { name: 'composite', type: 'Target', subtype: '1' },
+        { name: 'composite', type: 'Target', subtype: '1' }, // 9
         { name: 'derived', type: 'Target', subtype: '1' },
         { name: 'opinion', type: 'Target', subtype: '2' },
         { name: 'appraisal', type: 'Target', subtype: '2' },
@@ -101,10 +101,30 @@ export const CAA20: SankeyData = {
         { name: 'parallel_coordinate', type: 'Vis_var&tech', subtype: '1' },
         { name: 'pixel_based_plot', type: 'Vis_var&tech', subtype: '1' },
         { name: 'time_oriented_visualization', type: 'Vis_var&tech', subtype: '1' },
-        { name: 'spatial_based_visualization', type: 'Vis_var&tech', subtype: '1' },
+        { name: 'spatial_based_visualization', type: 'Vis_var&tech', subtype: '1' }, // 99
     ],
 
     links: [
+        {
+            source: 100,
+            target: 9,
+            value: 1,
+        },
+        {
+            source: 100,
+            target: 11,
+            value: 3,
+        },
+        {
+            source: 100,
+            target: 12,
+            value: 1,
+        },
+        {
+            source: 100,
+            target: 24,
+            value: 2,
+        },
         {
             source: 9,
             target: 36,
@@ -133,7 +153,7 @@ export const CAA20: SankeyData = {
         {
             source: 24,
             target: 46,
-            value: 1,
+            value: 2,
         },
         {
             source: 35,
@@ -153,7 +173,7 @@ export const CAA20: SankeyData = {
         {
             source: 45,
             target: 54,
-            value: 1,
+            value: 2,
         },
         {
             source: 46,
@@ -168,20 +188,28 @@ export const CAA20: SankeyData = {
         {
             source: 59,
             target: 77,
-            value: 1,
+            value: 2,
         },
         {
             source: 59,
             target: 78,
             value: 1,
         },
-
         {
             source: 54,
-            target: 80,
+            target: 77,
             value: 1,
         },
-
+        {
+            source: 54,
+            target: 78,
+            value: 1,
+        },
+        {
+            source: 54,
+            target: 92,
+            value: 2,
+        },
         {
             source: 59,
             target: 80,
@@ -192,13 +220,11 @@ export const CAA20: SankeyData = {
             target: 92,
             value: 1,
         },
-
         {
             source: 70,
             target: 98,
             value: 1,
         },
-
         {
             source: 75,
             target: 98,

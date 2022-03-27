@@ -1,8 +1,8 @@
 import { SankeyData } from '../types/sankey';
 
-export const FA20COPY: SankeyData = {
+export const BN11B: SankeyData = {
     nodes: [
-        { name: 'person', type: 'Target', subtype: '0' },
+        { name: 'person', type: 'Target', subtype: '0' }, // 0
         { name: 'behavior', type: 'Target', subtype: '0' },
         { name: 'psychology', type: 'Target', subtype: '0' },
         { name: 'place', type: 'Target', subtype: '0' },
@@ -11,7 +11,7 @@ export const FA20COPY: SankeyData = {
         { name: 'product', type: 'Target', subtype: '0' },
         { name: 'event', type: 'Target', subtype: '0' },
         { name: 'simple', type: 'Target', subtype: '1' },
-        { name: 'composite', type: 'Target', subtype: '1' },
+        { name: 'composite', type: 'Target', subtype: '1' }, // 9
         { name: 'derived', type: 'Target', subtype: '1' },
         { name: 'opinion', type: 'Target', subtype: '2' },
         { name: 'appraisal', type: 'Target', subtype: '2' },
@@ -101,70 +101,111 @@ export const FA20COPY: SankeyData = {
         { name: 'parallel_coordinate', type: 'Vis_var&tech', subtype: '1' },
         { name: 'pixel_based_plot', type: 'Vis_var&tech', subtype: '1' },
         { name: 'time_oriented_visualization', type: 'Vis_var&tech', subtype: '1' },
-        { name: 'spatial_based_visualization', type: 'Vis_var&tech', subtype: '1' },
+        { name: 'spatial_based_visualization', type: 'Vis_var&tech', subtype: '1' }, // 99
     ],
 
     links: [
-        {
-            source: 6,
-            target: 41,
-            value: 15,
-        },
-        {
-            source: 15,
-            target: 41,
-            value: 30,
-        },
-        {
-            source: 16,
-            target: 41,
-            value: 15,
-        },
-        {
-            source: 11,
-            target: 49,
-            value: 8,
-        },
-        {
-            source: 12,
-            target: 49,
-            value: 8,
-        },
-        {
-            source: 13,
-            target: 49,
-            value: 8,
-        },
-        {
-            source: 14,
-            target: 49,
-            value: 8,
-        },
-        {
-            source: 15,
-            target: 49,
-            value: 8,
-        },
-        {
-            source: 41,
-            target: 59,
-            value: 60,
-        },
-        {
-            source: 49,
-            target: 59,
-            value: 40,
-        },
-        {
-            source: 59,
-            target: 77,
-            value: 100,
-        },
+        // {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // }, // a[0]
+        // {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // }, // a[1]
+        //     {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[2]
+        // {
+        //       source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[3]
+        //   {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[4]
+        //     {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[5]
+        //   {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[6]
+        //   {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[7]
+        //   {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // }, // a[8]
+        //     {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[9]
+        // {
+        //       source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[10]
+        //   {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[11]
+        //     {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[12]
+        //   {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[13]
+        //   {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[14]
+        //   {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[15]
+        // {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // },// a[16]
+        // {
+        //     source: ,
+        //     target: ,
+        //           value: 1
+        // }// a[17]
     ],
 
     status: [
         {
-            status: 'none',
+            status: 'TargetAA',
+        },
+        {
+            status: 'RepB',
+        },
+        {
+            status: 'RepEB',
         },
     ],
 };

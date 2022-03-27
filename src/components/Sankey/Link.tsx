@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import ParentSize from '@visx/responsive/lib/components/ParentSizeModern';
 import Word from '../WordCloud/Word';
 import './sandbox-styles.css';
+import ReactWordcloud from 'react-wordcloud';
 
 const WordCloud = styled.div`
     width: 100px;
@@ -29,7 +30,7 @@ const linkVariants = {
         scale: 1,
     },
     hover: {
-        scale: 1.2,
+        scale: 1,
 
         transition: {
             delay: 1,
@@ -57,7 +58,7 @@ export const Link = ({ node, link }: Props) => {
                 <stop offset="100%" stopColor={link.targetNode.color} />
             </linearGradient>
             <AnimatePresence initial={false}>
-                <Path whileHover="hover" initial="normal" transition={{ type: 'tween' }} variants={linkVariants} d={link.path} stroke={`url(#${gradId})`} strokeWidth={link.value / 1.5} fill="none">
+                <Path whileHover="hover" initial="normal" transition={{ type: 'tween' }} variants={linkVariants} d={link.path} stroke={`url(#${gradId})`} strokeWidth={link.value} fill="none">
                     <title>{`${link.sourceNode.name} to ${link.targetNode.name}: ${link.value}`}</title>
                 </Path>
             </AnimatePresence>

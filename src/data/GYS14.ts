@@ -106,95 +106,115 @@ export const GYS14: SankeyData = {
 
     links: [
         {
+            source: 146,
+            target: 7,
+            value: 1,
+        },
+        {
+            source: 146,
+            target: 11,
+            value: 4,
+        },
+        {
+            source: 146,
+            target: 16,
+            value: 3,
+        },
+        {
+            source: 146,
+            target: 23,
+            value: 1,
+        },
+        {
             source: 7,
             target: 39,
             value: 1,
-        }, // a[0]
+        },
         {
             source: 11,
             target: 39,
             value: 1,
-        }, // a[1]
+        },
         {
             source: 11,
             target: 45,
             value: 1,
-        }, // a[2]
+        },
         {
             source: 11,
             target: 47,
-            value: 1,
-        }, // a[3]
+            value: 2,
+        },
         {
-            source: 16,
+            source: 18,
             target: 45,
             value: 1,
-        }, // a[4]
+        },
         {
-            source: 16,
+            source: 18,
             target: 47,
-            value: 1,
-        }, // a[5]
+            value: 2,
+        },
         {
             source: 23,
             target: 46,
             value: 1,
-        }, // a[6]
+        },
         {
             source: 39,
             target: 54,
             value: 1,
-        }, // a[7]
+        },
         {
             source: 45,
             target: 54,
             value: 1,
-        }, // a[8]
+        },
         {
             source: 46,
             target: 70,
             value: 1,
-        }, // a[9]
+        },
         {
             source: 47,
             target: 54,
-            value: 1,
-        }, // a[10]
+            value: 3,
+        },
         {
             source: 47,
             target: 70,
-            value: 1,
-        }, // a[11]
+            value: 2,
+        },
         {
             source: 54,
             target: 76,
-            value: 1,
-        }, // a[12]
+            value: 4,
+        },
         {
             source: 54,
             target: 77,
-            value: 1,
-        }, // a[13]
+            value: 4,
+        },
         {
             source: 54,
             target: 78,
-            value: 1,
-        }, // a[14]
+            value: 2,
+        },
         {
             source: 54,
             target: 80,
-            value: 1,
-        }, // a[15]
+            value: 4,
+        },
         {
             source: 54,
             target: 92,
-            value: 1,
-        }, // a[16]
+            value: 5,
+        },
         {
             source: 70,
             target: 98,
-            value: 1,
-        }, // a[17]
+            value: 3,
+        },
     ],
     status: [
         {

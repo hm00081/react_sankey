@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const MLG: SankeyData = {
+export const MLG06: SankeyData = {
     nodes: [
         { name: 'person', type: 'Target', subtype: '0' },
         { name: 'behavior', type: 'Target', subtype: '0' },

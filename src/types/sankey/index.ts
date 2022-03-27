@@ -1,7 +1,7 @@
 export type SankeyNodeMinimal = Record<string, unknown>;
 export type SankeyLinkMinimal = {
-    source: number;
-    target: number;
+    source?: number | string;
+    target?: number | string;
     value: number;
 };
 export type SankeyStatusMinimal = {
@@ -18,8 +18,8 @@ export type SankeyNode = SankeyNodeMinimal & {
 };
 
 export type SankeyLink = SankeyLinkMinimal & {
-    source: number;
-    target: number;
+    source?: number | string;
+    target?: number | string;
     value: number;
 };
 
@@ -32,15 +32,22 @@ export type SankeyNodeExtended = SankeyNode & {
     y: number;
     width: number;
     height: number;
+    links: SankeyLink | SankeyLinkExtended;
     hover?: undefined;
+    sourceNodeType: number;
+    targetNodeType: number;
+    nodeOrderIndex: number;
 };
 
 export type SankeyLinkExtended = SankeyLink & {
     sourceNode: SankeyNodeExtended;
     targetNode: SankeyNodeExtended;
     breadth: number;
-
     path: string;
+    sourceNodeLink: number;
+    targetNodeLink: number;
+    sourceOrderIndex: number;
+    nodeOrderIndex: number;
 };
 
 export type SankeyStatus = {

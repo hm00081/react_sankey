@@ -47,7 +47,7 @@ function getRotationDegree() {
 
 const words = wordFreq(totoAfricaLyrics);
 // const words = totoAfricaLyricss;
-console.log('words', words);
+// console.log('words', words);
 
 const fontScale = scaleLog({
     domain: [Math.min(...words.map((w) => w.value)), Math.max(...words.map((w) => w.value))],
@@ -106,28 +106,6 @@ export default function Word({ width, height, showControls }: WordProps) {
                     <br />
                 </div>
             )}
-
-            {/* <style jsx>{`
-                .wordcloud {
-                    display: flex;
-                    flex-direction: column;
-                    user-select: none;
-                }
-                .wordcloud svg {
-                    margin: 1rem 0;
-                    cursor: pointer;
-                }
-
-                .wordcloud label {
-                    display: inline-flex;
-                    align-items: center;
-                    font-size: 14px;
-                    margin-right: 8px;
-                }
-                .wordcloud textarea {
-                    min-height: 100px;
-                }
-            `}</style> */}
         </div>
     );
 }

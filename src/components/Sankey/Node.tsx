@@ -70,21 +70,24 @@ export const Node = ({ node, width, height }: Props) => {
     const textTitleSize = Math.log(10) * 4;
     // const textTitleSize = node.value / 3;
     const textValueSize = (size / 100) * 1;
-    let textXPosition = textX + textMargin - node.width * 1.2;
-    let textYPosition = node.y + node.height + textMargin * 1.9;
+    let textXPosition = textX + textMargin + node.width * 0.3;
+    let textYPosition = node.y + node.value / 2 + textMargin * 1;
     var hover = {
         opacity: 1,
     };
     const [state, setState] = useState(0);
     // console.log(node.type);
     if (node.type === 'Vis_var&tech') {
-        textXPosition = textXPosition + node.width * 2.3;
-        textYPosition = textYPosition - textMargin * 3.9;
+        textXPosition = textX + textMargin;
+        // textYPosition = textYPosition - textMargin * 3.6;
+    }
+    if (node.value == 0) {
+        node.value = 4;
     }
 
     return (
         <NodePos>
-            <rect x={node.x} y={node.y} width={node.width} height={node.height} fill={node.color}>
+            <rect x={node.x} y={node.y} width={node.width} height={node.value} fill={node.color}>
                 <title>{`${node.name}: ${node.value}`}</title>
             </rect>
             <g transform={`translate(${textXPosition} ${textYPosition})`}>
