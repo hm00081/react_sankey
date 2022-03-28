@@ -10,6 +10,7 @@ import './styles.css';
 import styled from 'styled-components';
 import { useState, useEffect, useMemo } from 'react';
 import { SankeyData } from './types/sankey';
+import { SankeyLink, SankeyStatus } from '../src/types';
 
 // Data
 import { PaperNode } from './data/PaperNode';
@@ -32,39 +33,40 @@ const datas = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(311, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(311, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -78,39 +80,40 @@ const targetaa = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -124,39 +127,40 @@ const targetab = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -170,39 +174,40 @@ const targetba = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -216,39 +221,40 @@ const targetbb = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -262,39 +268,40 @@ const targetca = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -308,39 +315,40 @@ const repa = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -352,87 +360,100 @@ const repa = {
 const repb = {
     nodes: PaperNode.nodes.map((node) => {
         let color: string = '';
-        // Random color for each node
-        // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
-    links: LinkData[7],
+
+    links: AllPaperDatas.map((link) => {
+        let color: string = '';
+        // let status: string = '';
+        //@ts-ignore
+        if (hasLinkInGroup(link, RepBs)) {
+            color = `hsl(210, 90%, 50%)`;
+            // console.log('blue');
+        } else {
+            color = `hsl(0, 0%, 10%)`;
+            // console.log('gray');
+        }
+        return { ...link, color };
+        // 뭔가 각 link마다 식별할 수 있는 id 같은게 있으면 될것 같소 ㅋㅋ (현재 모든 value에 의해 색상이 칠해지고 있음..)
+        // 각 link마다 id가 있지만 현재 모든 동일 value를 합치며 link가 그려지는 중이여서
+        //그 link내에서 해당 id를 가지는 link만을 구현을 하지 못하는 것 같음.
+        function hasLinkInGroup(wantedLink: SankeyLink, linkGroup: SankeyLink[]) {
+            let hasLink: boolean = false;
+            // console.log(linkGroup[0]);
+            // console.log(RepBs);
+            // console.log(wantedLink);
+            // console.log(linkGroup[0].valueid);
+            // console.log(typeof 'repb');
+            // console.log(wantedLink.valueid);
+            for (let i = 0; i < linkGroup.length; i++) {
+                if (wantedLink.valueid === 'repb' && wantedLink.source == linkGroup[i].source) {
+                    // if (wantedLink.source == linkGroup[i].source && linkGroup[i].value < wantedLink.value) {
+                    // if (wantedLink.value > linkGroup[i].value) {
+                    // console.log('hello');
+                    hasLink = true;
+                    // console.log(wantedLink);
+                } else hasLink = false;
+            }
+            return hasLink;
+        }
+    }),
+
     //@ts-ignore
     status: Status[7],
 };
+
+// const RepBss = () => {
+//     for (let i = 0; i < AllPaperDatas.length; i++) {
+//         RepBs;
+//     }
+// };
+// const ex = RepBs.map((link) => {
+//     return link;
+// });
+// console.log(ex);
 
 const repc = {
     nodes: PaperNode.nodes.map((node) => {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -446,39 +467,40 @@ const repd = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -492,39 +514,40 @@ const repea = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -538,39 +561,40 @@ const repeb = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -584,39 +608,40 @@ const repf = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
@@ -630,39 +655,40 @@ const empty = {
         let color: string = '';
         // Random color for each node
         // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        if (node.type === 'Target' && node.subtype === '0') {
-            color = `hsl(318, 87%, 32%)`;
-        } else if (node.type === 'Target' && node.subtype === '1') {
-            color = `hsl(327, 85%, 41%)`;
-        } else if (node.type === 'Target' && node.subtype === '2') {
-            color = `hsl(343, 100%, 59%)`;
-        } else if (node.type === 'Target' && node.subtype === '3') {
-            color = `hsl(11, 100%, 55%)`;
-        } else if (node.type === 'Target' && node.subtype === '4') {
-            color = `hsl(27, 100%, 69%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '0') {
-            color = `hsl(46, 100%, 60%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '1') {
-            color = `hsl(55, 90%, 55%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '2') {
-            color = `hsl(75, 77%, 42%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '3') {
-            color = `hsl(80, 45%, 41%)`;
-        } else if (node.type === 'Intermediation' && node.subtype === '4') {
-            color = `hsl(87, 50%, 61%)`;
-        } else if (node.type === 'Representation' && node.subtype === '0') {
-            color = `hsl(100, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '1') {
-            color = `hsl(140, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '2') {
-            color = `hsl(190, 100%, 40%)`;
-        } else if (node.type === 'Representation' && node.subtype === '3') {
-            color = `hsl(220, 100%, 40%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-            color = `hsl(250, 90%, 45%)`;
-        } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-            color = `hsl(280, 80%, 60%)`;
-        }
+        // if (node.type === 'Target' && node.subtype === '0') {
+        //     color = `hsl(318, 87%, 32%)`;
+        // } else if (node.type === 'Target' && node.subtype === '1') {
+        //     color = `hsl(327, 85%, 41%)`;
+        // } else if (node.type === 'Target' && node.subtype === '2') {
+        //     color = `hsl(343, 100%, 59%)`;
+        // } else if (node.type === 'Target' && node.subtype === '3') {
+        //     color = `hsl(11, 100%, 55%)`;
+        // } else if (node.type === 'Target' && node.subtype === '4') {
+        //     color = `hsl(27, 100%, 69%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
+        //     color = `hsl(46, 100%, 60%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
+        //     color = `hsl(55, 90%, 55%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
+        //     color = `hsl(75, 77%, 42%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
+        //     color = `hsl(80, 45%, 41%)`;
+        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
+        //     color = `hsl(87, 50%, 61%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '0') {
+        //     color = `hsl(100, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '1') {
+        //     color = `hsl(140, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '2') {
+        //     color = `hsl(190, 100%, 40%)`;
+        // } else if (node.type === 'Representation' && node.subtype === '3') {
+        //     color = `hsl(220, 100%, 40%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
+        //     color = `hsl(250, 90%, 45%)`;
+        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
+        //     color = `hsl(280, 80%, 60%)`;
+        // }
+        color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),

@@ -7,11 +7,17 @@ import { Node } from './Node';
 import './Sankey.css';
 // Utils
 import { calcSankeyNodes, calcSankeyLinks } from '../../utils/';
-import styled from 'styled-components';
 import ParentSize from '@visx/responsive/lib/components/ParentSizeModern';
 import Word from '../WordCloud/Word';
 import './sandbox-styles.css';
 import { toUnitless } from '@mui/material/styles/cssUtils';
+// Styles
+// styled
+import { AnimatePresence, motion } from 'framer-motion';
+import styled from 'styled-components';
+import { Papers } from '../../data/AllPaperData';
+
+const Links = styled.path``;
 
 // Props
 type Props = {
@@ -39,10 +45,12 @@ export const Sankey = ({ width, height, data, paddingTop = 0, paddingLeft = 0, n
     const onMouseOver = () => setHover(true);
     const onMouseLeave = () => setHover(false);
     const links = calcSankeyLinks(data, height, nodes, nodeWidth, minLinkBreadth, maxLinkBreadth);
+    // console.log(data);
     const word = <ParentSize>{({ width, height }) => <Word width={width} height={height} />}</ParentSize>;
     const columns = nodes.map((node) => node.type).filter((type, pos, arr) => arr.indexOf(type) === pos);
     const title = [{ name: 'paper' }, { name: 'target' }, { name: 'intermediation' }, { name: 'representation' }, { name: 'vis_var&tech' }];
     const titles = ['paper', 'target', 'intermediation', 'representation', 'vis_tar&tech'];
+    //@ts-ignore
 
     return (
         <svg className="hello" width={width} height={height}>
@@ -52,14 +60,23 @@ export const Sankey = ({ width, height, data, paddingTop = 0, paddingLeft = 0, n
                     <text className="font" x={(width / columns.length) * i + width / columns.length / 2} y={height * 0.03} textAnchor="middle"></text>
                 </>
             ))}
+
             {links.map((link, i) => (
                 //@ts-ignore
-                <Link key={`link-${i}`} link={link} />
+                <Link className="link" key={`link-${i}`} link={link}></Link>
             ))}
-            {nodes.map((node, i) => (
-                //@ts-ignore
-                <Node key={`node-${i}`} node={node} width={width} height={height} />
-            ))}
+            <>
+                {nodes.map((node, i) => (
+                    // @ts-ignore
+                    <Node className="node" key={`node-${i}`} node={node} width={width} height={height}>
+                        {/* {data.nodes.map((node, i) => {
+                            for (let i = 0; i < 1; i++) {
+                                console.log('0382');
+                            }
+                        })}*/}
+                    </Node>
+                ))}
+            </>
         </svg>
     );
 };

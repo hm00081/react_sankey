@@ -1,6 +1,6 @@
 // Types
 import { path } from 'd3-path';
-import { SankeyLinkExtended, SankeyNodeExtended } from '../../types/sankey';
+import { SankeyLinkExtended, SankeyNodeExtended, SankeyLink } from '../../types/sankey';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
@@ -22,7 +22,10 @@ const Path = styled(motion.path)`
 // Props
 type Props = {
     link: SankeyLinkExtended;
+    links: SankeyLink[];
     node: SankeyNodeExtended;
+    color: string;
+    valueid?: string;
 };
 
 const linkVariants = {
@@ -41,6 +44,9 @@ const linkVariants = {
     },
 };
 
+// const color = `hsl(210, 80%, 0%)`;
+// const colors = `hsl(210, 80%, 0%)`;
+
 // Component
 export const Link = ({ node, link }: Props) => {
     const gradId = `grad-${link.source}-${link.target}`;
@@ -54,8 +60,8 @@ export const Link = ({ node, link }: Props) => {
     return (
         <>
             <linearGradient id={gradId}>
-                <stop offset="0%" stopColor={link.sourceNode.color} />
-                <stop offset="100%" stopColor={link.targetNode.color} />
+                <stop offset="0%" stopColor={link.color} />
+                <stop offset="100%" stopColor={link.color} />
             </linearGradient>
             <AnimatePresence initial={false}>
                 <Path whileHover="hover" initial="normal" transition={{ type: 'tween' }} variants={linkVariants} d={link.path} stroke={`url(#${gradId})`} strokeWidth={link.value} fill="none">

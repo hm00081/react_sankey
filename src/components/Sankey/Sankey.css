@@ -18,3 +18,10 @@ rect:not(:hover) {
 rect:hover {
     opacity: 1;
 }
+
+/* .Node node:hover {
+    opacity: 0.5;
+} */
+.Sankey:hover {
+    opacity: 0.5;
+}

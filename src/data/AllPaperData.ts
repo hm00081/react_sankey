@@ -51,12 +51,7 @@ import { BN11B } from './BN11B';
 import { MLG06 } from './MLG06';
 import { FA20 } from './FA20';
 import { WHWS12 } from './WHWS12';
-// import { GGS12STCOPY } from './GGS12ST copy';
-// import { YFS10COPY } from './YFS10 copy';
-// import { LGX16COPY } from './LGX16 copy';
-// import { FAKM15COPY } from './FAKM15 copy';
-// import { FA20COPY } from './FA20 copy';
-// import { WHWS12COPY } from './WHWS12 copy';
+import { SankeyLink } from '../types';
 
 import { link } from 'fs';
 
@@ -304,7 +299,7 @@ const Emptys = [].concat.apply([], Empty).reduce((result, value) => {
 // console.log(Status);
 
 //@ts-ignore
-const AllPaperDatas = [].concat.apply([], PaperString).reduce((result, value) => {
+const AllPaperDatas: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
@@ -381,16 +376,16 @@ const RepAs = [].concat.apply([], RepA).reduce((result, value) => {
 }, []);
 
 //@ts-ignore
-const RepBs = [].concat.apply([], RepB).reduce((result, value) => {
+const RepBs: SankeyLink[] = [].concat.apply([], RepB).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    if (!target) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
     //@ts-ignore
     else target.value += 1;
     return result;
 }, []);
-// console.log(RepBs);
+console.log(RepBs);
 
 //@ts-ignore
 const RepCs = [].concat.apply([], RepC).reduce((result, value) => {
@@ -452,3 +447,26 @@ const Node = CAA20.nodes;
 // const LinkData = [AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys];
 
 export { Status, Node, Papers, AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys };
+
+// links: AllPaperDatas.map((link) => {
+//     let color: string = '';
+//     if (hasLinkInGroup(link, RepBs)) {
+//       color = `hsl(210, 80%, 50%)`;
+//     } else {
+//       color = `hsl(0, 0%, 30%)`;
+//     }
+//     return { ...link, color };
+//   });
+
+//   function hasLinkInGroup(wantedLink, linkGroup) {
+//     let hasLink: boolean = false;
+
+//     for (let i = 0; i < linkGroup.length; i++) {
+//       if (link == linkGroup[i]) {
+//         hasLink = true;
+//         break;
+//       }
+//     }
+
+//     return hasLink;
+//   }

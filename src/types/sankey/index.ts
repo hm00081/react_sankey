@@ -15,12 +15,17 @@ export type SankeyNode = SankeyNodeMinimal & {
     subtype?: string | number;
     description?: string;
     color?: string;
+    pattern?: string;
 };
 
 export type SankeyLink = SankeyLinkMinimal & {
     source?: number | string;
     target?: number | string;
     value: number;
+    type?: string;
+    subtype?: string;
+    valueid?: string | null | SankeyLink;
+    color?: string;
 };
 
 export type SankeyNodeExtended = SankeyNode & {
@@ -51,7 +56,8 @@ export type SankeyLinkExtended = SankeyLink & {
 };
 
 export type SankeyStatus = {
-    status: string | number | number[];
+    status: string | number | boolean;
+    // status: string | number | number[];
 };
 
 export type SankeyWord = {

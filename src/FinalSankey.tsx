@@ -8,7 +8,7 @@ import { Sankey } from './components/Sankey';
 // import 'normalize.css';
 import './styles.css';
 import styled from 'styled-components';
-import { useState, useEffect, useMemo, useReducer } from 'react';
+import { useState, useEffect, useRef, useReducer } from 'react';
 import { SankeyData } from './types/sankey';
 import { Flex, Text } from 'rebass';
 import ParentSize from '@visx/responsive/lib/components/ParentSizeModern';
@@ -23,6 +23,7 @@ import { pink } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
 import { nodeModuleNameResolver } from 'typescript';
 import Word from '../src/components/WordCloud/Word';
+import { SankeyNode } from 'd3-sankey';
 
 const FinalSankeys = styled.div`
     // font-family: sans-serif;
@@ -39,47 +40,44 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 // console.log(Status.length);
 //@ts-ignore
 const LinkData = [AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys];
-// console.log(Papers);
-// console.log(datas.links);
-// console.log(Papers[0].status[0]);
 
-const linkss = LinkData.map((link) => {
-    return link;
-});
-// console.log(linkss);
-// console.log(change);
-const dataSet = [datas, targetaa, targetab, targetba, targetbb, targetca, repa, repb, repc, repd, repea, repeb, repf, empty];
-// console.log(dataSet);
-// console.log(Word.name);
-//@ts-ignore
-// console.log(Object.values(data.status[1]));
-// console.log(Object.values(Status[0][0]));
-// console.log(data.links);
-// console.log(Object.values(data.status[0]));
-// for (let i = 0; i < Status.length; i++) {
-//     const handle = () => {
-//         for (let j = 0; j < Object.keys(data.status[i]).length; j++) {
-//             //@ts-ignore
-//             if (Object.values(Status[i][j]) !== 0) {
-//                 console.log(i);
-//                 // console.log(Object.values(Status[i][j]));
-//             } else console.log('0');
-//             // if(Object.values(data.status[i] === ))
-//         }
-//     };
+// color 추가 함수
+// const colorChange = () => {
+//     if()
 // }
+type Props = {
+    color: string;
+};
 
 // Component
 export default function FinalSankey() {
+    const exampleRef = useRef(null);
     const [ref, { width, height }] = useMeasure<HTMLDivElement>();
     const [state, setState] = useState(0);
-    const [clicks, setClicks] = useState(0);
+    const [clicks, setClicks] = useState();
+    const [repbSelected, setRepbSelected] = useState();
+    const [color, setColor] = useState(`hsl(0, 0%, 30%)`);
     const [item, setItem] = useState(datas);
     const [difItem, setDifItem] = useState(datas);
+    // const clickMe = () => {
+    //     if(exampleRef.current === '')
+    // }
+    // click event 안에서
+
+    // useEffect(() => {
+    //     const filteredList = datas?.links.filter((data) => {
+    //         for (const [key, property] of Object.entries(data)) return data == repb.links ? true : false;
+    //     });
+    // }, []);
+    // const filteredList = datas?.links.filter((data) => {
+    //     return data === repb.links ? true : false;
+    // });
+    // console.log(filteredList);
     //@ts-ignore
     const hi = <Sankey width={width} height={height} data={item} paddingTop={4} nodeWidth={2} nodeHeight={1.5} nodeMargin={0.8} minLinkBreadth={0.1} maxLinkBreadth={2} />;
     const hiii = <Sankey width={width} height={height} data={difItem} paddingTop={4} nodeWidth={2} nodeHeight={1.5} nodeMargin={0.8} minLinkBreadth={0.1} maxLinkBreadth={2} />;
     // const hii = <button onClick={() => setItem(targetaa)}>show march data</button>;
+
     return (
         <>
             <div className={'flex'}></div>

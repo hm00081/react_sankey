@@ -4,6 +4,7 @@ import { linkHorizontal, line, curveCardinal } from 'd3-shape';
 // Types
 import { SankeyData, SankeyLinkExtended, SankeyNodeExtended } from '../../types';
 import _, { forEach } from 'lodash';
+import { link } from 'fs';
 
 export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyNodeExtended[], nodeWidth: number, minLinkBreadth?: number, maxLinkBreadth?: number): SankeyLinkExtended[] => {
     // Extract to const so its in a closure
@@ -76,7 +77,20 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
     //         node2: [],
     //         node3: []
     //     }
+    // 딕셔너리 or 해시테이블
+    const presourceNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
 
+    extendedLinks.forEach((link) => {
+        // console.log(link.sourceNode.name);
+        if (link.sourceNode.name! in presourceNodeNameLinksDict) {
+            presourceNodeNameLinksDict[link.sourceNode.name!].push(link);
+        } else {
+            presourceNodeNameLinksDict[link.sourceNode.name!] = [link];
+        }
+    });
+    console.log(presourceNodeNameLinksDict); // 각 link의 모든 정보를 담은 dictionary.
+
+    // console.log(extendedLinks[0].sourceNode.name);
     // 딕셔너리 or 해시테이블
     const sourceNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
     // console.log(sourceNodeNameLinksDict);
