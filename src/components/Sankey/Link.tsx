@@ -33,11 +33,11 @@ const linkVariants = {
         scale: 1,
     },
     hover: {
-        scale: 1,
+        scale: 30,
 
         transition: {
-            delay: 1,
-            duaration: 1,
+            delay: 5,
+            duaration: 10,
             type: 'tween',
         },
         background: 'white',

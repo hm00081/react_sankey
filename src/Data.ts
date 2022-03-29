@@ -369,17 +369,20 @@ const repb = {
         let color: string = '';
         // let status: string = '';
         //@ts-ignore
-        if (hasLinkInGroup(link, RepBs)) {
-            color = `hsl(210, 90%, 50%)`;
+        if (hasLinkInGroup(link, AllPaperDatas)) {
+            color = `hsl(210, 100%, 50%)`;
             // console.log('blue');
         } else {
-            color = `hsl(0, 0%, 10%)`;
+            color = `hsl(0, 0%, 80%)`;
             // console.log('gray');
         }
         return { ...link, color };
         // 뭔가 각 link마다 식별할 수 있는 id 같은게 있으면 될것 같소 ㅋㅋ (현재 모든 value에 의해 색상이 칠해지고 있음..)
         // 각 link마다 id가 있지만 현재 모든 동일 value를 합치며 link가 그려지는 중이여서
         //그 link내에서 해당 id를 가지는 link만을 구현을 하지 못하는 것 같음.
+        // 줌링크 영상 한번 다시 보기.
+        // 내일은 꼭 일찍 일어나서 일찍와야지 그냥.
+        // dict로 다양한 활용방법 생각해보기.
         function hasLinkInGroup(wantedLink: SankeyLink, linkGroup: SankeyLink[]) {
             let hasLink: boolean = false;
             // console.log(linkGroup[0]);
@@ -389,7 +392,7 @@ const repb = {
             // console.log(typeof 'repb');
             // console.log(wantedLink.valueid);
             for (let i = 0; i < linkGroup.length; i++) {
-                if (wantedLink.valueid === 'repb' && wantedLink.source == linkGroup[i].source) {
+                if (wantedLink.valueid === 'repb') {
                     // if (wantedLink.source == linkGroup[i].source && linkGroup[i].value < wantedLink.value) {
                     // if (wantedLink.value > linkGroup[i].value) {
                     // console.log('hello');

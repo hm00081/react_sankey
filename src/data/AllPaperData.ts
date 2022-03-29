@@ -303,12 +303,16 @@ const AllPaperDatas: SankeyLink[] = [].concat.apply([], PaperString).reduce((res
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
+    const repb = result.find((r) => r.source === value.source && r.target === value.target && (r.valueid && value.valueid) === 'repb');
+    //@ts-ignore
+    if (repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+    //@ts-ignore
+    else if (!repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
     //@ts-ignore
     else target.value += 1;
     return result;
 }, []);
-
+console.log(AllPaperDatas);
 //@ts-ignore
 const TargetAAs = [].concat.apply([], TargetAA).reduce((result, value) => {
     //@ts-ignore
@@ -378,7 +382,10 @@ const RepAs = [].concat.apply([], RepA).reduce((result, value) => {
 //@ts-ignore
 const RepBs: SankeyLink[] = [].concat.apply([], RepB).reduce((result, value) => {
     //@ts-ignore
-    const target = result.find((r) => r.source === value.source && r.target === value.target);
+    const target = result.find((r) => r.source === value.source && r.target === value.target && r.valueid === value.valueid);
+    // 이 부분에서 link의 id를 주어 해당 id를 포함, 미포함 하는 거를 나누어 그리면 기존 1개의 링크를 2개의 링크로 쪼갤 수 있을듯 하다.
+    // 덩어리 분해하는 알고리즘 작성.
+    // dict로 다양한 활용방법 생각해보기.?
     //@ts-ignore
     if (!target) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
     //@ts-ignore

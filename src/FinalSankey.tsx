@@ -90,10 +90,10 @@ export default function FinalSankey() {
                     <button onClick={() => setItem(targetbb)}>Show TargetBB</button>
                     <button onClick={() => setItem(targetca)}>Show TargetCA</button>
                     <button onClick={() => setItem(repa)}>Show RepA</button>
-                    <button onClick={() => setItem(repb)}>Show RepB</button>
+                    <button onClick={() => setItem(repb)}>Show River</button>
                     <button onClick={() => setItem(repc)}>Show RepC</button>
                     <button onClick={() => setItem(repd)}>Show RepD</button>
-                    <button onClick={() => setItem(repea)}>Show RepEA</button>
+                    <button onClick={() => setItem(repea)}>Show Wheel</button>
                     <button onClick={() => setItem(repeb)}>Show RepEB</button>
                     <button onClick={() => setItem(repf)}>Show RepF</button>
                     {/* {hiii} */}
