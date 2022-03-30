@@ -2,25 +2,25 @@
 import { linkHorizontal, line, curveCardinal } from 'd3-shape';
 
 // Types
-import { SankeyData, SankeyLinkExtended, SankeyNodeExtended } from '../../types';
+import { SankeyData, SankeyLinkExtended, SankeyNodeExtended, SankeyLink } from '../../types';
 import _, { forEach } from 'lodash';
 import { link } from 'fs';
 
 export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyNodeExtended[], nodeWidth: number, minLinkBreadth?: number, maxLinkBreadth?: number): SankeyLinkExtended[] => {
     // Extract to const so its in a closure
     const { links } = data;
-    // console.log(data);
     // Calc proportional size value
+
     const proportionalNodeWidth = nodeWidth * (height / 100);
     const proportionalMaxLinkBreadth = maxLinkBreadth && maxLinkBreadth * (height / 100);
     const proportionalMinLinkBreadth = minLinkBreadth && minLinkBreadth * (height / 100);
-
     const totalValue = nodes.map((node) => node.value).reduce((acc, cur) => (acc += cur), 0);
 
     // Extend Links to add additional data
     const extendedLinks = links.map((link) => {
         const sourceNode = nodes.filter((node) => node.index === link.source)[0];
         const targetNode = nodes.filter((node) => node.index === link.target)[0];
+        const valueid = link.valueid;
         const breadth = (link.value / totalValue) * height;
         const maxBreadth = proportionalMaxLinkBreadth ? Math.min(breadth, proportionalMaxLinkBreadth) : breadth;
         const minBreadth = proportionalMinLinkBreadth ? Math.max(breadth, proportionalMinLinkBreadth) : breadth;
@@ -30,10 +30,10 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
             sourceNode,
             sourceNodeLink: 0, // 링크 분리를 위한 값(type) 추가  0으로 해도 상관 없음.
             targetNode,
+            valueid,
             targetNodeLink: 0, // 링크 분리를 위한 값(type) 추가
             breadth: linkBreadth ? linkBreadth : 0,
             path: '',
-            valueid: '' || undefined,
             sourceOrderIndex: 0,
             targetOrderIndex: 0,
             sourceNodeOrderIndex: 0,
@@ -44,7 +44,7 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
 
         return extendedLink;
     });
-
+    // console.log(extendedLinks[0].valueid);
     // Calculate the path based on the positions of source and target node
     extendedLinks.forEach((link) => {
         if (link.sourceNode.x === link.targetNode.x) {
@@ -93,18 +93,28 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
     // });
     // console.log(presourceNodeNameLinksDict); // 각 link의 모든 정보를 담은 dictionary.
 
-    // console.log(extendedLinks[0].sourceNode.name);
+    // console.log(extendedLinks[0]);
     // valueid가 빈 string ''이 아닌 애들을 우선순위로 두기.
     // 딕셔너리 or 해시테이블
     const sourceNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
+
+    extendedLinks.forEach((link) => {
+        if (link.sourceNode.name! in sourceNodeNameLinksDict) {
+            sourceNodeNameLinksDict[link.sourceNode.name!].push(link);
+        } else {
+            sourceNodeNameLinksDict[link.sourceNode.name!] = [link];
+        }
+    });
+
+    const targetNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
     // console.log(sourceNodeNameLinksDict);
     extendedLinks.forEach((link) => {
         // console.log(link.sourceNode.name);
-        if (link.sourceNode.name! in sourceNodeNameLinksDict) {
-            sourceNodeNameLinksDict[link.sourceNode.name!].push(link);
+        if (link.targetNode.name! in targetNodeNameLinksDict) {
+            targetNodeNameLinksDict[link.targetNode.name!].push(link);
             // sourceNodeNameLinksDict[link.targetNode.name!].push(link);
         } else {
-            sourceNodeNameLinksDict[link.sourceNode.name!] = [link];
+            targetNodeNameLinksDict[link.targetNode.name!] = [link];
         }
     });
 
@@ -121,11 +131,25 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
     // console.log(sourceNodeNameLinksDict);
     // sort [key, value] entries.
     for (const [nodeName, linksOfNode] of Object.entries(sourceNodeNameLinksDict)) {
-        linksOfNode.sort((a, b) => b.value - a.value);
-        linksOfNode.sort(function (a, b) {
-            return a.valueid && b.valueid === 'repb' ? 0 : a.valueid ? -1 : 1;
+        // linksOfNode.sort((a, b) => b.value - a.value);
+        linksOfNode.sort((a, b) => {
+            let tempNumber = 0;
+            if (a.valueid === 'repb') {
+                if (b.valueid === 'repb') {
+                    tempNumber = b.value - a.value;
+                } else {
+                    tempNumber = -1;
+                    // tempNumber = a.value - b.value;
+                }
+            } else {
+                if (b.valueid === 'repb') {
+                    tempNumber = 1;
+                } else {
+                    tempNumber = b.value - a.value;
+                }
+            }
+            return tempNumber;
         });
-
         linksOfNode.forEach((link, orderIndex) => {
             link.sourceNodeLink = link.sourceNode.sourceNodeType;
             link.sourceNode.sourceNodeType += link.value;
@@ -134,10 +158,12 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
         });
     }
 
-    for (const [nodeName, linksOfNode] of Object.entries(sourceNodeNameLinksDict)) {
-        linksOfNode.sort(function (a, b) {
-            return a.valueid && b.valueid === 'repb' ? 0 : a.valueid ? -1 : 1;
-        });
+    console.log(sourceNodeNameLinksDict);
+
+    for (const [nodeName, linksOfNode] of Object.entries(targetNodeNameLinksDict)) {
+        // linksOfNode.sort(function (a, b) {
+        //     return a.valueid && b.valueid === 'repb' ? 0 : a.valueid ? -1 : 1;
+        // });
         linksOfNode.sort((a, b) => b.value - a.value);
 
         linksOfNode.forEach((link, orderIndex) => {

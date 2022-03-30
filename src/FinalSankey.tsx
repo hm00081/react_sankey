@@ -89,7 +89,7 @@ export default function FinalSankey() {
                     <button onClick={() => setItem(targetba)}>Show TargetBA</button>
                     <button onClick={() => setItem(targetbb)}>Show TargetBB</button>
                     <button onClick={() => setItem(targetca)}>Show TargetCA</button>
-                    <button onClick={() => setItem(repa)}>Show RepA</button>
+                    <button onClick={() => setItem(repa)}>Show Map</button>
                     <button onClick={() => setItem(repb)}>Show River</button>
                     <button onClick={() => setItem(repc)}>Show RepC</button>
                     <button onClick={() => setItem(repd)}>Show RepD</button>

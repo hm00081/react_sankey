@@ -114,8 +114,13 @@ export const MDD10: SankeyData = {
         {
             source: 120,
             target: 11,
-            value: 2,
+            value: 1,
             valueid: 'repb',
+        },
+        {
+            source: 120,
+            target: 11,
+            value: 1,
         },
         {
             source: 120,
@@ -127,13 +132,17 @@ export const MDD10: SankeyData = {
             source: 120,
             target: 16,
             value: 1,
+        },
+        {
+            source: 120,
+            target: 22,
+            value: 1,
             valueid: 'repb',
         },
         {
             source: 120,
             target: 22,
-            value: 2,
-            valueid: 'repb',
+            value: 1,
         },
         {
             source: 7,
@@ -145,7 +154,6 @@ export const MDD10: SankeyData = {
             source: 11,
             target: 46,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 7,
@@ -205,31 +213,26 @@ export const MDD10: SankeyData = {
             source: 16,
             target: 48,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 48,
             target: 60,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 22,
             target: 46,
             value: 2,
-            valueid: 'repb',
         },
         {
             source: 22,
             target: 49,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 46,
             target: 60,
             value: 2,
-            valueid: 'repb',
         },
         {
             source: 46,
@@ -247,13 +250,11 @@ export const MDD10: SankeyData = {
             source: 49,
             target: 60,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 60,
             target: 98,
             value: 3,
-            valueid: 'repb',
         },
     ],
     status: [

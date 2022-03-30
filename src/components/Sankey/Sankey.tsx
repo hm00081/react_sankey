@@ -26,6 +26,7 @@ type Props = {
     paddingTop?: number;
     paddingLeft?: number;
     data: SankeyData;
+    // valueid: SankeyLink[];
     // nodes?: SankeyNode;
     // links?: SankeyLink | undefined;
     // status?: SankeyStatus | undefined;

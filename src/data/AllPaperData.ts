@@ -126,7 +126,7 @@ const PaperString = [
     MLG06.links,
     FA20.links,
 ];
-
+console.log(SCS19.links);
 const Papers = [
     BN11B,
     CAA20,
@@ -367,13 +367,17 @@ const TargetCAs = [].concat.apply([], TargetCA).reduce((result, value) => {
 }, []);
 
 //@ts-ignore
-const RepAs = [].concat.apply([], RepA).reduce((result, value) => {
+const RepAs: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value * 3 });
+    const repa = result.find((r) => r.source === value.source && r.target === value.target && (r.valueid && value.valueid) === 'repa');
     //@ts-ignore
-    else target.value += 1;
+    if (repa) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+    //@ts-ignore
+    else if (!repa) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+    //@ts-ignore
+    else target.value += 0;
     return result;
 }, []);
 
@@ -396,16 +400,16 @@ const RepBs: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, val
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
-    const repb = result.find((r) => r.source === value.source && r.target === value.target && (r.valueid && value.valueid) === 'repb');
+    const repb = result.find((r) => r.source === value.source && r.target === value.target && r.value === value.value && (r.valueid === value.valueid) === 'repb');
     //@ts-ignore
-    if (repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+    // if (repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
     //@ts-ignore
-    else if (!repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+    if (!repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
     //@ts-ignore
-    else target.value += 1;
+    else repb.value += 1;
     return result;
 }, []);
-
+console.log(RepBs);
 //@ts-ignore
 const RepCs = [].concat.apply([], RepC).reduce((result, value) => {
     //@ts-ignore
@@ -435,9 +439,9 @@ const RepEAs: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, va
     //@ts-ignore
     const repea = result.find((r) => r.source === value.source && r.target === value.target && (r.valueid && value.valueid) === 'repea');
     //@ts-ignore
-    if (repea) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+    // if (repea) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
     //@ts-ignore
-    else if (!repea) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+    if (!repea) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
     //@ts-ignore
     else target.value += 1;
     return result;

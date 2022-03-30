@@ -13,12 +13,12 @@ export const CAA20: SankeyData = {
         { name: 'simple', type: 'Target', subtype: '1' },
         { name: 'composite', type: 'Target', subtype: '1' }, // 9
         { name: 'derived', type: 'Target', subtype: '1' },
-        { name: 'opinion', type: 'Target', subtype: '2' },
+        { name: 'opinion', type: 'Target', subtype: '2' }, // 11
         { name: 'appraisal', type: 'Target', subtype: '2' },
         { name: 'stance', type: 'Target', subtype: '2' },
         { name: 'attitude', type: 'Target', subtype: '2' },
         { name: 'emotion', type: 'Target', subtype: '2' },
-        { name: 'writer', type: 'Target', subtype: '3' },
+        { name: 'writer', type: 'Target', subtype: '3' }, // 16
         { name: 'organization', type: 'Target', subtype: '3' },
         { name: 'key_player', type: 'Target', subtype: '3' },
         { name: 'public', type: 'Target', subtype: '3' },
@@ -56,7 +56,7 @@ export const CAA20: SankeyData = {
         { name: 'human', type: 'Representation', subtype: '0' },
         { name: 'animal', type: 'Representation', subtype: '0' },
         { name: 'plant', type: 'Representation', subtype: '0' },
-        { name: 'landscape', type: 'Representation', subtype: '0' },
+        { name: 'landscape', type: 'Representation', subtype: '0' }, // 54
         { name: 'compound', type: 'Representation', subtype: '0' },
         { name: 'metal', type: 'Representation', subtype: '0' },
         { name: 'nonmetal', type: 'Representation', subtype: '0' },
@@ -72,7 +72,7 @@ export const CAA20: SankeyData = {
         { name: 'software', type: 'Representation', subtype: '1' },
         { name: 'machine', type: 'Representation', subtype: '1' },
         { name: 'letter', type: 'Representation', subtype: '1' },
-        { name: 'natural_phenomena', type: 'Representation', subtype: '2' },
+        { name: 'natural_phenomena', type: 'Representation', subtype: '2' }, // 70
         { name: 'behavior', type: 'Representation', subtype: '2' },
         { name: 'disaster', type: 'Representation', subtype: '2' },
         { name: 'space_time_movement', type: 'Representation', subtype: '2' },
@@ -109,13 +109,17 @@ export const CAA20: SankeyData = {
             source: 100,
             target: 9,
             value: 1,
-            valueid: 'repb', // 강
         },
         {
             source: 100,
             target: 11,
-            value: 3,
+            value: 1,
             valueid: 'repb',
+        },
+        {
+            source: 100,
+            target: 11,
+            value: 2,
         },
         {
             source: 100,
@@ -126,26 +130,28 @@ export const CAA20: SankeyData = {
         {
             source: 100,
             target: 24,
-            value: 2,
+            value: 1,
             valueid: 'repb',
+        },
+        {
+            source: 100,
+            target: 24,
+            value: 1,
         },
         {
             source: 9,
             target: 36,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 11,
             target: 35,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 11,
             target: 39,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 11,
@@ -169,19 +175,16 @@ export const CAA20: SankeyData = {
             source: 35,
             target: 59,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 36,
             target: 59,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 39,
             target: 59,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 45,
@@ -199,19 +202,16 @@ export const CAA20: SankeyData = {
             source: 46,
             target: 75,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 59,
             target: 77,
             value: 2,
-            valueid: 'repb',
         },
         {
             source: 59,
             target: 78,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 54,
@@ -235,13 +235,11 @@ export const CAA20: SankeyData = {
             source: 59,
             target: 80,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 59,
             target: 92,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 70,

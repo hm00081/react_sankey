@@ -33,7 +33,7 @@ const linkVariants = {
         scale: 1,
     },
     hover: {
-        scale: 30,
+        scale: 1,
 
         transition: {
             delay: 5,

@@ -7,37 +7,74 @@ export const YSK14: SankeyData = {
         {
             source: 141,
             target: 11,
-            value: 2,
+            value: 1,
+            valueid: 'repb',
+        },
+        {
+            source: 141,
+            target: 11,
+            value: 1,
         },
         {
             source: 141,
             target: 16,
-            value: 2,
+            value: 1,
+            valueid: 'repb',
+        },
+        {
+            source: 141,
+            target: 16,
+            value: 1,
         },
         {
             source: 141,
             target: 22,
-            value: 3,
+            value: 2,
+            valueid: 'repb',
+        },
+        {
+            source: 141,
+            target: 22,
+            value: 1,
         },
         {
             source: 11,
             target: 39,
-            value: 2,
+            value: 1,
+            valueid: 'repb',
+        },
+        {
+            source: 11,
+            target: 39,
+            value: 1,
         },
         {
             source: 16,
             target: 48,
-            value: 2,
+            value: 1,
+            valueid: 'repb',
+        },
+        {
+            source: 16,
+            target: 48,
+            value: 1,
         },
         {
             source: 22,
             target: 46,
-            value: 2,
+            value: 1,
+            valueid: 'repb',
+        },
+        {
+            source: 22,
+            target: 46,
+            value: 1,
         },
         {
             source: 39,
             target: 54,
             value: 1,
+            valueid: 'repb',
         },
         {
             source: 39,
@@ -48,6 +85,7 @@ export const YSK14: SankeyData = {
             source: 46,
             target: 54,
             value: 1,
+            valueid: 'repb',
         },
         {
             source: 46,
@@ -63,6 +101,7 @@ export const YSK14: SankeyData = {
             source: 48,
             target: 54,
             value: 1,
+            valueid: 'repb',
         },
         {
             source: 48,
@@ -73,6 +112,7 @@ export const YSK14: SankeyData = {
             source: 54,
             target: 78,
             value: 3,
+            valueid: 'repb',
         },
         {
             source: 62,
@@ -88,16 +128,19 @@ export const YSK14: SankeyData = {
             source: 54,
             target: 84,
             value: 1,
+            valueid: 'repb',
         },
         {
             source: 54,
             target: 86,
             value: 1,
+            valueid: 'repb',
         },
         {
             source: 54,
             target: 98,
             value: 1,
+            valueid: 'repb',
         },
         {
             source: 62,
@@ -108,6 +151,7 @@ export const YSK14: SankeyData = {
             source: 70,
             target: 98,
             value: 1,
+            valueid: 'repb',
         },
     ],
     status: [

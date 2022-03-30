@@ -121,19 +121,16 @@ export const JTM11: SankeyData = {
             source: 111,
             target: 17,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 111,
             target: 18,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 111,
             target: 19,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 111,
@@ -169,19 +166,16 @@ export const JTM11: SankeyData = {
             source: 17,
             target: 49,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 18,
             target: 49,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 19,
             target: 49,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 22,
@@ -223,19 +217,16 @@ export const JTM11: SankeyData = {
             source: 49,
             target: 60,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 60,
             target: 77,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 60,
             target: 84,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 46,
