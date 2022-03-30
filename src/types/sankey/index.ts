@@ -1,8 +1,11 @@
+import { NumberLike } from '@visx/scale';
+
 export type SankeyNodeMinimal = Record<string, unknown>;
 export type SankeyLinkMinimal = {
     source?: number | string;
     target?: number | string;
     value: number;
+    valueid?: string | null;
 };
 export type SankeyStatusMinimal = {
     status: string | number | number[];
@@ -24,7 +27,7 @@ export type SankeyLink = SankeyLinkMinimal & {
     value: number;
     type?: string;
     subtype?: string;
-    valueid?: string | null | SankeyLink;
+    valueid?: string | null | number;
     color?: string;
 };
 
@@ -52,7 +55,9 @@ export type SankeyLinkExtended = SankeyLink & {
     sourceNodeLink: number;
     targetNodeLink: number;
     sourceOrderIndex: number;
-    nodeOrderIndex: number;
+    targetOrderIndex: number;
+    sourceNodeOrderIndex: number;
+    targetNodeOrderIndex: number;
 };
 
 export type SankeyStatus = {

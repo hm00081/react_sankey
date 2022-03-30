@@ -30,14 +30,17 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
             sourceNode,
             sourceNodeLink: 0, // 링크 분리를 위한 값(type) 추가  0으로 해도 상관 없음.
             targetNode,
-            targetNodeLink: targetNode.targetNodeType, // 링크 분리를 위한 값(type) 추가
+            targetNodeLink: 0, // 링크 분리를 위한 값(type) 추가
             breadth: linkBreadth ? linkBreadth : 0,
             path: '',
+            valueid: '' || undefined,
             sourceOrderIndex: 0,
-            nodeOrderIndex: 0,
+            targetOrderIndex: 0,
+            sourceNodeOrderIndex: 0,
+            targetNodeOrderIndex: 0,
         };
         // sourceNode.sourceNodeType += link.value;
-        targetNode.targetNodeType += link.value;
+        // targetNode.targetNodeType += link.value;
 
         return extendedLink;
     });
@@ -78,19 +81,20 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
     //         node3: []
     //     }
     // 딕셔너리 or 해시테이블
-    const presourceNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
+    // const presourceNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
 
-    extendedLinks.forEach((link) => {
-        // console.log(link.sourceNode.name);
-        if (link.sourceNode.name! in presourceNodeNameLinksDict) {
-            presourceNodeNameLinksDict[link.sourceNode.name!].push(link);
-        } else {
-            presourceNodeNameLinksDict[link.sourceNode.name!] = [link];
-        }
-    });
-    console.log(presourceNodeNameLinksDict); // 각 link의 모든 정보를 담은 dictionary.
+    // extendedLinks.forEach((link) => {
+    //     // console.log(link.sourceNode.name);
+    //     if (link.sourceNode.name! in presourceNodeNameLinksDict) {
+    //         presourceNodeNameLinksDict[link.sourceNode.name!].push(link);
+    //     } else {
+    //         presourceNodeNameLinksDict[link.sourceNode.name!] = [link];
+    //     }
+    // });
+    // console.log(presourceNodeNameLinksDict); // 각 link의 모든 정보를 담은 dictionary.
 
     // console.log(extendedLinks[0].sourceNode.name);
+    // valueid가 빈 string ''이 아닌 애들을 우선순위로 두기.
     // 딕셔너리 or 해시테이블
     const sourceNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
     // console.log(sourceNodeNameLinksDict);
@@ -98,20 +102,58 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
         // console.log(link.sourceNode.name);
         if (link.sourceNode.name! in sourceNodeNameLinksDict) {
             sourceNodeNameLinksDict[link.sourceNode.name!].push(link);
+            // sourceNodeNameLinksDict[link.targetNode.name!].push(link);
         } else {
             sourceNodeNameLinksDict[link.sourceNode.name!] = [link];
         }
     });
+
+    // const targetNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
+    // extendedLinks.forEach((link) => {
+    //     // console.log(link.sourceNode.name);
+    //     if (link.targetNode.name! in sourceNodeNameLinksDict) {
+    //         targetNodeNameLinksDict[link.targetNode.name!].push(link);
+    //     } else {
+    //         targetNodeNameLinksDict[link.targetNode.name!] = [link];
+    //     }
+    // });
+
+    // console.log(sourceNodeNameLinksDict);
     // sort [key, value] entries.
     for (const [nodeName, linksOfNode] of Object.entries(sourceNodeNameLinksDict)) {
         linksOfNode.sort((a, b) => b.value - a.value);
+        linksOfNode.sort(function (a, b) {
+            return a.valueid && b.valueid === 'repb' ? 0 : a.valueid ? -1 : 1;
+        });
+
         linksOfNode.forEach((link, orderIndex) => {
             link.sourceNodeLink = link.sourceNode.sourceNodeType;
             link.sourceNode.sourceNodeType += link.value;
-            link.nodeOrderIndex = link.sourceNode.value;
+            link.sourceNodeOrderIndex = link.sourceNode.value;
             link.sourceOrderIndex = orderIndex;
         });
     }
+
+    for (const [nodeName, linksOfNode] of Object.entries(sourceNodeNameLinksDict)) {
+        linksOfNode.sort(function (a, b) {
+            return a.valueid && b.valueid === 'repb' ? 0 : a.valueid ? -1 : 1;
+        });
+        linksOfNode.sort((a, b) => b.value - a.value);
+
+        linksOfNode.forEach((link, orderIndex) => {
+            link.targetNodeLink = link.targetNode.targetNodeType;
+            link.targetNode.targetNodeType += link.value;
+            link.targetNodeOrderIndex = link.targetNode.value;
+            link.targetOrderIndex = orderIndex;
+        });
+    }
+
+    // for (const [nodeLinkId, linksOfValue] of Object.entries(sourceNodeNameLinksDict)) {
+    //     linksOfValue.sort((a, b) => b.value - a.value);
+    //     linksOfValue.forEach((link, orderIndex) => {
+    //         link.sourceNodeLink = link.sourceNode.sourceNodeType;
+    //     })
+    // }
 
     extendedLinks.forEach((link) => {
         // source, targetCenter는 link의 좌표를 나타냄

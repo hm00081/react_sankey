@@ -109,7 +109,7 @@ export const CAA20: SankeyData = {
             source: 100,
             target: 9,
             value: 1,
-            valueid: 'repb',
+            valueid: 'repb', // 강
         },
         {
             source: 100,
@@ -175,6 +175,7 @@ export const CAA20: SankeyData = {
             source: 36,
             target: 59,
             value: 1,
+            valueid: 'repb',
         },
         {
             source: 39,
@@ -252,7 +253,6 @@ export const CAA20: SankeyData = {
             source: 75,
             target: 98,
             value: 1,
-            valueid: 'repb',
         },
     ],
 

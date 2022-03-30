@@ -109,111 +109,109 @@ export const CSL12: SankeyData = {
             source: 11,
             target: 39,
             value: 1,
+            valueid: '',
         }, // a[0]
         {
             source: 11,
             target: 45,
             value: 1,
+            valueid: '',
         }, // a[1]
         {
             source: 13,
             target: 45,
             value: 1,
+            valueid: '',
         }, // a[2]
         {
             source: 13,
             target: 48,
             value: 1,
+            valueid: '',
         }, // a[3]
         {
             source: 16,
             target: 43,
             value: 1,
+            valueid: '',
         }, // a[4]
         {
             source: 16,
             target: 48,
             value: 1,
+            valueid: '',
         }, // a[5]
         {
             source: 28,
             target: 46,
             value: 1,
+            valueid: '',
         }, // a[6]
         {
             source: 39,
             target: 55,
             value: 1,
+            valueid: '',
         }, // a[7]
         {
             source: 45,
             target: 55,
             value: 1,
+            valueid: '',
         }, // a[8]
         {
             source: 39,
             target: 62,
             value: 1,
+            valueid: '',
         }, // a[9]
         {
             source: 43,
             target: 62,
             value: 1,
+            valueid: '',
         }, // a[10]
         {
             source: 48,
             target: 62,
             value: 1,
+            valueid: '',
         }, // a[11]
         {
             source: 46,
             target: 70,
             value: 1,
+            valueid: '',
         }, // a[12]
         {
             source: 55,
             target: 77,
             value: 1,
+            valueid: '',
         }, // a[13]
-        // {
-        //     source: 77,
-        //     target: 77,
-        //     value: 1,
-        // }, // a[13]
         {
             source: 62,
             target: 79,
             value: 1,
+            valueid: '',
         }, // a[14]
-        // {
-        //     source: 79,
-        //     target: 79,
-        //     value: 1,
-        // }, // a[13]
         {
             source: 62,
             target: 80,
             value: 1,
+            valueid: '',
         }, // a[15]
-        // {
-        //     source: 80,
-        //     target: 80,
-        //     value: 1,
-        // }, // a[13]
         {
             source: 62,
             target: 84,
             value: 1,
+            valueid: '',
         }, // a[16]
-        // {
-        //     source: 84,
-        //     target: 84,
-        //     value: 1,
-        // }, // a[13]
         {
             source: 62,
             target: 88,
             value: 1,
+            valueid: '',
         }, // a[17]
         // {
         //     source: 88,
@@ -224,22 +222,14 @@ export const CSL12: SankeyData = {
             source: 55,
             target: 85,
             value: 1,
+            valueid: '',
         }, // a[18]
-        // {
-        //     source: 85,
-        //     target: 85,
-        //     value: 1,
-        // }, // a[13]
         {
             source: 70,
             target: 98,
             value: 1,
+            valueid: '',
         }, // a[19]
-        // {
-        //     source: 98,
-        //     target: 98,
-        //     value: 1,
-        // }, // a[13]
     ],
     status: [
         {
