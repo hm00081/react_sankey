@@ -378,10 +378,11 @@ const repb = {
         function hasLinkInGroup(wantedLink: SankeyLink, linkGroup: SankeyLink[]) {
             let hasLink: boolean = false;
             for (let i = 0; i < linkGroup.length; i++) {
-                if (wantedLink.valueid === 'repb') {
+                if (wantedLink.path === linkGroup[i].path && wantedLink.valueid === 'repb') {
                     hasLink = true;
                 } else hasLink = false;
             }
+
             return hasLink;
         }
     }),
@@ -389,7 +390,7 @@ const repb = {
     //@ts-ignore
     status: Status[7],
 };
-console.log(repb);
+
 // const RepBss = () => {
 //     for (let i = 0; i < AllPaperDatas.length; i++) {
 //         RepBs;

@@ -401,6 +401,7 @@ const RepBs: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, val
     const target = result.find((r) => r.source === value.source && r.target === value.target);
     //@ts-ignore
     const repb = result.find((r) => r.source === value.source && r.target === value.target && r.value === value.value && (r.valueid === value.valueid) === 'repb');
+    // const repb = result.find((r) => r.source === value.source && r.target === value.target && r.valueid === 'repb'); //흐름 보이는데 이건 절대아님.
     //@ts-ignore
     // if (repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
     //@ts-ignore
@@ -409,7 +410,7 @@ const RepBs: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, val
     else repb.value += 1;
     return result;
 }, []);
-console.log(RepBs);
+console.log(RepBs); // 이거 지금 100~149 노드에서 나오는 모든 링크 차례대로 정리되고 있는 상태이다.
 //@ts-ignore
 const RepCs = [].concat.apply([], RepC).reduce((result, value) => {
     //@ts-ignore

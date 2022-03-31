@@ -1,6 +1,6 @@
 // Types
 import { path } from 'd3-path';
-import { SankeyLinkExtended, SankeyNodeExtended, SankeyLink } from '../../types/sankey';
+import { SankeyLinkExtended, SankeyNodeExtended, SankeyData } from '../../types/sankey';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
@@ -22,10 +22,13 @@ const Path = styled(motion.path)`
 // Props
 type Props = {
     link: SankeyLinkExtended;
-    links: SankeyLink[];
+    links: SankeyLinkExtended[];
+    // links: SankeyLink[];
     node: SankeyNodeExtended;
+    nodes: SankeyNodeExtended[];
     color: string;
     valueid?: string;
+    data: SankeyData;
 };
 
 const linkVariants = {
@@ -48,13 +51,48 @@ const linkVariants = {
 // const colors = `hsl(210, 80%, 0%)`;
 
 // Component
-export const Link = ({ node, link }: Props) => {
+export const Link = ({ node, nodes, link }: Props) => {
     const gradId = `grad-${link.source}-${link.target}`;
     const [leaving, setLeaving] = useState<boolean>(false);
     const [hover, setHover] = useState(false);
     const onMouseOver = () => setHover(true);
     const onMouseLeave = () => setHover(false);
     const toggleLeaving = () => setLeaving((prev) => !prev);
+
+    // const extendedLinks = links.map((link) => {
+    //     const sourceNode = nodes.filter((node) => node.index === link.source)[0];
+    //     const targetNode = nodes.filter((node) => node.index === link.target)[0];
+    //     const valueid = link.valueid;
+    //     const extendedLink: SankeyLinkExtended = {
+    //         ...link,
+    //         sourceNode,
+    //         sourceNodeLink: 0, // 링크 분리를 위한 값(type) 추가  0으로 해도 상관 없음.
+    //         targetNode,
+    //         valueid,
+    //         targetNodeLink: 0, // 링크 분리를 위한 값(type) 추가
+
+    //         path: '',
+    //         sourceOrderIndex: 0,
+    //         targetOrderIndex: 0,
+    //         sourceNodeOrderIndex: 0,
+    //         targetNodeOrderIndex: 0,
+    //     };
+    //     // sourceNode.sourceNodeType += link.value;
+    //     // targetNode.targetNodeType += link.value;
+
+    //     return extendedLink;
+    // });
+    // link로 새로운 딕셔너리 만들어서 각 link간의 연결성 구하고
+    const linkDict: { [node: string]: SankeyLinkExtended[] } = {};
+    // // console.log(link.sourceNode.name);
+    // links.forEach((link) => {
+    //     if (link.sourceNode.name! in linkDict) {
+    //         linkDict[link.sourceNode.name!].push(link);
+    //     } else {
+    //         linkDict[link.sourceNode.name!] = [link];
+    //     }
+    // });
+
     const word = <ParentSize>{({ width, height }) => <Word width={width} height={height} />}</ParentSize>;
     // console.log(link.value);
     return (

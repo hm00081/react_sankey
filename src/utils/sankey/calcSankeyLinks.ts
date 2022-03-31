@@ -128,9 +128,44 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
     //     }
     // });
 
-    // console.log(sourceNodeNameLinksDict);
     // sort [key, value] entries.
     for (const [nodeName, linksOfNode] of Object.entries(sourceNodeNameLinksDict)) {
+        // linksOfNode.sort((a, b) => b.value - a.value);
+        linksOfNode.sort((a, b) => {
+            let tempNumber = 0;
+            // if (a.valueid === 'repb' || a.valueid === 'repea') {
+            //     if (b.valueid === 'repb' || b.valueid === 'repea') {
+            if (a.valueid === 'repb') {
+                if (b.valueid === 'repb') {
+                    tempNumber = b.value - a.value;
+                } else {
+                    tempNumber = -1;
+                    // tempNumber = a.value - b.value;
+                }
+            } else {
+                // if (b.valueid === 'repb' || b.valueid === 'repea') {
+                if (b.valueid === 'repb') {
+                    tempNumber = 1;
+                } else {
+                    tempNumber = b.value - a.value;
+                }
+            }
+            return tempNumber;
+        });
+        linksOfNode.forEach((link, orderIndex) => {
+            link.sourceNodeLink = link.sourceNode.sourceNodeType;
+            link.sourceNode.sourceNodeType += link.value;
+            link.sourceNodeOrderIndex = link.sourceNode.value;
+            link.sourceOrderIndex = orderIndex;
+        });
+    }
+    console.log(sourceNodeNameLinksDict);
+    // 각 논문축의 sourcenode & targetvalue => 논문의 targeetvalue == target의 source  === .....~~~~~ 계속 이런식으로 줄다리기.
+
+    for (const [nodeName, linksOfNode] of Object.entries(targetNodeNameLinksDict)) {
+        // linksOfNode.sort(function (a, b) {
+        //     return a.valueid && b.valueid === 'repb' ? 0 : a.valueid ? -1 : 1;
+        // });
         // linksOfNode.sort((a, b) => b.value - a.value);
         linksOfNode.sort((a, b) => {
             let tempNumber = 0;
@@ -150,21 +185,6 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
             }
             return tempNumber;
         });
-        linksOfNode.forEach((link, orderIndex) => {
-            link.sourceNodeLink = link.sourceNode.sourceNodeType;
-            link.sourceNode.sourceNodeType += link.value;
-            link.sourceNodeOrderIndex = link.sourceNode.value;
-            link.sourceOrderIndex = orderIndex;
-        });
-    }
-
-    console.log(sourceNodeNameLinksDict);
-
-    for (const [nodeName, linksOfNode] of Object.entries(targetNodeNameLinksDict)) {
-        // linksOfNode.sort(function (a, b) {
-        //     return a.valueid && b.valueid === 'repb' ? 0 : a.valueid ? -1 : 1;
-        // });
-        linksOfNode.sort((a, b) => b.value - a.value);
 
         linksOfNode.forEach((link, orderIndex) => {
             link.targetNodeLink = link.targetNode.targetNodeType;

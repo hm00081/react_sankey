@@ -56,7 +56,7 @@ export default function FinalSankey() {
     const [state, setState] = useState(0);
     const [clicks, setClicks] = useState();
     const [repbSelected, setRepbSelected] = useState();
-    const [color, setColor] = useState(`hsl(0, 0%, 30%)`);
+    // const [color, setColor] = useState(`hsl(0, 0%, 30%)`);
     const [item, setItem] = useState(datas);
     const [difItem, setDifItem] = useState(datas);
     // const clickMe = () => {

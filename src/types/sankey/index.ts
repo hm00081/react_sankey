@@ -29,6 +29,7 @@ export type SankeyLink = SankeyLinkMinimal & {
     subtype?: string;
     valueid?: string | null | number;
     color?: string;
+    path?: string;
 };
 
 export type SankeyNodeExtended = SankeyNode & {
