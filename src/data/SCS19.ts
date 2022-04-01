@@ -4,8 +4,8 @@ export const SCS19: SankeyData = {
     nodes: [],
 
     links: [
-        { source: 129, target: 2, value: 1, valueid: 'repb' },
-        { source: 129, target: 4, value: 1, valueid: 'repb' },
+        { source: 129, target: 2, value: 0.5, valueid: 'repb' },
+        { source: 129, target: 4, value: 0.5, valueid: 'repb' },
         { source: 129, target: 11, value: 1, valueid: 'repb' },
         { source: 129, target: 11, value: 1, valueid: 'repa' },
         { source: 129, target: 16, value: 2, valueid: 'repa' },
@@ -16,8 +16,8 @@ export const SCS19: SankeyData = {
         { source: 129, target: 22, value: 1 },
         { source: 129, target: 24, value: 1 },
         { source: 129, target: 27, value: 1 },
-        { source: 2, target: 48, value: 1, valueid: 'repb' },
-        { source: 4, target: 48, value: 1, valueid: 'repb' },
+        { source: 2, target: 48, value: 0.5, valueid: 'repb' },
+        { source: 4, target: 48, value: 0.5, valueid: 'repb' },
         { source: 11, target: 44, value: 1, valueid: 'repa' },
         { source: 11, target: 46, value: 1, valueid: 'repb' },
         { source: 16, target: 44, value: 1, valueid: 'repa' },

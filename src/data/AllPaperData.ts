@@ -51,7 +51,7 @@ import { BN11B } from './BN11B';
 import { MLG06 } from './MLG06';
 import { FA20 } from './FA20';
 import { WHWS12 } from './WHWS12';
-import { SankeyLink } from '../types';
+import { SankeyLink, SankeyLinkExtended } from '../types';
 
 import { link } from 'fs';
 
@@ -396,16 +396,16 @@ const RepAs: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, val
 // }, []);
 
 //@ts-ignore
-const RepBs: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, value) => {
+const RepBs: SankeyLinkExtended[] = [].concat.apply([], PaperString).reduce((result, value) => {
     //@ts-ignore
     const target = result.find((r) => r.source === value.source && r.target === value.target);
-    //@ts-ignore
+    // @ts-ignore
     const repb = result.find((r) => r.source === value.source && r.target === value.target && r.value === value.value && (r.valueid === value.valueid) === 'repb');
     // const repb = result.find((r) => r.source === value.source && r.target === value.target && r.valueid === 'repb'); //흐름 보이는데 이건 절대아님.
     //@ts-ignore
     // if (repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
     //@ts-ignore
-    if (!repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+    if (!repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid, sourceNodeLink: value.sourceNodeLink });
     //@ts-ignore
     else repb.value += 1;
     return result;

@@ -21,6 +21,8 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
         const sourceNode = nodes.filter((node) => node.index === link.source)[0];
         const targetNode = nodes.filter((node) => node.index === link.target)[0];
         const valueid = link.valueid;
+        const color = link.color;
+        const overlapid = link.overlapid;
         const breadth = (link.value / totalValue) * height;
         const maxBreadth = proportionalMaxLinkBreadth ? Math.min(breadth, proportionalMaxLinkBreadth) : breadth;
         const minBreadth = proportionalMinLinkBreadth ? Math.max(breadth, proportionalMinLinkBreadth) : breadth;
@@ -38,6 +40,8 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
             targetOrderIndex: 0,
             sourceNodeOrderIndex: 0,
             targetNodeOrderIndex: 0,
+            overlapid,
+            color,
         };
         // sourceNode.sourceNodeType += link.value;
         // targetNode.targetNodeType += link.value;
@@ -46,6 +50,7 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
     });
     // console.log(extendedLinks[0].valueid);
     // Calculate the path based on the positions of source and target node
+
     extendedLinks.forEach((link) => {
         if (link.sourceNode.x === link.targetNode.x) {
             // console.log(link.sourceNode.subtype);
@@ -131,28 +136,44 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
     // sort [key, value] entries.
     for (const [nodeName, linksOfNode] of Object.entries(sourceNodeNameLinksDict)) {
         // linksOfNode.sort((a, b) => b.value - a.value);
+        // 현재는 크기가 큰 순서대로 소팅이 되고있는 상황.
         linksOfNode.sort((a, b) => {
             let tempNumber = 0;
             // if (a.valueid === 'repb' || a.valueid === 'repea') {
             //     if (b.valueid === 'repb' || b.valueid === 'repea') {
-            if (a.valueid === 'repb') {
-                if (b.valueid === 'repb') {
-                    tempNumber = b.value - a.value;
+            if (a.color !== 'hsl(0, 0%, 80%)') {
+                if (b.color !== 'hsl(0, 0%, 80%)') {
+                    // tempNumber = b.value - a.value;
+                    //@ts-ignore
+                    tempNumber = a.target - b.target;
                 } else {
                     tempNumber = -1;
                     // tempNumber = a.value - b.value;
                 }
             } else {
                 // if (b.valueid === 'repb' || b.valueid === 'repea') {
-                if (b.valueid === 'repb') {
+                if (b.color !== 'hsl(0, 0%, 80%)') {
                     tempNumber = 1;
                 } else {
-                    tempNumber = b.value - a.value;
+                    // tempNumber = b.value - a.value;
+                    //@ts-ignore
+                    tempNumber = a.target - b.target;
                 }
             }
             return tempNumber;
         });
+        // 밸류가 큰게아닌 타겟의 넘버가 작은 순으로 들어가게 소팅에서 변경
+        // 논문 소스노드가 작은 순으로 먼저 들어가게 오더링 변경하기.
+        // 각 링크를 분리하기 위한 forEach문.
+        // sourceNode 순(숫자가 작은 순으로 배치).
         linksOfNode.forEach((link, orderIndex) => {
+            // 같은 target에서 받은 source 에서 나오는 링크들은 같은 y축(sourceOrderIndex)에서 나오게 수정하기. (노드 양쪽에서 그렇게 나오게 해야할 듯 하다.)
+            // 아래와 같이 하나의 id가 있어야만 한 노드의 위치에서 link.value가 나가야함.
+            // if(link.subvalueid === 'overlap') {
+            //     link.sourceNode.sourceNodeType = link.value;
+            // } else {
+            //     link.sourceNode.sourceNodeType += link.value;
+            // }
             link.sourceNodeLink = link.sourceNode.sourceNodeType;
             link.sourceNode.sourceNodeType += link.value;
             link.sourceNodeOrderIndex = link.sourceNode.value;
@@ -169,18 +190,20 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
         // linksOfNode.sort((a, b) => b.value - a.value);
         linksOfNode.sort((a, b) => {
             let tempNumber = 0;
-            if (a.valueid === 'repb') {
-                if (b.valueid === 'repb') {
-                    tempNumber = b.value - a.value;
+
+            if (a.color !== 'hsl(0, 0%, 80%)') {
+                if (b.color !== 'hsl(0, 0%, 80%)') {
+                    //@ts-ignore
+                    tempNumber = a.source - b.source;
                 } else {
                     tempNumber = -1;
-                    // tempNumber = a.value - b.value;
                 }
             } else {
-                if (b.valueid === 'repb') {
+                if (b.color !== 'hsl(0, 0%, 80%)') {
                     tempNumber = 1;
                 } else {
-                    tempNumber = b.value - a.value;
+                    //@ts-ignore
+                    tempNumber = a.source - b.source;
                 }
             }
             return tempNumber;
@@ -189,7 +212,10 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
         linksOfNode.forEach((link, orderIndex) => {
             link.targetNodeLink = link.targetNode.targetNodeType;
             link.targetNode.targetNodeType += link.value;
+            // targetNodeOrderIndex == 쌓이는 위치를 나타내는 변수
             link.targetNodeOrderIndex = link.targetNode.value;
+            //@ts-ignore
+            // link.targetNodeOrderIndex = link.source;
             link.targetOrderIndex = orderIndex;
         });
     }

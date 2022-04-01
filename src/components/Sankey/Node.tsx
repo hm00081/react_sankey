@@ -123,7 +123,7 @@ export const Node = ({ node, width, height }: Props) => {
         // textYPosition = textYPosition - textMargin * 3.6;
     }
     if (node.value == 0) {
-        node.value = 4;
+        node.value = 2;
     }
 
     return (

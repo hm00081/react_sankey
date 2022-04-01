@@ -10,7 +10,7 @@ import './styles.css';
 import styled from 'styled-components';
 import { useState, useEffect, useMemo } from 'react';
 import { SankeyData } from './types/sankey';
-import { SankeyLink, SankeyStatus } from '../src/types';
+import { SankeyLink, SankeyStatus, SankeyLinkExtended } from '../src/types';
 
 // Data
 import { PaperNode } from './data/PaperNode';
@@ -78,41 +78,6 @@ const datas = {
 const targetaa = {
     nodes: PaperNode.nodes.map((node) => {
         let color: string = '';
-        // Random color for each node
-        // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        // if (node.type === 'Target' && node.subtype === '0') {
-        //     color = `hsl(318, 87%, 32%)`;
-        // } else if (node.type === 'Target' && node.subtype === '1') {
-        //     color = `hsl(327, 85%, 41%)`;
-        // } else if (node.type === 'Target' && node.subtype === '2') {
-        //     color = `hsl(343, 100%, 59%)`;
-        // } else if (node.type === 'Target' && node.subtype === '3') {
-        //     color = `hsl(11, 100%, 55%)`;
-        // } else if (node.type === 'Target' && node.subtype === '4') {
-        //     color = `hsl(27, 100%, 69%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
-        //     color = `hsl(46, 100%, 60%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
-        //     color = `hsl(55, 90%, 55%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
-        //     color = `hsl(75, 77%, 42%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
-        //     color = `hsl(80, 45%, 41%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
-        //     color = `hsl(87, 50%, 61%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '0') {
-        //     color = `hsl(100, 100%, 40%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '1') {
-        //     color = `hsl(140, 100%, 40%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '2') {
-        //     color = `hsl(190, 100%, 40%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '3') {
-        //     color = `hsl(220, 100%, 40%)`;
-        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-        //     color = `hsl(250, 90%, 45%)`;
-        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-        //     color = `hsl(280, 80%, 60%)`;
-        // }
         color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
@@ -363,9 +328,9 @@ const repb = {
         // let status: string = '';
         //@ts-ignore
         if (hasLinkInGroup(link, RepBs)) {
-            color = `hsl(210, 100%, 50%)`;
+            color = `hsl(210, 100%, 50%)`; // 하늘색
         } else {
-            color = `hsl(0, 0%, 80%)`;
+            color = `hsl(0, 0%, 80%)`; // 회색
         }
         return { ...link, color };
         // 뭔가 각 link마다 식별할 수 있는 id 같은게 있으면 될것 같소 ㅋㅋ (현재 모든 value에 의해 색상이 칠해지고 있음..)
@@ -375,10 +340,10 @@ const repb = {
         // 내일은 꼭 일찍 일어나서 일찍와야지 그냥.
         // dict로 다양한 활용방법 생각해보기.
         // AllPaperData와 CalcSankey는 문제없어 보임. 뭐가 문젤까.....
-        function hasLinkInGroup(wantedLink: SankeyLink, linkGroup: SankeyLink[]) {
+        function hasLinkInGroup(wantedLink: SankeyLinkExtended, linkGroup: SankeyLinkExtended[]) {
             let hasLink: boolean = false;
             for (let i = 0; i < linkGroup.length; i++) {
-                if (wantedLink.path === linkGroup[i].path && wantedLink.valueid === 'repb') {
+                if (wantedLink.sourceNodeLink === linkGroup[i].sourceNodeLink && wantedLink.valueid === 'repb') {
                     hasLink = true;
                 } else hasLink = false;
             }

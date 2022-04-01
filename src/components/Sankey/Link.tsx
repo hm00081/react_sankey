@@ -95,6 +95,8 @@ export const Link = ({ node, nodes, link }: Props) => {
 
     const word = <ParentSize>{({ width, height }) => <Word width={width} height={height} />}</ParentSize>;
     // console.log(link.value);
+    // linearGradient id 안에 path에 저장
+    // how to merge condition path ??
     return (
         <>
             <linearGradient id={gradId}>
