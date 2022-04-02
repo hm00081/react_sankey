@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const YSK14: SankeyData = {
+const YSK14: SankeyData = {
     nodes: [],
 
     links: [
@@ -8,12 +8,17 @@ export const YSK14: SankeyData = {
             source: 141,
             target: 11,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 141,
             target: 11,
             value: 1,
+            valueid: 'repb',
+        },
+        {
+            source: 141,
+            target: 16,
+            value: 1,
         },
         {
             source: 141,
@@ -23,7 +28,7 @@ export const YSK14: SankeyData = {
         },
         {
             source: 141,
-            target: 16,
+            target: 22,
             value: 1,
         },
         {
@@ -33,8 +38,8 @@ export const YSK14: SankeyData = {
             valueid: 'repb',
         },
         {
-            source: 141,
-            target: 22,
+            source: 11,
+            target: 39,
             value: 1,
         },
         {
@@ -42,11 +47,6 @@ export const YSK14: SankeyData = {
             target: 39,
             value: 1,
             valueid: 'repb',
-        },
-        {
-            source: 11,
-            target: 39,
-            value: 1,
         },
         {
             source: 16,
@@ -60,9 +60,9 @@ export const YSK14: SankeyData = {
             value: 1,
         },
         {
-            source: 22,
+            source: 24,
             target: 46,
-            value: 1,
+            value: 2,
             valueid: 'repb',
         },
         {
@@ -96,12 +96,12 @@ export const YSK14: SankeyData = {
             source: 46,
             target: 70,
             value: 1,
+            valueid: 'repb',
         },
         {
             source: 48,
             target: 54,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 48,
@@ -111,41 +111,67 @@ export const YSK14: SankeyData = {
         {
             source: 54,
             target: 78,
-            value: 3,
+            value: 1,
             valueid: 'repb',
+            overlapid: 'overlap',
+        },
+        {
+            source: 54,
+            target: 78,
+            value: 1,
+            valueid: 'repb',
+            overlapid: 'overlap',
+        },
+        {
+            source: 54,
+            target: 78,
+            value: 1,
+            valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 62,
             target: 76,
             value: 2,
+            overlapid: 'overlap',
         },
         {
             source: 62,
             target: 77,
-            value: 2,
+            value: 1,
+        },
+        {
+            source: 62,
+            target: 77,
+            value: 1,
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 84,
             value: 1,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 86,
             value: 1,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 98,
             value: 1,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 62,
             target: 98,
             value: 1,
+            overlapid: 'overlap',
         },
         {
             source: 70,
@@ -160,3 +186,10 @@ export const YSK14: SankeyData = {
         },
     ],
 };
+
+YSK14.links.map((link, index) => {
+    link.paperName = 'YSK14';
+    link.id = `YSK14-${index}`;
+});
+
+export { YSK14 };

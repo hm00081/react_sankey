@@ -1,113 +1,136 @@
 // Types
-import { path } from 'd3-path';
-import { SankeyLinkExtended, SankeyNodeExtended, SankeyData } from '../../types/sankey';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import ParentSize from '@visx/responsive/lib/components/ParentSizeModern';
-import Word from '../WordCloud/Word';
+import { SankeyLinkExtended, SankeyNodeExtended, SankeyData, SankeyLink } from '../../types/sankey';
 import './sandbox-styles.css';
-import ReactWordcloud from 'react-wordcloud';
+import { FC } from 'react';
+import { Utility } from '../../utils/sankey/basics';
+import { SourceTargetIdLinksDict } from './Sankey';
 
-const WordCloud = styled.div`
-    width: 100px;
-    height: 100px;
-    background: white;
-`;
+export const LinkGrayColor: FC = () => (
+    <linearGradient id="grayLinkColor">
+        <stop offset="100%" stopColor={'hsl(0, 0%, 80%)'} />
+        <stop offset="100%" stopColor={'hsl(0, 0%, 80%)'} />
+    </linearGradient>
+);
 
-const Path = styled(motion.path)`
-    background-color: white;
-`;
+export const LinkBlueColor: FC = () => (
+    <linearGradient id="blueLinkColor">
+        <stop offset="100%" stopColor={'hsl(210, 100%, 50%)'} />
+        <stop offset="100%" stopColor={'hsl(210, 100%, 50%)'} />
+    </linearGradient>
+);
+
+export const LinkLightBlueColor: FC = () => (
+    <linearGradient id="lightBlueLinkColor">
+        <stop offset="100%" stopColor={'hsl(210, 100%, 80%)'} />
+        <stop offset="100%" stopColor={'hsl(210, 100%, 80%)'} />
+    </linearGradient>
+);
 
 // Props
-type Props = {
+interface Props {
     link: SankeyLinkExtended;
-    links: SankeyLinkExtended[];
-    // links: SankeyLink[];
-    node: SankeyNodeExtended;
-    nodes: SankeyNodeExtended[];
-    color: string;
-    valueid?: string;
-    data: SankeyData;
-};
-
-const linkVariants = {
-    normal: {
-        scale: 1,
-    },
-    hover: {
-        scale: 1,
-
-        transition: {
-            delay: 5,
-            duaration: 10,
-            type: 'tween',
-        },
-        background: 'white',
-    },
-};
-
-// const color = `hsl(210, 80%, 0%)`;
-// const colors = `hsl(210, 80%, 0%)`;
+    originData: SankeyData;
+    setOriginData: React.Dispatch<React.SetStateAction<SankeyData>>;
+    sourceTargetIdLinksDict: SourceTargetIdLinksDict;
+}
 
 // Component
-export const Link = ({ node, nodes, link }: Props) => {
-    const gradId = `grad-${link.source}-${link.target}`;
-    const [leaving, setLeaving] = useState<boolean>(false);
-    const [hover, setHover] = useState(false);
-    const onMouseOver = () => setHover(true);
-    const onMouseLeave = () => setHover(false);
-    const toggleLeaving = () => setLeaving((prev) => !prev);
-
-    // const extendedLinks = links.map((link) => {
-    //     const sourceNode = nodes.filter((node) => node.index === link.source)[0];
-    //     const targetNode = nodes.filter((node) => node.index === link.target)[0];
-    //     const valueid = link.valueid;
-    //     const extendedLink: SankeyLinkExtended = {
-    //         ...link,
-    //         sourceNode,
-    //         sourceNodeLink: 0, // 링크 분리를 위한 값(type) 추가  0으로 해도 상관 없음.
-    //         targetNode,
-    //         valueid,
-    //         targetNodeLink: 0, // 링크 분리를 위한 값(type) 추가
-
-    //         path: '',
-    //         sourceOrderIndex: 0,
-    //         targetOrderIndex: 0,
-    //         sourceNodeOrderIndex: 0,
-    //         targetNodeOrderIndex: 0,
-    //     };
-    //     // sourceNode.sourceNodeType += link.value;
-    //     // targetNode.targetNodeType += link.value;
-
-    //     return extendedLink;
-    // });
-    // link로 새로운 딕셔너리 만들어서 각 link간의 연결성 구하고
-    const linkDict: { [node: string]: SankeyLinkExtended[] } = {};
-    // // console.log(link.sourceNode.name);
-    // links.forEach((link) => {
-    //     if (link.sourceNode.name! in linkDict) {
-    //         linkDict[link.sourceNode.name!].push(link);
-    //     } else {
-    //         linkDict[link.sourceNode.name!] = [link];
-    //     }
-    // });
-
-    const word = <ParentSize>{({ width, height }) => <Word width={width} height={height} />}</ParentSize>;
-    // console.log(link.value);
-    // linearGradient id 안에 path에 저장
-    // how to merge condition path ??
+export const Link = ({ link, originData, sourceTargetIdLinksDict, setOriginData }: Props) => {
     return (
         <>
-            <linearGradient id={gradId}>
-                <stop offset="0%" stopColor={link.color} />
-                <stop offset="100%" stopColor={link.color} />
-            </linearGradient>
-            <AnimatePresence initial={false}>
-                <Path whileHover="hover" initial="normal" transition={{ type: 'tween' }} variants={linkVariants} d={link.path} stroke={`url(#${gradId})`} strokeWidth={link.value} fill="none">
-                    <title>{`${link.sourceNode.name} to ${link.targetNode.name}: ${link.value}`}</title>
-                </Path>
-            </AnimatePresence>
+            <path
+                className="link"
+                d={link.path}
+                stroke={`url(#${link.color})`}
+                strokeWidth={link.value}
+                fill="none"
+                onClick={() => {
+                    console.log('clicked link', link);
+
+                    const renderingData: SankeyData = { ...originData };
+                    renderingData.positionStatus = 'clicked';
+                    renderingData.links = renderingData.links.map((link) => {
+                        return { ...link };
+                    });
+
+                    const selectedLinkParts = sourceTargetIdLinksDict[`${link.source}-${link.target}-${link.valueid}`];
+
+                    renderingData.links.forEach((renderingLink) => {
+                        // if (renderingLink.color === `blueLinkColor`) {
+                        //     renderingLink.color = 'lightBlueLinkColor';
+                        // } else {
+                        //     renderingLink.color = 'grayLinkColor';
+                        // }
+                        renderingLink.color = 'grayLinkColor';
+
+                        renderingLink.valueid = undefined;
+
+                        selectedLinkParts.forEach((linkPart) => {
+                            if (renderingLink.id && renderingLink.id === linkPart.id) {
+                                renderingLink.color = `blueLinkColor`;
+                                renderingLink.valueid = 'selected';
+                            }
+                        });
+                    });
+
+                    selectedLinkParts.forEach((selectedLinkPart) => {
+                        findFrontLinks({
+                            linkPart: selectedLinkPart,
+                            renderingData,
+                        });
+                        findBackLinks({
+                            linkPart: selectedLinkPart,
+                            renderingData,
+                        });
+                    });
+
+                    setOriginData(renderingData);
+                }}
+            >
+                <title>{`${link.sourceNode.name} to ${link.targetNode.name}: ${link.value}`}</title>
+            </path>
         </>
     );
 };
+
+function findFrontLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData }) {
+    const { linkPart, renderingData } = arg;
+
+    const frontLinks = renderingData.links.filter((renderingLink) => {
+        if (renderingLink.target === linkPart.source && renderingLink.paperName === linkPart.paperName) {
+            renderingLink.color = `blueLinkColor`;
+            renderingLink.valueid = 'selected';
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+    frontLinks.forEach((linkPart) => {
+        findFrontLinks({
+            linkPart,
+            renderingData,
+        });
+    });
+}
+
+function findBackLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData }) {
+    const { linkPart, renderingData } = arg;
+
+    const backLinks = renderingData.links.filter((renderingLink) => {
+        if (renderingLink.source === linkPart.target && renderingLink.paperName === linkPart.paperName) {
+            renderingLink.color = `blueLinkColor`;
+            renderingLink.valueid = 'selected';
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+    backLinks.forEach((linkPart) => {
+        findBackLinks({
+            linkPart,
+            renderingData,
+        });
+    });
+}

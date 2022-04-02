@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const GYS14: SankeyData = {
+const GYS14: SankeyData = {
     nodes: [],
 
     links: [
@@ -33,12 +33,14 @@ export const GYS14: SankeyData = {
             target: 39,
             value: 1,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 11,
             target: 39,
             value: 1,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 11,
@@ -105,29 +107,40 @@ export const GYS14: SankeyData = {
             target: 76,
             value: 4,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 77,
             value: 4,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 78,
             value: 2,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 80,
             value: 4,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 92,
-            value: 5,
+            value: 4,
+            valueid: 'repb',
+            overlapid: 'overlap',
+        },
+        {
+            source: 54,
+            target: 92,
+            value: 1,
             valueid: 'repb',
         },
         {
@@ -143,3 +156,10 @@ export const GYS14: SankeyData = {
         },
     ],
 };
+
+GYS14.links.map((link, index) => {
+    link.paperName = 'GYS14';
+    link.id = `GYS14-${index}`;
+});
+
+export { GYS14 };

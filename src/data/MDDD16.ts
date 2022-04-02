@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const MDDD16: SankeyData = {
+const MDDD16: SankeyData = {
     nodes: [],
 
     links: [
@@ -27,6 +27,7 @@ export const MDDD16: SankeyData = {
             target: 45,
             value: 2,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 12,
@@ -39,6 +40,7 @@ export const MDDD16: SankeyData = {
             target: 45,
             value: 2,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 23,
@@ -81,18 +83,21 @@ export const MDDD16: SankeyData = {
             target: 77,
             value: 2,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 78,
             value: 1,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 92,
             value: 1,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 70,
@@ -107,3 +112,10 @@ export const MDDD16: SankeyData = {
         },
     ],
 };
+
+MDDD16.links.map((link, index) => {
+    link.paperName = 'MDDD16';
+    link.id = `MDDD16-${index}`;
+});
+
+export { MDDD16 };

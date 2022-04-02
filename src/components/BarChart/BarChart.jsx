@@ -9,7 +9,7 @@ import { timeFormat, timeParse } from 'd3-time-format';
 import { useTooltip, useTooltipInPortal, defaultStyles } from '@visx/tooltip';
 import { LegendOrdinal } from '@visx/legend';
 import { ResponsiveBar } from '@nivo/bar';
-import { datas, targetaa, targetab, targetba, targetbb, targetca, repa, repb, repc, repd, repea, repeb, repf, empty } from '../../Data';
+import { basicData, targetaa, targetab, targetba, targetbb, targetca, repa, repb, repc, repd, repea, repeb, repf, empty } from '../../Data';
 import './index.css';
 
 // Props
@@ -43,7 +43,7 @@ import './index.css';
 //     left: number;
 // }
 
-console.log(datas.links[0]);
+console.log(basicData.links[0]);
 
 const darkGreen = '#017300';
 const green = '#01c88d';

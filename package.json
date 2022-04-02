@@ -73,6 +73,7 @@
     "devDependencies": {
         "@types/rebass": "^4.0.10",
         "@types/styled-components": "^5.1.21",
-        "react-scripts": "^5.0.0"
+        "react-scripts": "^5.0.0",
+        "ts-node": "^10.7.0"
     }
 }

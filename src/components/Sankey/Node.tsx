@@ -4,7 +4,6 @@ import './Sankey.css';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from './Link';
 // styled
-import { AnimatePresence, motion } from 'framer-motion';
 import styled from 'styled-components';
 
 //@ts-ignore

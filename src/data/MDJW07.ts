@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const MDJW07: SankeyData = {
+const MDJW07: SankeyData = {
     nodes: [],
 
     links: [
@@ -58,12 +58,7 @@ export const MDJW07: SankeyData = {
             target: 34,
             value: 1,
             valueid: 'repb',
-        },
-        {
-            source: 13,
-            target: 49,
-            value: 1,
-            valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 13,
@@ -71,21 +66,28 @@ export const MDJW07: SankeyData = {
             value: 2,
         },
         {
+            source: 13,
+            target: 49,
+            value: 1,
+            valueid: 'repb',
+        },
+        {
             source: 14,
             target: 34,
             value: 1,
             valueid: 'repb',
+            overlapid: 'overlap',
+        },
+        {
+            source: 14,
+            target: 49,
+            value: 1,
         },
         {
             source: 14,
             target: 49,
             value: 1,
             valueid: 'repb',
-        },
-        {
-            source: 14,
-            target: 49,
-            value: 1,
         },
         {
             source: 23,
@@ -132,7 +134,14 @@ export const MDJW07: SankeyData = {
         {
             source: 54,
             target: 77,
-            value: 3,
+            value: 2,
+            valueid: 'repb',
+            overlapid: 'overlap',
+        },
+        {
+            source: 54,
+            target: 77,
+            value: 1,
             valueid: 'repb',
         },
         {
@@ -140,21 +149,41 @@ export const MDJW07: SankeyData = {
             target: 78,
             value: 2,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 60,
             target: 77,
-            value: 2,
+            value: 1,
+            overlapid: 'overlap',
+        },
+        {
+            source: 60,
+            target: 77,
+            value: 1,
         },
         {
             source: 60,
             target: 81,
-            value: 2,
+            value: 1,
+            overlapid: 'overlap',
+        },
+        {
+            source: 60,
+            target: 81,
+            value: 1,
         },
         {
             source: 54,
             target: 86,
-            value: 3,
+            value: 2,
+            valueid: 'repb',
+            overlapid: 'overlap',
+        },
+        {
+            source: 54,
+            target: 86,
+            value: 1,
             valueid: 'repb',
         },
         {
@@ -185,3 +214,10 @@ export const MDJW07: SankeyData = {
         },
     ],
 };
+
+MDJW07.links.map((link, index) => {
+    link.paperName = 'MDJW07';
+    link.id = `MDJW07-${index}`;
+});
+
+export { MDJW07 };

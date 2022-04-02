@@ -9,7 +9,7 @@ import { Sankey } from './components/Sankey';
 import './styles.css';
 import styled from 'styled-components';
 import { useState, useEffect, useMemo } from 'react';
-import { SankeyData } from './types/sankey';
+import { LinkColor, SankeyData } from './types/sankey';
 import { SankeyLink, SankeyStatus, SankeyLinkExtended } from '../src/types';
 
 // Data
@@ -28,54 +28,22 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 // console.log(Status.length);
 //@ts-ignore
 const LinkData = [AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys];
-const datas = {
+const basicData: SankeyData = {
     nodes: PaperNode.nodes.map((node) => {
         let color: string = '';
-        // Random color for each node
-        // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        // if (node.type === 'Target' && node.subtype === '0') {
-        //     color = `hsl(311, 87%, 32%)`;
-        // } else if (node.type === 'Target' && node.subtype === '1') {
-        //     color = `hsl(327, 85%, 41%)`;
-        // } else if (node.type === 'Target' && node.subtype === '2') {
-        //     color = `hsl(343, 100%, 59%)`;
-        // } else if (node.type === 'Target' && node.subtype === '3') {
-        //     color = `hsl(11, 100%, 55%)`;
-        // } else if (node.type === 'Target' && node.subtype === '4') {
-        //     color = `hsl(27, 100%, 69%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
-        //     color = `hsl(46, 100%, 60%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
-        //     color = `hsl(55, 90%, 55%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
-        //     color = `hsl(75, 77%, 42%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
-        //     color = `hsl(80, 45%, 41%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
-        //     color = `hsl(87, 50%, 61%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '0') {
-        //     color = `hsl(100, 100%, 40%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '1') {
-        //     color = `hsl(140, 100%, 40%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '2') {
-        //     color = `hsl(190, 100%, 40%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '3') {
-        //     color = `hsl(220, 100%, 40%)`;
-        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-        //     color = `hsl(250, 90%, 45%)`;
-        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-        //     color = `hsl(280, 80%, 60%)`;
-        // }
         color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
     }),
     links: LinkData[0],
+
     //@ts-ignore
     status: Status[0],
+
+    positionStatus: 'init',
 };
 
-const targetaa = {
+const targetaa: SankeyData = {
     nodes: PaperNode.nodes.map((node) => {
         let color: string = '';
         color = `hsl(0, 0%, 30%)`;
@@ -85,6 +53,8 @@ const targetaa = {
     links: LinkData[1],
     //@ts-ignore
     status: Status[1],
+
+    positionStatus: 'init',
 };
 
 const targetab = {
@@ -283,14 +253,14 @@ const repa = {
         return { ...node, color };
     }),
     links: RepAs.map((link) => {
-        let color: string = '';
+        let color: LinkColor = 'grayLinkColor';
         // let status: string = '';
         //@ts-ignore
         if (hasLinkInGroup(link, RepAs)) {
-            color = `hsl(210, 100%, 50%)`;
+            color = 'blueLinkColor';
             // console.log('blue');
         } else {
-            color = `hsl(0, 0%, 80%)`;
+            color = 'grayLinkColor';
             // console.log('gray');
         }
         return { ...link, color };
@@ -315,7 +285,7 @@ const repa = {
     status: Status[6],
 };
 
-const repb = {
+const repb: SankeyData = {
     nodes: PaperNode.nodes.map((node) => {
         let color: string = '';
         color = `hsl(0, 0%, 30%)`;
@@ -324,15 +294,19 @@ const repb = {
     }),
 
     links: RepBs.map((link) => {
-        let color: string = '';
+        let color: LinkColor = 'grayLinkColor';
         // let status: string = '';
         //@ts-ignore
         if (hasLinkInGroup(link, RepBs)) {
-            color = `hsl(210, 100%, 50%)`; // 하늘색
+            color = 'blueLinkColor'; // 하늘색
         } else {
-            color = `hsl(0, 0%, 80%)`; // 회색
+            color = 'grayLinkColor'; // 회색
         }
-        return { ...link, color };
+        return {
+            ...link,
+            color,
+            //, paperIndex:
+        };
         // 뭔가 각 link마다 식별할 수 있는 id 같은게 있으면 될것 같소 ㅋㅋ (현재 모든 value에 의해 색상이 칠해지고 있음..)
         // 각 link마다 id가 있지만 현재 모든 동일 value를 합치며 link가 그려지는 중이여서
         //그 link내에서 해당 id를 가지는 link만을 구현을 하지 못하는 것 같음.
@@ -343,7 +317,7 @@ const repb = {
         function hasLinkInGroup(wantedLink: SankeyLinkExtended, linkGroup: SankeyLinkExtended[]) {
             let hasLink: boolean = false;
             for (let i = 0; i < linkGroup.length; i++) {
-                if (wantedLink.sourceNodeLink === linkGroup[i].sourceNodeLink && wantedLink.valueid === 'repb') {
+                if (wantedLink.sourceNodeYPosition === linkGroup[i].sourceNodeYPosition && wantedLink.valueid === 'repb') {
                     hasLink = true;
                 } else hasLink = false;
             }
@@ -354,56 +328,13 @@ const repb = {
 
     //@ts-ignore
     status: Status[7],
-};
 
-// const RepBss = () => {
-//     for (let i = 0; i < AllPaperDatas.length; i++) {
-//         RepBs;
-//     }
-// };
-// const ex = RepBs.map((link) => {
-//     return link;
-// });
-// console.log(ex);
+    positionStatus: 'init',
+};
 
 const repc = {
     nodes: PaperNode.nodes.map((node) => {
         let color: string = '';
-        // Random color for each node
-        // const color = `hsl(${1 + Math.random() * 359}, 30%, 60%)`;
-        // if (node.type === 'Target' && node.subtype === '0') {
-        //     color = `hsl(318, 87%, 32%)`;
-        // } else if (node.type === 'Target' && node.subtype === '1') {
-        //     color = `hsl(327, 85%, 41%)`;
-        // } else if (node.type === 'Target' && node.subtype === '2') {
-        //     color = `hsl(343, 100%, 59%)`;
-        // } else if (node.type === 'Target' && node.subtype === '3') {
-        //     color = `hsl(11, 100%, 55%)`;
-        // } else if (node.type === 'Target' && node.subtype === '4') {
-        //     color = `hsl(27, 100%, 69%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '0') {
-        //     color = `hsl(46, 100%, 60%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '1') {
-        //     color = `hsl(55, 90%, 55%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '2') {
-        //     color = `hsl(75, 77%, 42%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '3') {
-        //     color = `hsl(80, 45%, 41%)`;
-        // } else if (node.type === 'Intermediation' && node.subtype === '4') {
-        //     color = `hsl(87, 50%, 61%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '0') {
-        //     color = `hsl(100, 100%, 40%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '1') {
-        //     color = `hsl(140, 100%, 40%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '2') {
-        //     color = `hsl(190, 100%, 40%)`;
-        // } else if (node.type === 'Representation' && node.subtype === '3') {
-        //     color = `hsl(220, 100%, 40%)`;
-        // } else if (node.type === 'Vis_var&tech' && node.subtype === '0') {
-        //     color = `hsl(250, 90%, 45%)`;
-        // } else if (node.type === 'Vis_var&tech' && node.subtype === '1') {
-        //     color = `hsl(280, 80%, 60%)`;
-        // }
         color = `hsl(0, 0%, 30%)`;
 
         return { ...node, color };
@@ -468,14 +399,14 @@ const repea = {
         return { ...node, color };
     }),
     links: RepEAs.map((link) => {
-        let color: string = '';
+        let color: LinkColor = 'grayLinkColor';
         // let status: string = '';
         //@ts-ignore
         if (hasLinkInGroup(link, RepEAs)) {
-            color = `hsl(0, 100%, 50%)`;
+            color = 'blueLinkColor';
             // console.log('blue');
         } else {
-            color = `hsl(0, 0%, 80%)`;
+            color = 'grayLinkColor';
             // console.log('gray');
         }
         return { ...link, color };
@@ -650,4 +581,4 @@ const empty = {
     status: Status[13],
 };
 
-export { datas, targetaa, targetab, targetba, targetbb, targetca, repa, repb, repc, repd, repea, repeb, repf, empty };
+export { basicData, targetaa, targetab, targetba, targetbb, targetca, repa, repb, repc, repd, repea, repeb, repf, empty };

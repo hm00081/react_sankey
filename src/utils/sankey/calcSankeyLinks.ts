@@ -5,8 +5,17 @@ import { linkHorizontal, line, curveCardinal } from 'd3-shape';
 import { SankeyData, SankeyLinkExtended, SankeyNodeExtended, SankeyLink } from '../../types';
 import _, { forEach } from 'lodash';
 import { link } from 'fs';
+import { Utility } from './basics';
 
-export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyNodeExtended[], nodeWidth: number, minLinkBreadth?: number, maxLinkBreadth?: number): SankeyLinkExtended[] => {
+export const calcSankeyLinks = (
+    data: SankeyData,
+    height: number,
+    nodes: SankeyNodeExtended[],
+    nodeWidth: number,
+    minLinkBreadth?: number,
+    maxLinkBreadth?: number,
+    isSort: boolean = true
+): SankeyLinkExtended[] => {
     // Extract to const so its in a closure
     const { links } = data;
     // Calc proportional size value
@@ -30,16 +39,12 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
         const extendedLink: SankeyLinkExtended = {
             ...link,
             sourceNode,
-            sourceNodeLink: 0, // 링크 분리를 위한 값(type) 추가  0으로 해도 상관 없음.
+            sourceNodeYPosition: 0, // 링크 분리를 위한 값(type) 추가  0으로 해도 상관 없음.
             targetNode,
             valueid,
-            targetNodeLink: 0, // 링크 분리를 위한 값(type) 추가
+            targetNodeYPosition: 0, // 링크 분리를 위한 값(type) 추가
             breadth: linkBreadth ? linkBreadth : 0,
             path: '',
-            sourceOrderIndex: 0,
-            targetOrderIndex: 0,
-            sourceNodeOrderIndex: 0,
-            targetNodeOrderIndex: 0,
             overlapid,
             color,
         };
@@ -137,35 +142,38 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
     for (const [nodeName, linksOfNode] of Object.entries(sourceNodeNameLinksDict)) {
         // linksOfNode.sort((a, b) => b.value - a.value);
         // 현재는 크기가 큰 순서대로 소팅이 되고있는 상황.
-        linksOfNode.sort((a, b) => {
-            let tempNumber = 0;
-            // if (a.valueid === 'repb' || a.valueid === 'repea') {
-            //     if (b.valueid === 'repb' || b.valueid === 'repea') {
-            if (a.color !== 'hsl(0, 0%, 80%)') {
-                if (b.color !== 'hsl(0, 0%, 80%)') {
-                    // tempNumber = b.value - a.value;
-                    //@ts-ignore
-                    tempNumber = a.target - b.target;
+        if (isSort) {
+            linksOfNode.sort((a, b) => {
+                let tempNumber = 0;
+                // if (a.valueid === 'repb' || a.valueid === 'repea') {
+                //     if (b.valueid === 'repb' || b.valueid === 'repea') {
+                if (a.color !== 'grayLinkColor') {
+                    if (b.color !== 'grayLinkColor') {
+                        // tempNumber = b.value - a.value;
+                        //@ts-ignore
+                        tempNumber = a.target - b.target;
+                    } else {
+                        tempNumber = -1;
+                        // tempNumber = a.value - b.value;
+                    }
                 } else {
-                    tempNumber = -1;
-                    // tempNumber = a.value - b.value;
+                    // if (b.valueid === 'repb' || b.valueid === 'repea') {
+                    if (b.color !== 'grayLinkColor') {
+                        tempNumber = 1;
+                    } else {
+                        // tempNumber = b.value - a.value;
+                        //@ts-ignore
+                        tempNumber = a.target - b.target;
+                    }
                 }
-            } else {
-                // if (b.valueid === 'repb' || b.valueid === 'repea') {
-                if (b.color !== 'hsl(0, 0%, 80%)') {
-                    tempNumber = 1;
-                } else {
-                    // tempNumber = b.value - a.value;
-                    //@ts-ignore
-                    tempNumber = a.target - b.target;
-                }
-            }
-            return tempNumber;
-        });
+                return tempNumber;
+            });
+        }
         // 밸류가 큰게아닌 타겟의 넘버가 작은 순으로 들어가게 소팅에서 변경
         // 논문 소스노드가 작은 순으로 먼저 들어가게 오더링 변경하기.
         // 각 링크를 분리하기 위한 forEach문.
         // sourceNode 순(숫자가 작은 순으로 배치).
+        let tempYPosition: number = 0;
         linksOfNode.forEach((link, orderIndex) => {
             // 같은 target에서 받은 source 에서 나오는 링크들은 같은 y축(sourceOrderIndex)에서 나오게 수정하기. (노드 양쪽에서 그렇게 나오게 해야할 듯 하다.)
             // 아래와 같이 하나의 id가 있어야만 한 노드의 위치에서 link.value가 나가야함.
@@ -174,63 +182,47 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
             // } else {
             //     link.sourceNode.sourceNodeType += link.value;
             // }
-            link.sourceNodeLink = link.sourceNode.sourceNodeType;
-            link.sourceNode.sourceNodeType += link.value;
-            link.sourceNodeOrderIndex = link.sourceNode.value;
-            link.sourceOrderIndex = orderIndex;
+            link.sourceNodeYPosition = tempYPosition;
+            tempYPosition += link.value;
         });
     }
     console.log(sourceNodeNameLinksDict);
     // 각 논문축의 sourcenode & targetvalue => 논문의 targeetvalue == target의 source  === .....~~~~~ 계속 이런식으로 줄다리기.
 
     for (const [nodeName, linksOfNode] of Object.entries(targetNodeNameLinksDict)) {
-        // linksOfNode.sort(function (a, b) {
-        //     return a.valueid && b.valueid === 'repb' ? 0 : a.valueid ? -1 : 1;
-        // });
-        // linksOfNode.sort((a, b) => b.value - a.value);
-        linksOfNode.sort((a, b) => {
-            let tempNumber = 0;
+        if (isSort) {
+            linksOfNode.sort((a, b) => {
+                let tempNumber = 0;
 
-            if (a.color !== 'hsl(0, 0%, 80%)') {
-                if (b.color !== 'hsl(0, 0%, 80%)') {
-                    //@ts-ignore
-                    tempNumber = a.source - b.source;
+                if (a.color !== 'grayLinkColor') {
+                    if (b.color !== 'grayLinkColor') {
+                        //@ts-ignore
+                        tempNumber = a.source - b.source;
+                    } else {
+                        tempNumber = -1;
+                    }
                 } else {
-                    tempNumber = -1;
+                    if (b.color !== 'grayLinkColor') {
+                        tempNumber = 1;
+                    } else {
+                        //@ts-ignore
+                        tempNumber = a.source - b.source;
+                    }
                 }
-            } else {
-                if (b.color !== 'hsl(0, 0%, 80%)') {
-                    tempNumber = 1;
-                } else {
-                    //@ts-ignore
-                    tempNumber = a.source - b.source;
-                }
-            }
-            return tempNumber;
-        });
-
+                return tempNumber;
+            });
+        }
+        let tempYPosition: number = 0;
         linksOfNode.forEach((link, orderIndex) => {
-            link.targetNodeLink = link.targetNode.targetNodeType;
-            link.targetNode.targetNodeType += link.value;
-            // targetNodeOrderIndex == 쌓이는 위치를 나타내는 변수
-            link.targetNodeOrderIndex = link.targetNode.value;
-            //@ts-ignore
-            // link.targetNodeOrderIndex = link.source;
-            link.targetOrderIndex = orderIndex;
+            link.targetNodeYPosition = tempYPosition;
+            tempYPosition += link.value;
         });
     }
 
-    // for (const [nodeLinkId, linksOfValue] of Object.entries(sourceNodeNameLinksDict)) {
-    //     linksOfValue.sort((a, b) => b.value - a.value);
-    //     linksOfValue.forEach((link, orderIndex) => {
-    //         link.sourceNodeLink = link.sourceNode.sourceNodeType;
-    //     })
-    // }
-
     extendedLinks.forEach((link) => {
         // source, targetCenter는 link의 좌표를 나타냄
-        const sourceCenter = (d: typeof extendedLinks[0]) => [d.sourceNode.x + proportionalNodeWidth, d.sourceNode.y + d.sourceNodeLink + d.value / 2];
-        const targetCenter = (d: typeof extendedLinks[0]) => [d.targetNode.x, d.targetNode.y + d.targetNodeLink + d.value / 2];
+        const sourceCenter = (d: typeof extendedLinks[0]) => [d.sourceNode.x + proportionalNodeWidth, d.sourceNode.y + d.sourceNodeYPosition + d.value / 2];
+        const targetCenter = (d: typeof extendedLinks[0]) => [d.targetNode.x, d.targetNode.y + d.targetNodeYPosition + d.value / 2];
 
         // d3-linkHorizontal
         let path = linkHorizontal<typeof extendedLinks[0], {}>().source(sourceCenter).target(targetCenter)(link);
@@ -240,6 +232,8 @@ export const calcSankeyLinks = (data: SankeyData, height: number, nodes: SankeyN
 
         link.path = path;
     });
+
+    extendedLinks.sort((link) => (link.color === 'blueLinkColor' ? 1 : -1));
 
     return extendedLinks;
 };

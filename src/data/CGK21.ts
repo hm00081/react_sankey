@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const CGK21: SankeyData = {
+const CGK21: SankeyData = {
     nodes: [],
 
     links: [
@@ -12,14 +12,14 @@ export const CGK21: SankeyData = {
         },
         {
             source: 101,
-            target: 5,
-            value: 1,
-        },
-        {
-            source: 101,
             target: 6,
             value: 1,
             valueid: 'repb',
+        },
+        {
+            source: 101,
+            target: 5,
+            value: 1,
         },
         {
             source: 101,
@@ -41,12 +41,12 @@ export const CGK21: SankeyData = {
             source: 101,
             target: 16,
             value: 1,
-            valueid: 'repb',
         },
         {
             source: 101,
             target: 16,
             value: 1,
+            valueid: 'repb',
         },
         {
             source: 101,
@@ -58,23 +58,27 @@ export const CGK21: SankeyData = {
             source: 5,
             target: 32,
             value: 1,
-            valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 5,
             target: 32,
             value: 1,
+            valueid: 'repb',
+            overlapid: 'overlap',
+        },
+        {
+            source: 6,
+            target: 32,
+            value: 1,
+            overlapid: 'overlap',
         },
         {
             source: 6,
             target: 32,
             value: 1,
             valueid: 'repb',
-        },
-        {
-            source: 6,
-            target: 32,
-            value: 1,
+            overlapid: 'overlap',
         },
         {
             source: 15,
@@ -143,54 +147,70 @@ export const CGK21: SankeyData = {
             target: 77,
             value: 4,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 59,
             target: 77,
             value: 2,
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 78,
             value: 4,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 59,
             target: 78,
             value: 2,
+            overlapid: 'overlap',
         },
         {
             source: 59,
             target: 79,
             value: 2,
+            overlapid: 'overlap',
         },
         {
             source: 59,
             target: 80,
             value: 1,
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 87,
             value: 2,
             valueid: 'repb',
+            overlapid: 'overlap',
         },
         {
             source: 59,
             target: 88,
             value: 1,
+            overlapid: 'overlap',
         },
         {
             source: 59,
             target: 95,
             value: 2,
+            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 98,
-            value: 2,
+            value: 1,
             valueid: 'repb',
+        },
+        {
+            source: 54,
+            target: 98,
+            value: 1,
+            valueid: 'repb',
+            overlapid: 'overlap',
         },
     ],
     status: [
@@ -205,3 +225,10 @@ export const CGK21: SankeyData = {
         },
     ],
 };
+
+CGK21.links.map((link, index) => {
+    link.paperName = 'CGK21';
+    link.id = `CGK21-${index}`;
+});
+
+export { CGK21 };

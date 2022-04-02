@@ -299,16 +299,14 @@ const Emptys = [].concat.apply([], Empty).reduce((result, value) => {
 // console.log(Status);
 
 //@ts-ignore
-const AllPaperDatas: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, value) => {
+const AllPaperDatas: SankeyLink[] = [].concat.apply([], PaperString).reduce((ApllPaperDatas, aPaper) => {
     //@ts-ignore
-    const target = result.find((r) => r.source === value.source && r.target === value.target);
+    const targetPaper = ApllPaperDatas.find((bPaper) => bPaper.source === aPaper.source && bPaper.target === aPaper.target && bPaper.value === aPaper.value);
     //@ts-ignore
-    const subtarget = result.find((r) => r.source === value.source && r.target === value.target);
+    if (!targetPaper) ApllPaperDatas.push({ source: aPaper.source, target: aPaper.target, value: aPaper.value });
     //@ts-ignore
-    if (!target) result.push({ source: value.source, target: value.target, value: value.value });
-    //@ts-ignore
-    else target.value += 1;
-    return result;
+    else targetPaper.value += 1;
+    return ApllPaperDatas;
 }, []);
 // console.log(AllPaperDatas);
 //@ts-ignore
@@ -395,22 +393,38 @@ const RepAs: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, val
 //     return result;
 // }, []);
 
-//@ts-ignore
-const RepBs: SankeyLinkExtended[] = [].concat.apply([], PaperString).reduce((result, value) => {
-    //@ts-ignore
-    const target = result.find((r) => r.source === value.source && r.target === value.target);
+const RepBs = ([].concat.apply([], PaperString) as SankeyLink[]).reduce<SankeyLinkExtended[]>((RepBs, onePaper) => {
     // @ts-ignore
-    const repb = result.find((r) => r.source === value.source && r.target === value.target && r.value === value.value && (r.valueid === value.valueid) === 'repb');
+    const repbOnePaper = RepBs.find((r) => r.source === onePaper.source && r.target === onePaper.target && r.value === onePaper.value && (r.valueid === onePaper.valueid) === 'repb');
+    // const repb = result.find((r) => r.source === value.source && r.target === value.target && r.valueid === 'repb'); //흐름 보이는데 이건 절대아님.
+    //@ts-ignore
+    // if (repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+
+    if (!repbOnePaper) {
+        // console.log('onePaper.paperName', onePaper.paperName);
+        //@ts-ignore
+        RepBs.push({ source: onePaper.source, target: onePaper.target, value: onePaper.value, valueid: onePaper.valueid, paperName: onePaper.paperName, id: onePaper.id });
+    } else {
+        repbOnePaper.value += 1;
+    }
+    return RepBs;
+}, []);
+console.log('RepBs', RepBs); // 이거 지금 100~149 노드에서 나오는 모든 링크 차례대로 정리되고 있는 상태이다.
+
+//@ts-ignore
+const OriginRepBs: SankeyLinkExtended[] = [].concat.apply([], PaperString).reduce((RepBs, onePaper) => {
+    // @ts-ignore
+    const repbOnePaper = RepBs.find((r) => r.source === onePaper.source && r.target === onePaper.target && r.value === onePaper.value && (r.valueid === onePaper.valueid) === 'repb');
     // const repb = result.find((r) => r.source === value.source && r.target === value.target && r.valueid === 'repb'); //흐름 보이는데 이건 절대아님.
     //@ts-ignore
     // if (repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
     //@ts-ignore
-    if (!repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid, sourceNodeLink: value.sourceNodeLink });
+    if (!repbOnePaper) RepBs.push({ source: onePaper.source, target: onePaper.target, value: onePaper.value, valueid: onePaper.valueid, sourceNodeLink: onePaper.sourceNodeLink });
     //@ts-ignore
-    else repb.value += 1;
-    return result;
+    else repbOnePaper.value += 1;
+    return RepBs;
 }, []);
-console.log(RepBs); // 이거 지금 100~149 노드에서 나오는 모든 링크 차례대로 정리되고 있는 상태이다.
+
 //@ts-ignore
 const RepCs = [].concat.apply([], RepC).reduce((result, value) => {
     //@ts-ignore
@@ -474,7 +488,7 @@ const RepFs = [].concat.apply([], RepF).reduce((result, value) => {
 const Node = CAA20.nodes;
 // const LinkData = [AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys];
 
-export { Status, Node, Papers, AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys };
+export { Status, Node, Papers, AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, OriginRepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys };
 
 // links: AllPaperDatas.map((link) => {
 //     let color: string = '';
