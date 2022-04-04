@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const FAKM15: SankeyData = {
+const FAKM15: SankeyData = {
     nodes: [],
 
     links: [
@@ -128,3 +128,10 @@ export const FAKM15: SankeyData = {
         },
     ],
 };
+
+FAKM15.links.forEach((link, index) => {
+    link.paperName = 'FAKM15';
+    link.id = `FAKM15-${index}`;
+});
+
+export { FAKM15 };

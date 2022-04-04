@@ -15,7 +15,7 @@ import { SankeyLink, SankeyStatus, SankeyLinkExtended } from '../src/types';
 // Data
 import { PaperNode } from './data/PaperNode';
 import { Node, Papers, Status } from './data/AllPaperData';
-import { AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys } from './data/AllPaperData';
+import { AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, OriginRepBs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys } from './data/AllPaperData';
 
 // import { CAA20 as rawData } from './data/CAA20';
 import * as React from 'react';

@@ -100,9 +100,7 @@ export const Node = ({ node, width, height }: Props) => {
     const textX = !endNode ? node.x + node.width : node.x;
     const textAnchor = !endNode ? 'start' : 'end';
     const textMargin = !endNode ? 4 : -4;
-    // const textTitleSize = (size / 100) * 1.35;
     const textTitleSize = Math.log(10) * 4;
-    // const textTitleSize = node.value / 3;
     const textValueSize = (size / 100) * 1;
     let textXPosition = textX + textMargin + node.width * 0.3;
     let textYPosition = node.y + node.value / 2 + textMargin * 1;
@@ -116,10 +114,8 @@ export const Node = ({ node, width, height }: Props) => {
         setHover(false);
     };
 
-    // console.log(node.type);
     if (node.type === 'Vis_var&tech') {
         textXPosition = textX + textMargin;
-        // textYPosition = textYPosition - textMargin * 3.6;
     }
     if (node.value == 0) {
         node.value = 2;
@@ -131,13 +127,9 @@ export const Node = ({ node, width, height }: Props) => {
                 <title>{`${node.name}: ${node.value}`}</title>
             </rect>
             <g transform={`translate(${textXPosition} ${textYPosition})`}>
-                {/* <NodeName style={{ {fontSize: (node.value > 1) textTitleSize}, fontWeight: 550, textTransform: 'uppercase' }} textAnchor={textAnchor}> */}
                 <NodeName style={{ fontSize: node.value > 8 ? textTitleSize : textTitleSize, fontWeight: 550 }} textAnchor={textAnchor}>
                     {node.name}
                 </NodeName>
-                {/* <text y={textValueSize} style={{ fontSize: textValueSize }} textAnchor={textAnchor}>
-                    {node.value}
-                </text> */}
             </g>
         </NodePos>
     );

@@ -116,7 +116,7 @@ export const PaperNode: SankeyData = {
         { name: 'JTM11', type: 'Paper' },
         { name: 'JSM16', type: 'Paper' },
         { name: 'JX17', type: 'Paper' },
-        { name: 'KSBK15', type: 'Paper' },
+        { name: 'KSBK15', type: 'Paper' }, // 114
         { name: 'LGX16', type: 'Paper' }, // 115
         { name: 'LJC18', type: 'Paper' },
         { name: 'LLN14', type: 'Paper' },
@@ -124,7 +124,7 @@ export const PaperNode: SankeyData = {
         { name: 'MA16', type: 'Paper' },
         { name: 'MDD10', type: 'Paper' }, // 120
         { name: 'MEV16', type: 'Paper' },
-        { name: 'MHK16', type: 'Paper' },
+        { name: 'MHK16', type: 'Paper' }, // 122
         { name: 'MVM17', type: 'Paper' },
         { name: 'MWSO08', type: 'Paper' },
         { name: 'PC15PV', type: 'Paper' }, // 125
@@ -151,7 +151,7 @@ export const PaperNode: SankeyData = {
         { name: 'GYS14', type: 'Paper' },
         { name: 'MDJW07', type: 'Paper' },
         { name: 'KWL09', type: 'Paper' },
-        { name: 'BN11B', type: 'Paper' },
+        { name: 'BN11B', type: 'Paper' }, // 149
         { name: 'MLG06', type: 'Paper' }, // 150
         { name: 'FA20', type: 'Paper' },
         { name: 'WHWS12', type: 'Paper' }, // 152
@@ -159,86 +159,3 @@ export const PaperNode: SankeyData = {
     links: [],
     status: [],
 };
-
-// export const PaperID: SankeyData = {
-//     nodes: [
-//         { name: 'CAA20', type: 'Paper' }, // 100
-//         { name: 'CGK21', type: 'Paper' },
-//         { name: 'CSL12', type: 'Paper' },
-//         { name: 'DMC09', type: 'Paper' },
-//         { name: 'EAIA17', type: 'Paper' },
-//         { name: 'EYG15', type: 'Paper' },
-//         { name: 'FCF09', type: 'Paper' },
-//         { name: 'GGS12MT', type: 'Paper' },
-//         { name: 'GGS12ST', type: 'Paper' },
-//         { name: 'GGS12TPS', type: 'Paper' },
-//         { name: 'HYZ13', type: 'Paper' },
-//         { name: 'JTM11', type: 'Paper' },
-//         { name: 'JSM16', type: 'Paper' },
-//         { name: 'JX17', type: 'Paper' },
-//         { name: 'KSBK15', type: 'Paper' },
-//         { name: 'LGX16', type: 'Paper' },
-//         { name: 'LJC18', type: 'Paper' },
-//         { name: 'LLN14', type: 'Paper' },
-//         { name: 'LWW13', type: 'Paper' },
-//         { name: 'MA16', type: 'Paper' },
-//         { name: 'MDD10', type: 'Paper' },
-//         { name: 'MEV16', type: 'Paper' },
-//         { name: 'MHK16', type: 'Paper' },
-//         { name: 'MVM17', type: 'Paper' },
-//         { name: 'MWSO08', type: 'Paper' },
-//         { name: 'PC15PV', type: 'Paper' },
-//         { name: 'REP15', type: 'Paper' },
-//         { name: 'SCS16', type: 'Paper' },
-//         { name: 'SCS17', type: 'Paper' },
-//         { name: 'SCS19', type: 'Paper' },
-//         { name: 'SSK12', type: 'Paper' },
-//         { name: 'VWH13', type: 'Paper' },
-//         { name: 'XD99', type: 'Paper' },
-//         { name: 'XWL17', type: 'Paper' },
-//         { name: 'XWS16', type: 'Paper' },
-//         { name: 'YFS10', type: 'Paper' },
-//         { name: 'ZGWZ14', type: 'Paper' },
-//         { name: 'ZLW13', type: 'Paper' },
-//         { name: 'SRJ13', type: 'Paper' },
-//         { name: 'RSRY12', type: 'Paper' },
-//         { name: 'FAKM15', type: 'Paper' },
-//         { name: 'YSK14', type: 'Paper' },
-//         { name: 'CSL16', type: 'Paper' },
-//         { name: 'RRR19', type: 'Paper' },
-//         { name: 'YCC20', type: 'Paper' },
-//         { name: 'MDDD16', type: 'Paper' },
-//         { name: 'GYS14', type: 'Paper' },
-//         { name: 'MDJW07', type: 'Paper' },
-//         { name: 'KWL09', type: 'Paper' },
-//         { name: 'BN11B', type: 'Paper' },
-//         { name: 'MLG06', type: 'Paper' },
-//         { name: 'FA20', type: 'Paper' },
-//         { name: 'WHWS12', type: 'Paper' }, // 152
-//     ],
-//     links: [],
-//     status: [],
-// };
-
-// export const result = Array.prototype.push.apply(PaperNode.nodes, PaperID.nodes);
-
-// console.log(PaperNode.nodes.length);
-// console.log(PaperNode.nodes[PaperNode.nodes.length - 2]);
-
-const proxy = new Proxy(PaperNode, {
-    get(nodes, prop) {
-        //@ts-ignore
-        if (!isNaN(prop)) {
-            //@ts-ignore
-            prop = parseInt(prop, 10);
-            //@ts-ignore
-            if (prop < 0) {
-                //@ts-ignore
-                prop += nodes.length;
-            }
-        }
-        //@ts-ignore
-        return nodes[prop];
-    },
-});
-console.log(proxy.nodes[-1]);

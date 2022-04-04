@@ -110,7 +110,7 @@ function findFrontLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData }
         findFrontLinks({
             linkPart,
             renderingData,
-        });
+        }); //recursive function
     });
 }
 
@@ -131,6 +131,6 @@ function findBackLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData })
         findBackLinks({
             linkPart,
             renderingData,
-        });
+        }); //recursive function
     });
 }
