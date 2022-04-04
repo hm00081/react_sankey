@@ -1,6 +1,6 @@
 {
-    "homepage": "https://hm00081.github.io/react_sankeys",
-    "name": "d3-world",
+    "homepage": "https://hm00081.github.io/metaphor_sankey",
+    "name": "sentiviz",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
