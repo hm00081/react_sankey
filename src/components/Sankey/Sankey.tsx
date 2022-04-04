@@ -2,7 +2,7 @@
 import { SankeyData, SankeyNode, SankeyLink, SankeyStatus, SankeyNodeExtended, SankeyLinkExtended } from '../../types/sankey';
 import { useState, useEffect } from 'react';
 // Components
-import { Link, LinkBlueColor, LinkGrayColor } from './Link';
+import { Link, LinkBlueColor, LinkGrayColor, LinkLightBlueColor, LinkRedColor } from './Link';
 import { Node } from './Node';
 import './Sankey.css';
 // Utils
@@ -50,8 +50,6 @@ export const Sankey = ({ width, height, originData, paddingTop = 0, paddingLeft 
     const [sourceTargetIdLinksDict, setSourceTargetIdLinksDict] = useState<SourceTargetIdLinksDict>({});
 
     useEffect(() => {
-        console.log('useEffect');
-
         const sourceTargetIdLinksDict: SourceTargetIdLinksDict = {};
 
         originData.links.forEach((link1) => {

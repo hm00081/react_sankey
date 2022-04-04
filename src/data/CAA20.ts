@@ -5,7 +5,7 @@ const CAA20: SankeyData = {
 
     links: [
         {
-            source: 100, // === CAA20
+            source: 100,
             target: 9,
             value: 1,
         },

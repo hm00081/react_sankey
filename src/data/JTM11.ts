@@ -65,19 +65,16 @@ const JTM11: SankeyData = {
             source: 17,
             target: 49,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 18,
             target: 49,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 19,
             target: 49,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 22,

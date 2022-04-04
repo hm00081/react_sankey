@@ -155,6 +155,7 @@ export const PaperNode: SankeyData = {
         { name: 'MLG06', type: 'Paper' }, // 150
         { name: 'FA20', type: 'Paper' },
         { name: 'WHWS12', type: 'Paper' }, // 152
+        { name: 'FZC18', type: 'Paper' }, // 153
     ],
     links: [],
     status: [],

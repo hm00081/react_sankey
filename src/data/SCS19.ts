@@ -70,14 +70,12 @@ const SCS19: SankeyData = {
             target: 48,
             value: 1,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 4,
             target: 48,
             value: 1,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 11,
@@ -107,7 +105,6 @@ const SCS19: SankeyData = {
             source: 16,
             target: 49,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 18,
@@ -130,25 +127,21 @@ const SCS19: SankeyData = {
             source: 18,
             target: 49,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 22,
             target: 46,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 24,
             target: 46,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 27,
             target: 46,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 44,
@@ -211,21 +204,18 @@ const SCS19: SankeyData = {
             target: 78,
             value: 1,
             valueid: 'repa',
-            overlapid: 'overlap',
         },
         {
             source: 63,
             target: 77,
             value: 1,
             valueid: 'repa',
-            overlapid: 'overlap',
         },
         {
             source: 63,
             target: 92,
             value: 1,
             valueid: 'repa',
-            overlapid: 'overlap',
         },
         {
             source: 63,

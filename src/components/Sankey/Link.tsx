@@ -21,8 +21,15 @@ export const LinkBlueColor: FC = () => (
 
 export const LinkLightBlueColor: FC = () => (
     <linearGradient id="lightBlueLinkColor">
-        <stop offset="100%" stopColor={'hsl(210, 100%, 80%)'} />
-        <stop offset="100%" stopColor={'hsl(210, 100%, 80%)'} />
+        <stop offset="100%" stopColor={'hsl(110, 50%, 80%)'} />
+        <stop offset="100%" stopColor={'hsl(110, 50%, 80%)'} />
+    </linearGradient>
+);
+
+export const LinkRedColor: FC = () => (
+    <linearGradient id="redLinkColor">
+        <stop offset="100%" stopColor={'hsl(0, 100%, 50%)'} />
+        <stop offset="100%" stopColor={'hsl(0, 100%, 50%))'} />
     </linearGradient>
 );
 
@@ -44,6 +51,7 @@ export const Link = ({ link, originData, sourceTargetIdLinksDict, setOriginData 
                 stroke={`url(#${link.color})`}
                 strokeWidth={link.value}
                 fill="none"
+                // style={{ opacity: link.color === 'grayLinkColor' ? 0.3 : 0.5 }}
                 onClick={() => {
                     console.log('clicked link', link);
 
@@ -52,7 +60,7 @@ export const Link = ({ link, originData, sourceTargetIdLinksDict, setOriginData 
                     renderingData.links = renderingData.links.map((link) => {
                         return { ...link };
                     });
-
+                    console.log(renderingData);
                     const selectedLinkParts = sourceTargetIdLinksDict[`${link.source}-${link.target}-${link.valueid}`];
 
                     renderingData.links.forEach((renderingLink) => {
@@ -83,7 +91,7 @@ export const Link = ({ link, originData, sourceTargetIdLinksDict, setOriginData 
                             renderingData,
                         });
                     });
-
+                    console.log('selectedLinkParts', selectedLinkParts);
                     setOriginData(renderingData);
                 }}
             >
@@ -95,7 +103,6 @@ export const Link = ({ link, originData, sourceTargetIdLinksDict, setOriginData 
 
 function findFrontLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData }) {
     const { linkPart, renderingData } = arg;
-
     const frontLinks = renderingData.links.filter((renderingLink) => {
         if (renderingLink.target === linkPart.source && renderingLink.paperName === linkPart.paperName) {
             renderingLink.color = `blueLinkColor`;
@@ -116,7 +123,6 @@ function findFrontLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData }
 
 function findBackLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData }) {
     const { linkPart, renderingData } = arg;
-
     const backLinks = renderingData.links.filter((renderingLink) => {
         if (renderingLink.source === linkPart.target && renderingLink.paperName === linkPart.paperName) {
             renderingLink.color = `blueLinkColor`;

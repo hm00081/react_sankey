@@ -5,25 +5,25 @@ const YFS10: SankeyData = {
 
     links: [
         {
-            source: 136,
+            source: 135,
             target: 11,
             value: 1,
             valueid: 'repea',
         }, // a[0]
         {
-            source: 136,
+            source: 135,
             target: 12,
             value: 1,
             valueid: 'repea',
         }, // a[1]
         {
-            source: 136,
+            source: 135,
             target: 16,
             value: 1,
             valueid: 'repea',
         }, // a[2]
         {
-            source: 136,
+            source: 135,
             target: 24,
             value: 1,
             valueid: 'repea',

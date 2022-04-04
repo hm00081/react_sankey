@@ -48,7 +48,6 @@ const MDD10: SankeyData = {
             target: 39,
             value: 1,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 11,
@@ -60,21 +59,18 @@ const MDD10: SankeyData = {
             target: 49,
             value: 1,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 11,
             target: 39,
             value: 1,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 11,
             target: 40,
             value: 1,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 15,
@@ -104,21 +100,18 @@ const MDD10: SankeyData = {
             target: 77,
             value: 2,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 78,
             value: 3,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 86,
             value: 3,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 16,
@@ -140,13 +133,11 @@ const MDD10: SankeyData = {
             source: 22,
             target: 46,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 22,
             target: 49,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 46,

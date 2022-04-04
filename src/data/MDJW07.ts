@@ -58,7 +58,6 @@ const MDJW07: SankeyData = {
             target: 34,
             value: 1,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 13,
@@ -76,7 +75,6 @@ const MDJW07: SankeyData = {
             target: 34,
             value: 1,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 14,
@@ -136,7 +134,6 @@ const MDJW07: SankeyData = {
             target: 77,
             value: 2,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 54,
@@ -149,13 +146,11 @@ const MDJW07: SankeyData = {
             target: 78,
             value: 2,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 60,
             target: 77,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 60,
@@ -166,7 +161,6 @@ const MDJW07: SankeyData = {
             source: 60,
             target: 81,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 60,
@@ -178,7 +172,6 @@ const MDJW07: SankeyData = {
             target: 86,
             value: 2,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 54,

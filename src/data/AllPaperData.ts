@@ -51,6 +51,7 @@ import { BN11B } from './BN11B';
 import { MLG06 } from './MLG06';
 import { FA20 } from './FA20';
 import { WHWS12 } from './WHWS12';
+import { FZC18 } from './FZC18';
 import { SankeyLink, SankeyLinkExtended } from '../types';
 
 import { link } from 'fs';
@@ -125,6 +126,8 @@ const PaperString = [
     BN11B.links,
     MLG06.links,
     FA20.links,
+    WHWS12.links,
+    FZC18.links,
 ];
 console.log(SCS19.links);
 const Papers = [
@@ -181,6 +184,7 @@ const Papers = [
     ZGWZ14,
     ZLW13,
     WHWS12,
+    FZC18,
 ];
 
 //@ts-ignore
@@ -409,7 +413,7 @@ const RepBs = ([].concat.apply([], PaperString) as SankeyLink[]).reduce<SankeyLi
     }
     return RepBs;
 }, []);
-console.log('RepBs', RepBs); // 이거 지금 100~149 노드에서 나오는 모든 링크 차례대로 정리되고 있는 상태이다.
+// console.log('RepBs', RepBs); // 이거 지금 100~149 노드에서 나오는 모든 링크 차례대로 정리되고 있는 상태이다.
 
 //@ts-ignore
 const OriginRepBs: SankeyLinkExtended[] = [].concat.apply([], PaperString).reduce((RepBs, onePaper) => {
