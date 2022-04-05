@@ -233,7 +233,7 @@ export const calcSankeyLinks = (
         link.path = path;
     });
 
-    extendedLinks.sort((link) => (link.color === 'blueLinkColor' ? 1 : -1));
+    extendedLinks.sort((link) => (link.color !== 'grayLinkColor' ? 1 : -1)); // zIndex
 
     return extendedLinks;
 };

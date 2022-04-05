@@ -1,5 +1,6 @@
 // Libraries
 import { useMeasure } from 'react-use';
+import { useState } from 'react';
 
 // Custom Components
 import { Sankey } from './components/Sankey';
@@ -7,8 +8,7 @@ import { Sankey } from './components/Sankey';
 // Global Styles
 // import 'normalize.css';
 import './styles.css';
-import styled from 'styled-components';
-import { useState, useEffect, useMemo } from 'react';
+
 import { LinkColor, SankeyData } from './types/sankey';
 import { SankeyLink, SankeyStatus, SankeyLinkExtended } from '../src/types';
 
@@ -17,15 +17,6 @@ import { PaperNode } from './data/PaperNode';
 import { Node, Papers, Status } from './data/AllPaperData';
 import { AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, OriginRepBs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys } from './data/AllPaperData';
 
-// import { CAA20 as rawData } from './data/CAA20';
-import * as React from 'react';
-import { pink } from '@mui/material/colors';
-import Checkbox from '@mui/material/Checkbox';
-import { nodeModuleNameResolver } from 'typescript';
-import { NONAME } from 'dns';
-
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-// console.log(Status.length);
 //@ts-ignore
 const LinkData = [AllPaperDatas, TargetAAs, TargetABs, TargetBAs, TargetBBs, TargetCAs, RepAs, RepBs, RepCs, RepDs, RepEAs, RepEBs, RepFs, Emptys];
 const basicData: SankeyData = {
@@ -161,7 +152,13 @@ const repb: SankeyData = {
         // let status: string = '';
         //@ts-ignore
         if (hasLinkInGroup(link, RepBs)) {
-            color = 'blueLinkColor'; // 하늘색
+            if (link.source < 50) {
+                // color = 'blueLinkColor' ? 'blueLinkColor' : 'lightBlueLinkColor'; // 하늘색
+                color = 'blueLinkColor';
+            } else {
+                color = 'lightBlueLinkColor';
+            }
+            // color = colors;
         } else {
             color = 'grayLinkColor'; // 회색
         }
@@ -178,13 +175,16 @@ const repb: SankeyData = {
         // dict로 다양한 활용방법 생각해보기.
         // AllPaperData와 CalcSankey는 문제없어 보임. 뭐가 문젤까.....
         function hasLinkInGroup(wantedLink: SankeyLinkExtended, linkGroup: SankeyLinkExtended[]) {
+            // const [state, setState] = useState();
             let hasLink: boolean = false;
+            let color: string = '';
             for (let i = 0; i < linkGroup.length; i++) {
+                // if (wantedLink.sourceNodeYPosition === linkGroup[i].sourceNodeYPosition && wantedLink.valueid === 'repb') {
+                // 현재 전체 페이퍼에서 작동하는 중.
                 if (wantedLink.sourceNodeYPosition === linkGroup[i].sourceNodeYPosition && wantedLink.valueid === 'repb') {
                     hasLink = true;
                 } else hasLink = false;
             }
-
             return hasLink;
         }
     }),
@@ -220,7 +220,7 @@ const repd = {
     status: Status[9],
 };
 
-const repea = {
+const repea: SankeyData = {
     nodes: PaperNode.nodes.map((node) => {
         let color: string = '';
         color = `hsl(0, 0%, 30%)`;
@@ -229,22 +229,23 @@ const repea = {
     }),
     links: RepEAs.map((link) => {
         let color: LinkColor = 'grayLinkColor';
-        // let status: string = '';
+
         //@ts-ignore
         if (hasLinkInGroup(link, RepEAs)) {
-            color = 'blueLinkColor';
-            // console.log('blue');
+            if (link.source < 50) {
+                color = 'redLinkColor';
+            } else {
+                color = 'lightBlueLinkColor';
+            }
         } else {
             color = 'grayLinkColor';
-            // console.log('gray');
         }
         return { ...link, color };
 
-        function hasLinkInGroup(wantedLink: SankeyLink, linkGroup: SankeyLink[]) {
+        function hasLinkInGroup(wantedLink: SankeyLinkExtended, linkGroup: SankeyLinkExtended[]) {
             let hasLink: boolean = false;
-
             for (let i = 0; i < linkGroup.length; i++) {
-                if (wantedLink.valueid === 'repea') {
+                if (wantedLink.sourceNodeYPosition === linkGroup[i].sourceNodeYPosition && wantedLink.valueid === 'repea') {
                     hasLink = true;
                 } else hasLink = false;
             }
@@ -253,6 +254,8 @@ const repea = {
     }),
     //@ts-ignore
     status: Status[10],
+
+    positionStatus: 'init',
 };
 
 const repeb = {

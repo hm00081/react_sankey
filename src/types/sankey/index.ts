@@ -28,6 +28,7 @@ export type SankeyLink = SankeyLinkMinimal & {
     value: number;
     type?: string;
     subtype?: string;
+    status?: string | undefined;
     valueid?: string | null;
     overlapid?: string | null;
     color?: LinkColor;
@@ -36,7 +37,7 @@ export type SankeyLink = SankeyLinkMinimal & {
     paperName?: string;
     id?: string;
 };
-export type LinkColor = 'grayLinkColor' | 'blueLinkColor' | 'lightBlueLinkColor' | 'redLinkColor';
+export type LinkColor = 'grayLinkColor' | 'blueLinkColor' | 'deepBlueLinkColor' | 'lightBlueLinkColor' | 'redLinkColor';
 
 export type SankeyNodeExtended = SankeyNode & {
     index: number;

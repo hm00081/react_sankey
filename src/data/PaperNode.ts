@@ -27,12 +27,12 @@ export const PaperNode: SankeyData = {
         { name: 'growth_contraction', type: 'Target', subtype: '4' },
         { name: 'continuity', type: 'Target', subtype: '4' },
         { name: 'accumulation', type: 'Target', subtype: '4' },
-        { name: 'fusion_discrete', type: 'Target', subtype: '4' },
+        { name: 'fusion_discrete', type: 'Target', subtype: '4' }, // 25
         { name: 'stable', type: 'Target', subtype: '4' },
         { name: 'repeat', type: 'Target', subtype: '4' },
         { name: 'peak_valley', type: 'Target', subtype: '4' },
         { name: 'implication', type: 'Target', subtype: '4' },
-        { name: 'acceleration', type: 'Target', subtype: '4' },
+        { name: 'acceleration', type: 'Target', subtype: '4' }, // 30
         { name: 'subjectivity_detection', type: 'Intermediation', subtype: '0' },
         { name: 'emotion_cause_detection', type: 'Intermediation', subtype: '0' },
         { name: 'identifying_the_intent_of_sentiment_information', type: 'Intermediation', subtype: '0' },
@@ -50,9 +50,9 @@ export const PaperNode: SankeyData = {
         { name: 'comparsion_of_different_sentiments', type: 'Intermediation', subtype: '3' },
         { name: 'timeline_analysis', type: 'Intermediation', subtype: '4' },
         { name: 'analysis_of_debates_comments_and_argumentation', type: 'Intermediation', subtype: '4' },
-        { name: 'finding_significant', type: 'Intermediation', subtype: '4' },
-        { name: 'easy_exploration_of_sentiment_information', type: 'Intermediation', subtype: '4' },
-        { name: 'celestial', type: 'Representation', subtype: '0' },
+        { name: 'finding_significant', type: 'Intermediation', subtype: '4' }, // 48
+        { name: 'easy_exploration_of_sentiment_information', type: 'Intermediation', subtype: '4' }, // 49
+        { name: 'celestial', type: 'Representation', subtype: '0' }, // 50
         { name: 'human', type: 'Representation', subtype: '0' },
         { name: 'animal', type: 'Representation', subtype: '0' },
         { name: 'plant', type: 'Representation', subtype: '0' },
@@ -77,7 +77,7 @@ export const PaperNode: SankeyData = {
         { name: 'disaster', type: 'Representation', subtype: '2' },
         { name: 'space_time_movement', type: 'Representation', subtype: '2' },
         { name: 'machine_software_work', type: 'Representation', subtype: '3' },
-        { name: 'creation_and_destruction', type: 'Representation', subtype: '3' },
+        { name: 'creation_and_destruction', type: 'Representation', subtype: '3' }, // 75
         { name: 'value', type: 'Vis_var&tech', subtype: '0' },
         { name: 'color', type: 'Vis_var&tech', subtype: '0' },
         { name: 'size', type: 'Vis_var&tech', subtype: '0' },

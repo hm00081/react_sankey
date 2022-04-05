@@ -5,10 +5,10 @@
     margin-right: 200px;
 }
 
-path {
-    opacity: 0.4;
+path.link {
+    opacity: 0.45;
 }
 
-path:hover {
+path.link:hover {
     opacity: 1;
 }

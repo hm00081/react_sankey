@@ -407,7 +407,14 @@ const RepBs = ([].concat.apply([], PaperString) as SankeyLink[]).reduce<SankeyLi
     if (!repbOnePaper) {
         // console.log('onePaper.paperName', onePaper.paperName);
         //@ts-ignore
-        RepBs.push({ source: onePaper.source, target: onePaper.target, value: onePaper.value, valueid: onePaper.valueid, paperName: onePaper.paperName, id: onePaper.id });
+        RepBs.push({
+            source: onePaper.source,
+            target: onePaper.target,
+            value: onePaper.value,
+            valueid: onePaper.valueid,
+            paperName: onePaper.paperName,
+            id: onePaper.id,
+        });
     } else {
         repbOnePaper.value += 1;
     }
@@ -452,18 +459,36 @@ const RepDs = [].concat.apply([], RepD).reduce((result, value) => {
 }, []);
 
 //@ts-ignore
-const RepEAs: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, value) => {
+// const RepEAs: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, value) => {
+//     //@ts-ignore
+//     const target = result.find((r) => r.source === value.source && r.target === value.target);
+//     //@ts-ignore
+//     const repea = result.find((r) => r.source === value.source && r.target === value.target && (r.valueid && value.valueid) === 'repea');
+//     //@ts-ignore
+//     // if (repea) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+//     //@ts-ignore
+//     if (!repea) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+//     //@ts-ignore
+//     else target.value += 1;
+//     return result;
+// }, []);
+
+//@ts-ignore
+const RepEAs = ([].concat.apply([], PaperString) as SankeyLink[]).reduce<SankeyLinkExtended[]>((RepEAs, onePaper) => {
+    // @ts-ignore
+    const repeaOnePaper = RepEAs.find((r) => r.source === onePaper.source && r.target === onePaper.target && r.value === onePaper.value && (r.valueid === onePaper.valueid) === 'repea');
+    // const repb = result.find((r) => r.source === value.source && r.target === value.target && r.valueid === 'repb'); //흐름 보이는데 이건 절대아님.
     //@ts-ignore
-    const target = result.find((r) => r.source === value.source && r.target === value.target);
-    //@ts-ignore
-    const repea = result.find((r) => r.source === value.source && r.target === value.target && (r.valueid && value.valueid) === 'repea');
-    //@ts-ignore
-    // if (repea) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
-    //@ts-ignore
-    if (!repea) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
-    //@ts-ignore
-    else target.value += 1;
-    return result;
+    // if (repb) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
+
+    if (!repeaOnePaper) {
+        // console.log('onePaper.paperName', onePaper.paperName);
+        //@ts-ignore
+        RepEAs.push({ source: onePaper.source, target: onePaper.target, value: onePaper.value, valueid: onePaper.valueid, paperName: onePaper.paperName, id: onePaper.id });
+    } else {
+        repeaOnePaper.value += 1;
+    }
+    return RepEAs;
 }, []);
 
 //@ts-ignore

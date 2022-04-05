@@ -2,7 +2,7 @@
 import { SankeyData, SankeyNode, SankeyLink, SankeyStatus, SankeyNodeExtended, SankeyLinkExtended } from '../../types/sankey';
 import { useState, useEffect } from 'react';
 // Components
-import { Link, LinkBlueColor, LinkGrayColor, LinkLightBlueColor, LinkRedColor } from './Link';
+import { Link, LinkBlueColor, LinkGrayColor, LinkLightBlueColor, LinkRedColor, LinkDeepBlueColor } from './Link';
 import { Node } from './Node';
 import './Sankey.css';
 // Utils
@@ -25,11 +25,6 @@ interface Props {
     paddingTop?: number;
     paddingLeft?: number;
     originData: SankeyData;
-    // valueid: SankeyLink[];
-    // nodes?: SankeyNode;
-    // links?: SankeyLink | undefined;
-    // status?: SankeyStatus | undefined;
-    /** Node width is proportional to the height of the Sankey diagram */
     nodeWidth?: number;
     nodeHeight?: number;
     nodeMargin?: number;
@@ -85,18 +80,22 @@ export const Sankey = ({ width, height, originData, paddingTop = 0, paddingLeft 
         renderingData.links = mergedLinks;
         setSourceTargetIdLinksDict(sourceTargetIdLinksDict);
         const nodes = calcSankeyNodes(renderingData, width, height, paddingTop, paddingLeft, nodeWidth, nodeHeight, nodeMargin, maxLinkBreadth);
-        console.log('nodes', nodes);
+        // console.log('nodes', nodes);
         setNodes(nodes);
-        // const links = calcSankeyLinks(renderingData, height, nodes, nodeWidth, minLinkBreadth, maxLinkBreadth, renderingData.positionStatus === 'init');
+        // const links = calcSankeyLinks(renderingData, height, nodes, nodeWidth, minLinkBreadth, maxLinkBreadth, renderingData.positionStatus === 'init'); // 이거로 하면 모든 링크 위치 분리되어 나타냄
         const links = calcSankeyLinks(renderingData, height, nodes, nodeWidth, minLinkBreadth, maxLinkBreadth);
-        console.log('links', links);
+        // console.log('links', links);
         setLinks(links);
     }, [originData]);
+    // console.log(sourceTargetIdLinksDict);
 
     return (
         <svg className="hello" width={width} height={height}>
             <LinkGrayColor />
             <LinkBlueColor />
+            <LinkDeepBlueColor />
+            <LinkLightBlueColor />
+            <LinkRedColor />
             {links.map((link, i) => (
                 <Link key={`link-${i}`} link={link} originData={originData} sourceTargetIdLinksDict={sourceTargetIdLinksDict} setOriginData={setOriginData} />
             ))}
