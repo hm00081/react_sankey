@@ -9,29 +9,36 @@ import { link } from 'fs';
 
 export const LinkGrayColor: FC = () => (
     <linearGradient id="grayLinkColor">
-        <stop offset="100%" stopColor={'hsl(0, 0%, 91%)'} />
-        <stop offset="100%" stopColor={'hsl(0, 0%, 91%)'} />
+        <stop offset="100%" stopColor={'hsl(10, 0%, 92%)'} />
+        <stop offset="100%" stopColor={'hsl(10, 0%, 92%)'} />
     </linearGradient>
 );
 
 export const LinkBlueColor: FC = () => (
     <linearGradient id="blueLinkColor">
-        <stop offset="100%" stopColor={'hsl(210, 80%, 60%)'} />
-        <stop offset="100%" stopColor={'hsl(210, 80%, 60%)'} />
+        <stop offset="100%" stopColor={'hsl(210, 80%, 55%)'} />
+        <stop offset="100%" stopColor={'hsl(210, 80%, 55%)'} />
     </linearGradient>
 );
 
 export const LinkDeepBlueColor: FC = () => (
-    <linearGradient id="deepBlueLinkColor">
-        <stop offset="100%" stopColor={'hsl(225, 100%, 39%)'} />
-        <stop offset="100%" stopColor={'hsl(225, 100%, 39%)'} />
+    <linearGradient id="blueLightLinkColor">
+        <stop offset="100%" stopColor={'hsl(225, 100%, 90%)'} />
+        <stop offset="100%" stopColor={'hsl(225, 100%, 90%)'} />
     </linearGradient>
 );
 
-export const LinkLightBlueColor: FC = () => (
-    <linearGradient id="lightBlueLinkColor">
-        <stop offset="100%" stopColor={'hsl(110, 50%, 50%)'} />
-        <stop offset="100%" stopColor={'hsl(110, 50%, 50%)'} />
+export const LinkGreenColor: FC = () => (
+    <linearGradient id="greenLinkColor">
+        <stop offset="100%" stopColor={'hsl(110, 50%, 55%)'} />
+        <stop offset="100%" stopColor={'hsl(110, 50%, 55%)'} />
+    </linearGradient>
+);
+
+export const LinkLightGreenColor: FC = () => (
+    <linearGradient id="greenLightLinkColor">
+        <stop offset="100%" stopColor={'hsl(110, 50%, 90%)'} />
+        <stop offset="100%" stopColor={'hsl(110, 50%, 90%)'} />
     </linearGradient>
 );
 
@@ -52,18 +59,9 @@ interface Props {
 
 // Component
 export const Link = ({ link, originData, sourceTargetIdLinksDict, setOriginData }: Props) => {
-    const [isHovering, setIsHovering] = useState(0);
-    const styledRenderingData: SankeyData = { ...originData };
-    styledRenderingData.positionStatus = 'clicked';
-    styledRenderingData.links = styledRenderingData.links.map((link) => {
-        return { ...link };
-    });
-    const styledSelectedLinkParts = sourceTargetIdLinksDict[`${link.source}-${link.target}-${link.valueid}`];
-    styledSelectedLinkParts.forEach((styledLink) => {
-        if (styledLink.color !== 'grayLinkColor') return true;
-        else return false;
-    });
-    const styled = { ...styledSelectedLinkParts };
+    // const [isHovering, setIsHovering] = useState(0);
+    // const [clickedColor, setClickedColor] = useState<SankeyData>(originData);
+
     return (
         <>
             <path
@@ -72,11 +70,6 @@ export const Link = ({ link, originData, sourceTargetIdLinksDict, setOriginData 
                 stroke={`url(#${link.color})`}
                 strokeWidth={link.value}
                 fill="none"
-                // 링크 스타일함수만들고 거기에 적용
-                // style={{ opacity: styled ? 0.5 : 1,  }}
-                // onMouseOver={() => styled}
-                // onMouseOut={() => styled}
-                // style={() => {}}
                 onClick={() => {
                     console.log('clicked link', link);
                     const renderingData: SankeyData = { ...originData };
@@ -88,41 +81,25 @@ export const Link = ({ link, originData, sourceTargetIdLinksDict, setOriginData 
                     const selectedLinkParts = sourceTargetIdLinksDict[`${link.source}-${link.target}-${link.valueid}`];
 
                     renderingData.links.forEach((renderingLink) => {
-                        renderingLink.color = 'grayLinkColor'; // 초기 칼라
-
-                        renderingLink.status = undefined; // 초기 상태
+                        renderingLink.color = 'grayLinkColor';
+                        renderingLink.valueid = undefined; // 초기 상태
 
                         selectedLinkParts.forEach((linkPart) => {
                             if (renderingLink.id && renderingLink.id === linkPart.id) {
-                                if (
-                                    (renderingLink.valueid === 'repb' && renderingLink.paperName === 'CAA20') ||
-                                    'SCS19' ||
-                                    'JTM11' ||
-                                    'MDD10' ||
-                                    'LJC18' ||
-                                    'CGK21' ||
-                                    'YSK14' ||
-                                    'GYS14' ||
-                                    'MDJW07' ||
-                                    'MDDD16'
-                                ) {
-                                    if (renderingLink.source > 50) {
-                                        renderingLink.color = `lightBlueLinkColor`;
-                                        renderingLink.status = 'selected';
-                                        if (renderingLink.status === 'selected') {
-                                        }
-                                    } else renderingLink.color = `blueLinkColor`;
-                                    renderingLink.status = 'selected';
-                                } else if ((renderingLink.valueid === 'repea' && renderingLink.paperName === 'GGS12ST') || 'YFS10' || 'LGX16' || 'FAKM15' || 'FA20' || 'WHWS12') {
-                                    if (renderingLink.valueid === 'repea') {
-                                        console.log('red');
-                                        renderingLink.color = `redLinkColor`;
-                                        renderingLink.status = 'selected';
-                                    } else if (renderingLink.valueid !== 'repea') {
-                                        renderingLink.color = `redLinkColor`;
-                                        renderingLink.status = 'selected';
-                                    }
-                                }
+                                if ((renderingLink.color = 'blueLinkColor')) renderingLink.color = 'blueLinkColor';
+                                renderingLink.subcolor = 'blueLightLinkColor';
+                                renderingLink.valueid = 'selected';
+                                // blueFlag = true;
+                                // if ((renderingLink.color = 'redLinkColor')) renderingLink.color = 'redLinkColor';
+                                // renderingLink.valueid = 'selected';
+                                // redFlag = true;
+                                // renderingLink.color = renderingLink.color = 'blueLinkColor' ? 'blueLinkColor' : 'redLinkColor';
+                                if (renderingLink.source >= 50 && renderingLink.source < 100) renderingLink.color = 'greenLinkColor';
+                                renderingLink.subcolor = 'greenLightLinkColor';
+                                renderingLink.valueid = 'selected';
+                                if (renderingLink.source >= 100) renderingLink.color = 'greenLinkColor'; //색상 변경 필요하면 변경.
+                                renderingLink.subcolor = 'greenLightLinkColor';
+                                renderingLink.valueid = 'selected';
                             }
                         });
                     });
@@ -137,7 +114,7 @@ export const Link = ({ link, originData, sourceTargetIdLinksDict, setOriginData 
                             renderingData,
                         });
                     });
-                    // console.log('selectedLinkParts', selectedLinkParts);
+                    console.log('selectedLinkParts', selectedLinkParts);
                     setOriginData(renderingData);
                 }}
             >
@@ -151,10 +128,14 @@ function findFrontLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData }
     const { linkPart, renderingData } = arg;
     const frontLinks = renderingData.links.filter((renderingLink) => {
         if (renderingLink.target === linkPart.source && renderingLink.paperName === linkPart.paperName) {
-            renderingLink.color = `blueLinkColor`;
+            if ((renderingLink.color = 'blueLinkColor')) renderingLink.color = 'blueLinkColor';
+            linkPart.subcolor = 'blueLightLinkColor';
             renderingLink.valueid = 'selected';
-            if (renderingLink.source >= 100) {
-                renderingLink.color = `lightBlueLinkColor`;
+            // if ((renderingLink.color = 'redLinkColor')) renderingLink.color = 'redLinkColor';
+            // renderingLink.valueid = 'selected';
+            if (renderingLink.source >= 50) {
+                renderingLink.color = 'greenLinkColor';
+                linkPart.subcolor = 'greenLightLinkColor';
                 renderingLink.valueid = 'selected';
             } else return true;
         } else {
@@ -174,10 +155,14 @@ function findBackLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData })
     const { linkPart, renderingData } = arg;
     const backLinks = renderingData.links.filter((renderingLink) => {
         if (renderingLink.source === linkPart.target && renderingLink.paperName === linkPart.paperName) {
-            renderingLink.color = `blueLinkColor`;
+            if ((renderingLink.color = 'blueLinkColor')) renderingLink.color = 'blueLinkColor';
+            renderingLink.subcolor = 'blueLightLinkColor';
             renderingLink.valueid = 'selected';
+            // if ((renderingLink.color = 'redLinkColor')) renderingLink.color = 'redLinkColor';
+            // renderingLink.valueid = 'selected';
             if (renderingLink.source >= 50) {
-                renderingLink.color = `lightBlueLinkColor`;
+                renderingLink.color = 'greenLinkColor';
+                renderingLink.subcolor = 'greenLightLinkColor';
                 renderingLink.valueid = 'selected';
             } else return true;
         } else {

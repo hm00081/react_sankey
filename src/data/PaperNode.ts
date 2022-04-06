@@ -13,20 +13,20 @@ export const PaperNode: SankeyData = {
         { name: 'simple', type: 'Target', subtype: '1' },
         { name: 'composite', type: 'Target', subtype: '1' },
         { name: 'derived', type: 'Target', subtype: '1' },
-        { name: 'opinion', type: 'Target', subtype: '2' },
+        { name: 'opinion', type: 'Target', subtype: '2' }, // 11
         { name: 'appraisal', type: 'Target', subtype: '2' },
         { name: 'stance', type: 'Target', subtype: '2' },
         { name: 'attitude', type: 'Target', subtype: '2' },
         { name: 'emotion', type: 'Target', subtype: '2' },
         { name: 'writer', type: 'Target', subtype: '3' },
         { name: 'organization', type: 'Target', subtype: '3' },
-        { name: 'key_player', type: 'Target', subtype: '3' },
+        { name: 'key_player', type: 'Target', subtype: '3' }, // 18
         { name: 'public', type: 'Target', subtype: '3' },
         { name: 'community', type: 'Target', subtype: '3' },
         { name: 'birth_death', type: 'Target', subtype: '4' },
         { name: 'growth_contraction', type: 'Target', subtype: '4' },
         { name: 'continuity', type: 'Target', subtype: '4' },
-        { name: 'accumulation', type: 'Target', subtype: '4' },
+        { name: 'accumulation', type: 'Target', subtype: '4' }, // 24
         { name: 'fusion_discrete', type: 'Target', subtype: '4' }, // 25
         { name: 'stable', type: 'Target', subtype: '4' },
         { name: 'repeat', type: 'Target', subtype: '4' },
@@ -47,9 +47,9 @@ export const PaperNode: SankeyData = {
         { name: 'polarity_classification', type: 'Intermediation', subtype: '2' },
         { name: 'personalized_sentiment_analysis', type: 'Intermediation', subtype: '2' },
         { name: 'multilingual_and_cross_lingual_sentiment_analysis', type: 'Intermediation', subtype: '2' },
-        { name: 'comparsion_of_different_sentiments', type: 'Intermediation', subtype: '3' },
-        { name: 'timeline_analysis', type: 'Intermediation', subtype: '4' },
-        { name: 'analysis_of_debates_comments_and_argumentation', type: 'Intermediation', subtype: '4' },
+        { name: 'comparsion_of_different_sentiments', type: 'Intermediation', subtype: '3' }, // 45
+        { name: 'timeline_analysis', type: 'Intermediation', subtype: '4' }, // 46
+        { name: 'analysis_of_debates_comments_and_argumentation', type: 'Intermediation', subtype: '4' }, // 47
         { name: 'finding_significant', type: 'Intermediation', subtype: '4' }, // 48
         { name: 'easy_exploration_of_sentiment_information', type: 'Intermediation', subtype: '4' }, // 49
         { name: 'celestial', type: 'Representation', subtype: '0' }, // 50
@@ -61,7 +61,7 @@ export const PaperNode: SankeyData = {
         { name: 'metal', type: 'Representation', subtype: '0' },
         { name: 'nonmetal', type: 'Representation', subtype: '0' },
         { name: 'cell', type: 'Representation', subtype: '0' },
-        { name: 'building_structure', type: 'Representation', subtype: '1' },
+        { name: 'building_structure', type: 'Representation', subtype: '1' }, // 59
         { name: 'geometry', type: 'Representation', subtype: '1' },
         { name: 'picture', type: 'Representation', subtype: '1' },
         { name: 'pattern', type: 'Representation', subtype: '1' },
@@ -72,7 +72,7 @@ export const PaperNode: SankeyData = {
         { name: 'software', type: 'Representation', subtype: '1' },
         { name: 'machine', type: 'Representation', subtype: '1' },
         { name: 'letter', type: 'Representation', subtype: '1' },
-        { name: 'natural_phenomena', type: 'Representation', subtype: '2' },
+        { name: 'natural_phenomena', type: 'Representation', subtype: '2' }, // 70
         { name: 'behavior', type: 'Representation', subtype: '2' },
         { name: 'disaster', type: 'Representation', subtype: '2' },
         { name: 'space_time_movement', type: 'Representation', subtype: '2' },

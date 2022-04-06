@@ -31,6 +31,7 @@ export const calcSankeyLinks = (
         const targetNode = nodes.filter((node) => node.index === link.target)[0];
         const valueid = link.valueid;
         const color = link.color;
+        const subcolor = link.subcolor;
         const overlapid = link.overlapid;
         const breadth = (link.value / totalValue) * height;
         const maxBreadth = proportionalMaxLinkBreadth ? Math.min(breadth, proportionalMaxLinkBreadth) : breadth;
@@ -47,6 +48,7 @@ export const calcSankeyLinks = (
             path: '',
             overlapid,
             color,
+            subcolor,
         };
         // sourceNode.sourceNodeType += link.value;
         // targetNode.targetNodeType += link.value;

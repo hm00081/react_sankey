@@ -18,7 +18,7 @@ const GYS14: SankeyData = {
         },
         {
             source: 146,
-            target: 16,
+            target: 18,
             value: 3,
             valueid: 'repb',
         },

@@ -104,15 +104,6 @@ export const Node = ({ node, width, height }: Props) => {
     const textValueSize = (size / 100) * 1;
     let textXPosition = textX + textMargin + node.width * 0.3;
     let textYPosition = node.y + node.value / 2 + textMargin * 1;
-    const [hover, setHover] = useState<boolean>(false);
-
-    const handleMouseIn = () => {
-        setHover(true);
-    };
-
-    const handleMouseOut = () => {
-        setHover(false);
-    };
 
     if (node.type === 'Vis_var&tech') {
         textXPosition = textX + textMargin;
@@ -122,8 +113,9 @@ export const Node = ({ node, width, height }: Props) => {
     }
 
     return (
+        //노드에 link와 같이 클릭시 노드에 있는 링크들만 보여주도록 표현.
         <NodePos>
-            <rect onMouseOver={handleMouseIn} onMouseOut={handleMouseOut} x={node.x} y={node.y} width={node.width} height={node.value} fill={node.color}>
+            <rect x={node.x} y={node.y} width={node.width} height={node.value} fill={node.color} onClick={() => {}}>
                 <title>{`${node.name}: ${node.value}`}</title>
             </rect>
             <g transform={`translate(${textXPosition} ${textYPosition})`}>
