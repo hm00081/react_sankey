@@ -183,6 +183,7 @@ const JTM11: SankeyData = {
 
 JTM11.links.map((link, index) => {
     link.paperName = 'JTM11';
+    link.category = 'RepB';
     link.id = `index-${index}`;
 });
 

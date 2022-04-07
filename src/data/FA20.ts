@@ -109,7 +109,13 @@ const FA20: SankeyData = {
         {
             source: 41,
             target: 59,
-            value: 2,
+            value: 1,
+            valueid: 'repea',
+        },
+        {
+            source: 41,
+            target: 59,
+            value: 1,
             valueid: 'repea',
         },
         {

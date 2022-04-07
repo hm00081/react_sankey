@@ -110,6 +110,7 @@ const MDDD16: SankeyData = {
 
 MDDD16.links.map((link, index) => {
     link.paperName = 'MDDD16';
+    link.category = 'RepB';
     link.id = `MDDD16-${index}`;
 });
 

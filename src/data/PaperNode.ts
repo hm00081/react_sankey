@@ -61,7 +61,7 @@ export const PaperNode: SankeyData = {
         { name: 'metal', type: 'Representation', subtype: '0' },
         { name: 'nonmetal', type: 'Representation', subtype: '0' },
         { name: 'cell', type: 'Representation', subtype: '0' },
-        { name: 'building_structure', type: 'Representation', subtype: '1' }, // 59
+        { name: 'building&structure', type: 'Representation', subtype: '1' }, // 59 (바퀴)
         { name: 'geometry', type: 'Representation', subtype: '1' },
         { name: 'picture', type: 'Representation', subtype: '1' },
         { name: 'pattern', type: 'Representation', subtype: '1' },
@@ -79,9 +79,9 @@ export const PaperNode: SankeyData = {
         { name: 'machine_software_work', type: 'Representation', subtype: '3' },
         { name: 'creation_and_destruction', type: 'Representation', subtype: '3' }, // 75
         { name: 'value', type: 'Vis_var&tech', subtype: '0' },
-        { name: 'color', type: 'Vis_var&tech', subtype: '0' },
+        { name: 'color', type: 'Vis_var&tech', subtype: '0' }, // 78
         { name: 'size', type: 'Vis_var&tech', subtype: '0' },
-        { name: 'shape', type: 'Vis_var&tech', subtype: '0' },
+        { name: 'shape', type: 'Vis_var&tech', subtype: '0' }, // 80
         { name: 'position', type: 'Vis_var&tech', subtype: '0' },
         { name: 'orientation', type: 'Vis_var&tech', subtype: '0' },
         { name: 'distance', type: 'Vis_var&tech', subtype: '0' },
@@ -129,9 +129,9 @@ export const PaperNode: SankeyData = {
         { name: 'MWSO08', type: 'Paper' },
         { name: 'PC15PV', type: 'Paper' }, // 125
         { name: 'REP15', type: 'Paper' },
-        { name: 'SCS16', type: 'Paper' },
+        { name: 'SCS16', type: 'Paper' }, // 127
         { name: 'SCS17', type: 'Paper' },
-        { name: 'SCS19', type: 'Paper' },
+        { name: 'SCS19', type: 'Paper' }, // 129
         { name: 'SSK12', type: 'Paper' }, // 130
         { name: 'VWH13', type: 'Paper' },
         { name: 'XD99', type: 'Paper' },

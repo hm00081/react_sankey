@@ -189,6 +189,7 @@ const YSK14: SankeyData = {
 
 YSK14.links.map((link, index) => {
     link.paperName = 'YSK14';
+    link.category = 'RepB';
     link.id = `YSK14-${index}`;
 });
 

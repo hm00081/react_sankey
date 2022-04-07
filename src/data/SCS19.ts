@@ -244,6 +244,7 @@ const SCS19: SankeyData = {
 
 SCS19.links.map((link, index) => {
     link.paperName = 'SCS19';
+    link.category = 'RepB';
     link.id = `SCS19-${index}`;
 });
 

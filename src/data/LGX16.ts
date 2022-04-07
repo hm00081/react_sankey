@@ -8,13 +8,11 @@ const LGX16: SankeyData = {
             source: 115,
             target: 4,
             value: 2,
-            valueid: 'repea',
         }, // a[0]
         {
             source: 115,
             target: 5,
             value: 1,
-            valueid: 'repea',
         }, // a[1]
         {
             source: 115,
@@ -32,25 +30,21 @@ const LGX16: SankeyData = {
             source: 115,
             target: 17,
             value: 1,
-            valueid: 'repea',
         }, // a[4]
         {
             source: 115,
             target: 19,
             value: 1,
-            valueid: 'repea',
         }, // a[5]
         {
             source: 4,
             target: 40,
             value: 2,
-            valueid: 'repea',
         }, // a[6]
         {
             source: 5,
             target: 40,
             value: 1,
-            valueid: 'repea',
         }, // a[7]
         {
             source: 11,
@@ -62,7 +56,6 @@ const LGX16: SankeyData = {
             source: 11,
             target: 45,
             value: 1,
-            valueid: 'repea',
         }, // a[9]
         {
             source: 12,
@@ -80,31 +73,26 @@ const LGX16: SankeyData = {
             source: 17,
             target: 45,
             value: 1,
-            valueid: 'repea',
         }, // a[12]
         {
             source: 19,
             target: 45,
             value: 1,
-            valueid: 'repea',
         }, // a[13]
         {
             source: 40,
             target: 70,
             value: 1,
-            valueid: 'repea',
         }, // a[14]
         {
             source: 40,
             target: 60,
             value: 1,
-            valueid: 'repea',
         }, // a[15]
         {
             source: 40,
             target: 55,
             value: 1,
-            valueid: 'repea',
         }, // a[16]
         {
             source: 33,
@@ -122,43 +110,36 @@ const LGX16: SankeyData = {
             source: 45,
             target: 68,
             value: 1,
-            valueid: 'repea',
         }, // a[19]
         {
             source: 70,
             target: 80,
             value: 1,
-            valueid: 'repea',
         }, // a[20]
         {
             source: 60,
             target: 77,
             value: 1,
-            valueid: 'repea',
         }, // a[21]
         {
             source: 60,
             target: 78,
             value: 1,
-            valueid: 'repea',
         }, // a[22]
         {
             source: 55,
             target: 77,
             value: 1,
-            valueid: 'repea',
         }, // a[23]
         {
             source: 55,
             target: 78,
             value: 1,
-            valueid: 'repea',
         }, // a[24]
         {
             source: 55,
             target: 85,
             value: 1,
-            valueid: 'repea',
         }, // a[25]
         {
             source: 59,
@@ -182,7 +163,6 @@ const LGX16: SankeyData = {
             source: 68,
             target: 80,
             value: 1,
-            valueid: 'repea',
         }, // a[29]
     ],
     status: [

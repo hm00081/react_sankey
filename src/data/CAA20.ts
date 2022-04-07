@@ -8,11 +8,13 @@ const CAA20: SankeyData = {
             source: 100,
             target: 9,
             value: 1,
+            valueid: 'none',
         },
         {
             source: 100,
             target: 11,
             value: 2,
+            valueid: 'none',
         },
         {
             source: 100,
@@ -30,6 +32,7 @@ const CAA20: SankeyData = {
             source: 100,
             target: 24,
             value: 1,
+            valueid: 'none',
         },
         {
             source: 100,
@@ -116,34 +119,29 @@ const CAA20: SankeyData = {
             source: 59,
             target: 77,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 59,
             target: 78,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 77,
             value: 1,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 78,
             value: 1,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 54,
             target: 92,
             value: 1,
             valueid: 'repb',
-            overlapid: 'overlap',
         },
         {
             source: 54,
@@ -160,7 +158,6 @@ const CAA20: SankeyData = {
             source: 59,
             target: 92,
             value: 1,
-            overlapid: 'overlap',
         },
         {
             source: 70,
@@ -190,6 +187,7 @@ const CAA20: SankeyData = {
 
 CAA20.links.forEach((link, index) => {
     link.paperName = 'CAA20';
+    link.category = 'RepB';
     link.id = `CAA20-${index}`;
 });
 

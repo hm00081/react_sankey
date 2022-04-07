@@ -36,6 +36,7 @@ const Button = styled.button`
 export default function FinalSankey() {
     const [ref, { width, height }] = useMeasure<HTMLDivElement>();
     const [originData, setOriginData] = useState<SankeyData>(basicData);
+    // console.log(originData);
     const title = ['Paper', 'Target', 'Intermediation', 'Representation', 'Vis_var&tech'];
     const columns = title.map((title) => title).filter((title, pos, arr) => arr.indexOf(title) === pos);
     const isDesktopOrLaptop = useMediaQuery(

@@ -129,7 +129,7 @@ const PaperString = [
     WHWS12.links,
     FZC18.links,
 ];
-console.log(SCS19.links);
+
 const Papers = [
     BN11B,
     CAA20,
@@ -384,19 +384,6 @@ const RepAs: SankeyLink[] = [].concat.apply([], PaperString).reduce((result, val
 }, []);
 
 //@ts-ignore
-// const RepBs: SankeyLink[] = [].concat.apply([], RepB).reduce((result, value) => {
-//     //@ts-ignore
-//     const target = result.find((r) => r.source === value.source && r.target === value.target && r.valueid === value.valueid);
-//     // 이 부분에서 link의 id를 주어 해당 id를 포함, 미포함 하는 거를 나누어 그리면 기존 1개의 링크를 2개의 링크로 쪼갤 수 있을듯 하다.
-//     // 덩어리 분해하는 알고리즘 작성.
-//     // dict로 다양한 활용방법 생각해보기.?
-//     //@ts-ignore
-//     if (!target) result.push({ source: value.source, target: value.target, value: value.value, valueid: value.valueid });
-//     //@ts-ignore
-//     else target.value += 1;
-//     return result;
-// }, []);
-
 const RepBs = ([].concat.apply([], PaperString) as SankeyLink[]).reduce<SankeyLinkExtended[]>((RepBs, onePaper) => {
     // @ts-ignore
     const repbOnePaper = RepBs.find((r) => r.source === onePaper.source && r.target === onePaper.target && r.value === onePaper.value && (r.valueid === onePaper.valueid) === 'repb');

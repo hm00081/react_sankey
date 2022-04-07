@@ -153,14 +153,18 @@ const repb: SankeyData = {
         //@ts-ignore
         if (hasLinkInGroup(link, RepBs)) {
             if (link.source < 50) {
-                // color = 'blueLinkColor' ? 'blueLinkColor' : 'greenLinkColor'; // 하늘색
                 color = 'blueLinkColor';
             } else {
                 color = 'greenLinkColor';
             }
-            // color = colors;
         } else {
-            color = 'grayLinkColor'; // 회색
+            if (link.category === 'RepB') {
+                if (link.source < 50) {
+                    color = 'blueLightLinkColor';
+                } else {
+                    color = 'greenLightLinkColor';
+                }
+            } else color = 'grayLinkColor';
         }
         return {
             ...link,

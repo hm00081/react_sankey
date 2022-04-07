@@ -210,6 +210,7 @@ const MDJW07: SankeyData = {
 
 MDJW07.links.map((link, index) => {
     link.paperName = 'MDJW07';
+    link.category = 'RepB';
     link.id = `MDJW07-${index}`;
 });
 

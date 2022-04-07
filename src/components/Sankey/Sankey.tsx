@@ -44,6 +44,10 @@ export interface SourceTargetIdLinksDict {
     [sourceTargetId: string]: SankeyLink[];
 }
 
+export interface SourceTargetIdNodesDict {
+    [sourceTargetId: string]: SankeyNode[];
+}
+
 // Component
 export const Sankey = ({ width, height, originData, paddingTop = 0, paddingLeft = 0, nodeWidth = 20, nodeHeight = 20, nodeMargin = 5, minLinkBreadth, maxLinkBreadth, setOriginData }: Props) => {
     const [nodes, setNodes] = useState<SankeyNodeExtended[]>([]);
@@ -51,9 +55,11 @@ export const Sankey = ({ width, height, originData, paddingTop = 0, paddingLeft 
     const [columns, setColumns] = useState<SankeyNodeExtended[]>([]);
     const [renderingData, setRenderingData] = useState<SankeyData>({ ...originData });
     const [sourceTargetIdLinksDict, setSourceTargetIdLinksDict] = useState<SourceTargetIdLinksDict>({});
+    const [SourceTargetIdNodesDict, setSourceTargetIdNodesDict] = useState<SourceTargetIdNodesDict>({});
 
     useEffect(() => {
         const sourceTargetIdLinksDict: SourceTargetIdLinksDict = {};
+        const SourceTargetIdNodesDict: SourceTargetIdNodesDict = {};
 
         originData.links.forEach((link1) => {
             originData.links.forEach((link2) => {
@@ -123,7 +129,7 @@ export const Sankey = ({ width, height, originData, paddingTop = 0, paddingLeft 
 
             {nodes.map((node, i) => (
                 // @ts-ignore
-                <Node className="node" key={`node-${i}`} node={node} width={width} height={height} /> // 노드도 그래프용 데이터가 필요할듯하다.
+                <Node className="node" key={`node-${i}`} node={node} width={width} height={height} originData={originData} setOriginData={setOriginData} /> // 노드도 그래프용 데이터가 필요할듯하다.
             ))}
         </svg>
     );

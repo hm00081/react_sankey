@@ -8,13 +8,11 @@ const YFS10: SankeyData = {
             source: 135,
             target: 11,
             value: 1,
-            valueid: 'repea',
         }, // a[0]
         {
             source: 135,
             target: 12,
             value: 1,
-            valueid: 'repea',
         }, // a[1]
         {
             source: 135,
@@ -32,25 +30,21 @@ const YFS10: SankeyData = {
             source: 11,
             target: 34,
             value: 1,
-            valueid: 'repea',
         }, // a[4]
         {
             source: 11,
             target: 45,
             value: 1,
-            valueid: 'repea',
         }, // a[5]
         {
             source: 12,
             target: 34,
             value: 1,
-            valueid: 'repea',
         }, // a[6]
         {
             source: 12,
             target: 45,
             value: 1,
-            valueid: 'repea',
         }, // a[7]
         {
             source: 16,
@@ -67,14 +61,22 @@ const YFS10: SankeyData = {
         {
             source: 34,
             target: 60,
-            value: 2,
-            valueid: 'repea',
+            value: 1,
+        }, // a[10]
+        {
+            source: 34,
+            target: 60,
+            value: 1,
         }, // a[10]
         {
             source: 45,
             target: 60,
-            value: 2,
-            valueid: 'repea',
+            value: 1,
+        }, // a[11]
+        {
+            source: 45,
+            target: 60,
+            value: 1,
         }, // a[11]
         {
             source: 45,
@@ -91,20 +93,32 @@ const YFS10: SankeyData = {
         {
             source: 60,
             target: 76,
-            value: 2,
-            valueid: 'repea',
+            value: 1,
+        }, // a[14]
+        {
+            source: 60,
+            target: 76,
+            value: 1,
         }, // a[14]
         {
             source: 60,
             target: 78,
-            value: 2,
-            valueid: 'repea',
+            value: 1,
+        }, // a[15]
+        {
+            source: 60,
+            target: 78,
+            value: 1,
         }, // a[15]
         {
             source: 60,
             target: 92,
-            value: 2,
-            valueid: 'repea',
+            value: 1,
+        }, // a[16]
+        {
+            source: 60,
+            target: 92,
+            value: 1,
         }, // a[16]
         {
             source: 59,

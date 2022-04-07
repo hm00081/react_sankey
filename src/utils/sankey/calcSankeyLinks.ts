@@ -1,11 +1,15 @@
 // Libraries
 import { linkHorizontal, line, curveCardinal } from 'd3-shape';
+import { useState, useEffect } from 'react';
 
 // Types
 import { SankeyData, SankeyLinkExtended, SankeyNodeExtended, SankeyLink } from '../../types';
-import _, { forEach } from 'lodash';
-import { link } from 'fs';
+// import _, { forEach } from 'lodash';
 import { Utility } from './basics';
+
+export interface SourceTargetNodesDict {
+    [sourceTargetId: string]: SankeyLinkExtended[];
+}
 
 export const calcSankeyLinks = (
     data: SankeyData,
@@ -23,6 +27,7 @@ export const calcSankeyLinks = (
     const proportionalNodeWidth = nodeWidth * (height / 100);
     const proportionalMaxLinkBreadth = maxLinkBreadth && maxLinkBreadth * (height / 100);
     const proportionalMinLinkBreadth = minLinkBreadth && minLinkBreadth * (height / 100);
+    // const [sourceNodeLinksDict, setSourceNodeLinksDict] = useState<SourceTargetNodesDict>({});
     const totalValue = nodes.map((node) => node.value).reduce((acc, cur) => (acc += cur), 0);
 
     // Extend Links to add additional data
@@ -55,15 +60,14 @@ export const calcSankeyLinks = (
 
         return extendedLink;
     });
-    // console.log(extendedLinks[0].valueid);
+
     // Calculate the path based on the positions of source and target node
 
     extendedLinks.forEach((link) => {
         if (link.sourceNode.x === link.targetNode.x) {
-            // console.log(link.sourceNode.subtype);
             const startPoint = [link.sourceNode.x + proportionalNodeWidth, link.sourceNode.height / 2 + link.sourceNode.y - nodeWidth / 2] as const;
             const endPoint = [link.targetNode.x + proportionalNodeWidth, link.targetNode.height / 2 + link.targetNode.y - nodeWidth / 2] as const;
-            // console.log(startPoint);
+
             const data = [startPoint, [startPoint[0] + 5, startPoint[1]], [startPoint[0] + 20, (endPoint[1] - startPoint[1]) / 2 + startPoint[1]], [endPoint[0] + 5, endPoint[1]], endPoint] as [
                 number,
                 number
@@ -71,7 +75,7 @@ export const calcSankeyLinks = (
 
             // d3-line, curveCardinal
             const path = line().curve(curveCardinal.tension(0.2))(data);
-            // console.log(path);
+
             if (!path) return;
 
             link.path = path;
@@ -95,17 +99,6 @@ export const calcSankeyLinks = (
     // 딕셔너리 or 해시테이블
     // const presourceNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
 
-    // extendedLinks.forEach((link) => {
-    //     // console.log(link.sourceNode.name);
-    //     if (link.sourceNode.name! in presourceNodeNameLinksDict) {
-    //         presourceNodeNameLinksDict[link.sourceNode.name!].push(link);
-    //     } else {
-    //         presourceNodeNameLinksDict[link.sourceNode.name!] = [link];
-    //     }
-    // });
-    // console.log(presourceNodeNameLinksDict); // 각 link의 모든 정보를 담은 dictionary.
-
-    // console.log(extendedLinks[0]);
     // valueid가 빈 string ''이 아닌 애들을 우선순위로 두기.
     // 딕셔너리 or 해시테이블
     const sourceNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
@@ -119,9 +112,8 @@ export const calcSankeyLinks = (
     });
 
     const targetNodeNameLinksDict: { [node: string]: SankeyLinkExtended[] } = {};
-    // console.log(sourceNodeNameLinksDict);
+
     extendedLinks.forEach((link) => {
-        // console.log(link.sourceNode.name);
         if (link.targetNode.name! in targetNodeNameLinksDict) {
             targetNodeNameLinksDict[link.targetNode.name!].push(link);
             // sourceNodeNameLinksDict[link.targetNode.name!].push(link);
@@ -188,7 +180,8 @@ export const calcSankeyLinks = (
             tempYPosition += link.value;
         });
     }
-    console.log(sourceNodeNameLinksDict);
+    // console.log(sourceNodeNameLinksDict);
+    // console.log(targetNodeNameLinksDict);
     // 각 논문축의 sourcenode & targetvalue => 논문의 targeetvalue == target의 source  === .....~~~~~ 계속 이런식으로 줄다리기.
 
     for (const [nodeName, linksOfNode] of Object.entries(targetNodeNameLinksDict)) {
