@@ -154,6 +154,10 @@ const repb: SankeyData = {
         if (hasLinkInGroup(link, RepBs)) {
             if (link.source < 50) {
                 color = 'blueLinkColor';
+            } else if (link.target >= 76 && link.target < 83) {
+                color = 'orangeLinkColor';
+            } else if (link.target > 82 && link.target < 100) {
+                color = 'rubyLinkColor';
             } else {
                 color = 'greenLinkColor';
             }

@@ -50,6 +50,20 @@ export const LinkLightGreenColor: FC = () => (
     </linearGradient>
 );
 
+export const LinkOrangeColor: FC = () => (
+    <linearGradient id="orangeLinkColor">
+        <stop offset="100%" stopColor={'hsl(37, 100%, 44%)'} />
+        <stop offset="100%" stopColor={'hsl(37, 100%, 44%)'} />
+    </linearGradient>
+);
+
+export const LinkRubyColor: FC = () => (
+    <linearGradient id="rubyLinkColor">
+        <stop offset="100%" stopColor={'hsl(353, 86%, 38%)'} />
+        <stop offset="100%" stopColor={'hsl(353, 86%, 38%)'} />
+    </linearGradient>
+);
+
 export const LinkRedColor: FC = () => (
     <linearGradient id="redLinkColor">
         <stop offset="100%" stopColor={'hsl(0, 60%, 55%)'} />
@@ -104,7 +118,10 @@ export const Link = ({ link, originData, sourceTargetIdLinksDict, setOriginData 
                                 // renderingLink.valueid = 'selected';
                                 // redFlag = true;
                                 // renderingLink.color = renderingLink.color = 'blueLinkColor' ? 'blueLinkColor' : 'redLinkColor';
-                                if (renderingLink.source >= 50 && renderingLink.source < 100) renderingLink.color = 'greenLinkColor';
+                                if (renderingLink.target >= 76 && renderingLink.target < 83) renderingLink.color = 'orangeLinkColor';
+                                renderingLink.status = 'selected';
+                                renderingLink.status = 'selected';
+                                if (renderingLink.target > 82 && renderingLink.target < 100) renderingLink.color = 'rubyLinkColor';
                                 renderingLink.status = 'selected';
                                 renderingLink.status = 'selected';
                                 if (renderingLink.source >= 100) renderingLink.color = 'greenLinkColor'; //색상 변경 필요하면 변경.
@@ -141,9 +158,9 @@ function findFrontLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData }
             if ((renderingLink.color = 'blueLinkColor')) renderingLink.color = 'blueLinkColor';
             renderingLink.valueid = 'selected';
             renderingLink.status = 'selected';
-            if ((renderingLink.status = undefined)) {
-                renderingLink.color = 'blueLightLinkColor';
-            }
+            // if ((renderingLink.status = undefined)) {
+            //     renderingLink.color = 'blueLightLinkColor';
+            // }
             // if ((renderingLink.valueid = undefined)) renderingLink.color = 'blueLightLinkColor';
             // if ((renderingLink.color = 'redLinkColor')) renderingLink.color = 'redLinkColor';
             // renderingLink.valueid = 'selected';
@@ -151,9 +168,9 @@ function findFrontLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData }
                 renderingLink.color = 'greenLinkColor';
                 renderingLink.status = 'selected';
                 renderingLink.valueid = 'selected';
-                if ((renderingLink.status = undefined)) {
-                    renderingLink.color = 'greenLightLinkColor';
-                }
+                // if ((renderingLink.status = undefined)) {
+                //     renderingLink.color = 'greenLightLinkColor';
+                // }
             } else return true;
         } else {
             return false;

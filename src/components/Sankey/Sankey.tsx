@@ -2,7 +2,7 @@
 import { SankeyData, SankeyNode, SankeyLink, SankeyStatus, SankeyNodeExtended, SankeyLinkExtended } from '../../types/sankey';
 import { useState, useEffect } from 'react';
 // Components
-import { Link, LinkBlueColor, LinkGrayColor, LinkGreenColor, LinkRedColor, LinkDeepBlueColor, LinkLightGreenColor } from './Link';
+import { Link, LinkBlueColor, LinkGrayColor, LinkGreenColor, LinkRedColor, LinkDeepBlueColor, LinkLightGreenColor, LinkRubyColor, LinkOrangeColor } from './Link';
 import { Node } from './Node';
 import './Sankey.css';
 // Utils
@@ -94,7 +94,7 @@ export const Sankey = ({ width, height, originData, paddingTop = 0, paddingLeft 
         renderingData.links = mergedLinks;
         // console.log(mergedLinks);
         setSourceTargetIdLinksDict(sourceTargetIdLinksDict);
-        console.log(sourceTargetIdLinksDict);
+        // console.log(sourceTargetIdLinksDict);
         const nodes = calcSankeyNodes(renderingData, width, height, paddingTop, paddingLeft, nodeWidth, nodeHeight, nodeMargin, maxLinkBreadth);
         // console.log('nodes', nodes);
         setNodes(nodes);
@@ -115,6 +115,8 @@ export const Sankey = ({ width, height, originData, paddingTop = 0, paddingLeft 
             <LinkDeepBlueColor />
             <LinkGreenColor />
             <LinkLightGreenColor />
+            <LinkOrangeColor />
+            <LinkRubyColor />
             <LinkRedColor />
             {/* {columns.map((column, i) => (
                 // <Text>{column}</Text>
