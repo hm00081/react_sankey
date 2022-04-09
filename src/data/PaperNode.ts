@@ -78,14 +78,14 @@ export const PaperNode: SankeyData = {
         { name: 'space_time_movement', type: 'Representation', subtype: '2' },
         { name: 'machine_software_work', type: 'Representation', subtype: '3' },
         { name: 'creation_and_destruction', type: 'Representation', subtype: '3' }, // 75
-        { name: 'value', type: 'Vis_var&tech', subtype: '0' },
-        { name: 'color', type: 'Vis_var&tech', subtype: '0' }, // 78
+        { name: 'value', type: 'Vis_var&tech', subtype: '0' }, // 76
+        { name: 'color', type: 'Vis_var&tech', subtype: '0' }, // 77
         { name: 'size', type: 'Vis_var&tech', subtype: '0' },
-        { name: 'shape', type: 'Vis_var&tech', subtype: '0' }, // 80
+        { name: 'shape', type: 'Vis_var&tech', subtype: '0' }, // 79
         { name: 'position', type: 'Vis_var&tech', subtype: '0' },
         { name: 'orientation', type: 'Vis_var&tech', subtype: '0' },
-        { name: 'distance', type: 'Vis_var&tech', subtype: '0' },
-        { name: '3d_visualization', type: 'Vis_var&tech', subtype: '1' },
+        { name: 'distance', type: 'Vis_var&tech', subtype: '0' }, // 82
+        { name: '3d_visualization', type: 'Vis_var&tech', subtype: '1' }, // 83
         { name: 'node_link_diagram', type: 'Vis_var&tech', subtype: '1' },
         { name: 'bubble_chart', type: 'Vis_var&tech', subtype: '1' },
         { name: 'area_chart', type: 'Vis_var&tech', subtype: '1' },

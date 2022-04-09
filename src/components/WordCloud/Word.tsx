@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text } from '@visx/text';
 import { scaleLog } from '@visx/scale';
 import { Wordcloud } from '@visx/wordcloud';
-import { totoAfricaLyrics } from './text.fixture';
+import { Target } from './text.fixture';
 import { totoAfricaLyricss } from './text.fixtures';
 import styled from 'styled-components';
 
@@ -23,7 +23,7 @@ export interface WordData {
     value: number;
 }
 
-const colors = ['#143059', '#2F6B9A', '#82a6c2'];
+const colors = ['#143059']; // select color
 
 function wordFreq(text: string): WordData[] {
     const words: string[] = text.replace(/\./g, '').split(/\s/);
@@ -45,7 +45,7 @@ function getRotationDegree() {
     return rand * degree;
 }
 
-const words = wordFreq(totoAfricaLyrics);
+const words = wordFreq(Target);
 // const words = totoAfricaLyricss;
 // console.log('words', words);
 
@@ -69,11 +69,11 @@ export default function Word({ width, height, showControls }: WordProps) {
                 <Wordcloud
                     words={words}
                     width={width}
-                    height={height}
+                    height={height * 4}
                     fontSize={fontSizeSetter}
-                    font={'Impact'}
+                    font={'Helvetica'}
                     padding={2}
-                    spiral={'rectangular'}
+                    spiral={'archimedean'}
                     rotate={withRotation ? getRotationDegree : 0}
                     random={fixedValueGenerator}
                 >

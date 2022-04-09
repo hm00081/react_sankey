@@ -49,7 +49,8 @@ export type LinkColor =
     | 'greenLightLinkColor'
     | 'redLinkColor'
     | 'orangeLinkColor'
-    | 'rubyLinkColor';
+    | 'rubyLinkColor'
+    | 'blackLinkColor';
 
 export type SankeyNodeExtended = SankeyNode & {
     index: number;

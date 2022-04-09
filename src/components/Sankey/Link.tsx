@@ -10,8 +10,8 @@ import { setOriginalNode } from 'typescript';
 
 export const LinkGrayColor: FC = () => (
     <linearGradient id="grayLinkColor">
-        <stop offset="100%" stopColor={'hsl(10, 0%, 93%)'} />
-        <stop offset="100%" stopColor={'hsl(10, 0%, 93%)'} />
+        <stop offset="100%" stopColor={'hsl(10, 0%, 85%)'} />
+        <stop offset="100%" stopColor={'hsl(10, 0%, 85%)'} />
     </linearGradient>
 );
 
@@ -19,6 +19,13 @@ export const LinkDarkGrayColor: FC = () => (
     <linearGradient id="grayDarkLinkColor">
         <stop offset="100%" stopColor={'hsl(10, 0%, 50%)'} />
         <stop offset="100%" stopColor={'hsl(10, 0%, 50%)'} />
+    </linearGradient>
+);
+
+export const LinkBlackColor: FC = () => (
+    <linearGradient id="blackLinkColor">
+        <stop offset="100%" stopColor={'hsl(10, 0%, 80%)'} />
+        <stop offset="100%" stopColor={'hsl(10, 0%, 80%)'} />
     </linearGradient>
 );
 
@@ -189,22 +196,28 @@ function findBackLinks(arg: { linkPart: SankeyLink; renderingData: SankeyData })
     const { linkPart, renderingData } = arg;
     const backLinks = renderingData.links.filter((renderingLink) => {
         if (renderingLink.source === linkPart.target && renderingLink.paperName === linkPart.paperName) {
-            if ((renderingLink.color = 'blueLinkColor')) renderingLink.color = 'blueLinkColor';
+            if (renderingLink.source < 50) renderingLink.color = 'blueLinkColor';
             renderingLink.valueid = 'selected';
             renderingLink.status = 'selected';
-            if ((renderingLink.status = undefined)) {
-                renderingLink.color = 'blueLightLinkColor';
-            }
-            // if ((renderingLink.color = 'redLinkColor')) renderingLink.color = 'redLinkColor';
-            // renderingLink.valueid = 'selected';
-            if (renderingLink.source >= 50) {
-                if ((renderingLink.color = 'greenLinkColor')) renderingLink.color = 'greenLinkColor';
+            // if ((renderingLink.status = undefined)) {
+            //     renderingLink.color = 'blueLightLinkColor';
+            // }
+            if (renderingLink.target >= 76 && renderingLink.target < 83) {
+                renderingLink.color = 'orangeLinkColor';
                 renderingLink.valueid = 'selected';
                 renderingLink.status = 'selected';
-                if ((renderingLink.status = undefined)) {
-                    renderingLink.color = 'greenLightLinkColor';
-                }
-            } else return true;
+            } else if (renderingLink.target > 82 && renderingLink.target < 100) {
+                renderingLink.color = 'rubyLinkColor';
+                renderingLink.valueid = 'selected';
+                renderingLink.status = 'selected';
+            } else if (renderingLink.source >= 100) {
+                renderingLink.color = 'greenLinkColor';
+                renderingLink.valueid = 'selected';
+                renderingLink.status = 'selected';
+            } else renderingLink.color = 'blueLinkColor';
+            renderingLink.valueid = 'selected';
+            renderingLink.status = 'selected';
+            return true;
         } else {
             return false;
         }

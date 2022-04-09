@@ -26,7 +26,69 @@ const basicData: SankeyData = {
 
         return { ...node, color };
     }),
-    links: LinkData[0],
+    // links: AllPaperDatas.map((link) => {
+    //     let color: LinkColor = 'grayLinkColor';
+    //     // let status: string = '';
+    //     //@ts-ignore
+    //     if (hasLinkInGroup(link, AllPaperDatas)) {
+    //         color = 'grayLinkColor';
+    //     } else {
+    //         color = 'grayLinkColor';
+    //     }
+    //     return {
+    //         ...link,
+    //         color,
+    //         //, paperIndex:
+    //     };
+    //     // 뭔가 각 link마다 식별할 수 있는 id 같은게 있으면 될것 같소 ㅋㅋ (현재 모든 value에 의해 색상이 칠해지고 있음..)
+    //     // 각 link마다 id가 있지만 현재 모든 동일 value를 합치며 link가 그려지는 중이여서
+    //     //그 link내에서 해당 id를 가지는 link만을 구현을 하지 못하는 것 같음.
+    //     // 줌링크 영상 한번 다시 보기.
+    //     // 내일은 꼭 일찍 일어나서 일찍와야지 그냥.
+    //     // dict로 다양한 활용방법 생각해보기.
+    //     // AllPaperData와 CalcSankey는 문제없어 보임. 뭐가 문젤까.....
+    //     function hasLinkInGroup(wantedLink: SankeyLinkExtended, linkGroup: SankeyLinkExtended[]) {
+    //         // const [state, setState] = useState();
+    //         let hasLink: boolean = false;
+    //         let color: string = '';
+    //         for (let i = 0; i < linkGroup.length; i++) {
+    //             // if (wantedLink.sourceNodeYPosition === linkGroup[i].sourceNodeYPosition && wantedLink.valueid === 'repb') {
+    //             // 현재 전체 페이퍼에서 작동하는 중.
+    //             if (wantedLink.sourceNodeYPosition === linkGroup[i].sourceNodeYPosition) {
+    //                 hasLink = true;
+    //             } else hasLink = false;
+    //         }
+    //         return hasLink;
+    //     }
+    links: RepAs.map((link) => {
+        let color: LinkColor = 'grayLinkColor';
+        // let status: string = '';
+        //@ts-ignore
+        if (hasLinkInGroup(link, RepAs)) {
+            color = 'grayLinkColor';
+            // console.log('blue');
+        } else {
+            color = 'grayLinkColor';
+            // console.log('gray');
+        }
+        return { ...link, color };
+        // 뭔가 각 link마다 식별할 수 있는 id 같은게 있으면 될것 같소 ㅋㅋ (현재 모든 value에 의해 색상이 칠해지고 있음..)
+        // 각 link마다 id가 있지만 현재 모든 동일 value를 합치며 link가 그려지는 중이여서
+        //그 link내에서 해당 id를 가지는 link만을 구현을 하지 못하는 것 같음.
+        // 줌링크 영상 한번 다시 보기.
+        // 내일은 꼭 일찍 일어나서 일찍와야지 그냥.
+        // dict로 다양한 활용방법 생각해보기.
+        function hasLinkInGroup(wantedLink: SankeyLink, linkGroup: SankeyLink[]) {
+            let hasLink: boolean = false;
+
+            for (let i = 0; i < linkGroup.length; i++) {
+                if (wantedLink.valueid === 'repa') {
+                    hasLink = true;
+                } else hasLink = false;
+            }
+            return hasLink;
+        }
+    }),
 
     //@ts-ignore
     status: Status[0],
