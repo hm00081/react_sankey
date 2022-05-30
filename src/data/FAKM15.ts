@@ -8,108 +8,115 @@ const FAKM15: SankeyData = {
             source: 140,
             target: 15,
             value: 1,
-            valueid: 'repea',
+            valueid: 'repf',
         }, // a[0]
-        {
-            source: 140,
-            target: 15,
-            value: 1,
-        }, // a[0]
-        {
-            source: 140,
-            target: 24,
-            value: 1,
-        }, // a[1]
         {
             source: 15,
             target: 42,
             value: 1,
-        }, // a[2]
+            valueid: 'repf',
+        }, // a[0]
         {
             source: 15,
             target: 45,
             value: 1,
-        }, // a[3]
-        {
-            source: 15,
-            target: 49,
-            value: 1,
-            valueid: 'repea',
-        }, // a[4]
-        {
-            source: 24,
-            target: 46,
-            value: 1,
-        }, // a[5]
-        {
-            source: 24,
-            target: 49,
-            value: 1,
-        }, // a[6]
+            valueid: 'repf',
+        }, // a[0]
         {
             source: 42,
             target: 60,
             value: 1,
-        }, // a[7]
+            valueid: 'repf',
+        },
         {
             source: 45,
             target: 60,
             value: 1,
-        }, // a[8]
-        {
-            source: 49,
-            target: 59,
-            value: 1,
-            valueid: 'repea',
-        }, // a[9]
-        {
-            source: 46,
-            target: 75,
-            value: 1,
-        }, // a[10]
-        {
-            source: 49,
-            target: 75,
-            value: 1,
-        }, // a[11]
+            valueid: 'repf',
+        },
         {
             source: 60,
             target: 76,
             value: 1,
-        }, // a[12]
+            valueid: 'repf',
+        },
         {
             source: 60,
             target: 77,
             value: 1,
-        }, // a[13]
+            valueid: 'repf',
+        },
+        {
+            source: 140,
+            target: 15,
+            value: 1,
+            valueid: 'repd',
+        }, // a[0]
+        {
+            source: 15,
+            target: 49,
+            value: 1,
+            valueid: 'repd',
+        },
+        {
+            source: 49,
+            target: 59,
+            value: 1,
+            valueid: 'repd',
+        },
         {
             source: 59,
             target: 78,
             value: 1,
-            valueid: 'repea',
-        }, // a[14]
+            valueid: 'repd',
+        },
         {
             source: 59,
             target: 80,
             value: 1,
-            valueid: 'repea',
-        }, // a[15]
+            valueid: 'repd',
+        },
         {
             source: 59,
             target: 88,
             value: 1,
-            valueid: 'repea',
-        }, // a[16]
+            valueid: 'repd',
+        },
+        {
+            source: 140,
+            target: 24,
+            value: 1,
+        },
+        {
+            source: 24,
+            target: 46,
+            value: 1,
+        },
+        {
+            source: 24,
+            target: 49,
+            value: 1,
+        },
+        {
+            source: 46,
+            target: 75,
+            value: 1,
+        },
+        {
+            source: 49,
+            target: 75,
+            value: 1,
+        },
         {
             source: 75,
             target: 88,
             value: 1,
-        }, // a[17]
+        },
         {
             source: 75,
             target: 98,
             value: 1,
-        }, // a[18]
+        },
     ],
     status: [
         {

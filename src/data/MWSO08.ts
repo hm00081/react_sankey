@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const MWSO08: SankeyData = {
+const MWSO08: SankeyData = {
     nodes: [],
 
     links: [
@@ -13,11 +13,18 @@ export const MWSO08: SankeyData = {
             source: 124,
             target: 16,
             value: 1,
+            valueid: 'repg',
         },
         {
             source: 124,
             target: 23,
-            value: 2,
+            value: 1,
+            valueid: 'repg',
+        },
+        {
+            source: 124,
+            target: 23,
+            value: 1,
         },
         {
             source: 15,
@@ -33,11 +40,18 @@ export const MWSO08: SankeyData = {
             source: 16,
             target: 43,
             value: 1,
+            valueid: 'repg',
         },
         {
             source: 23,
             target: 46,
-            value: 2,
+            value: 1,
+        },
+        {
+            source: 23,
+            target: 46,
+            value: 1,
+            valueid: 'repg',
         },
         {
             source: 41,
@@ -58,16 +72,19 @@ export const MWSO08: SankeyData = {
             source: 43,
             target: 68,
             value: 1,
+            valueid: 'repg',
         },
         {
             source: 46,
             target: 68,
             value: 1,
+            valueid: 'repg',
         },
         {
             source: 68,
             target: 77,
-            value: 1,
+            value: 2,
+            valueid: 'repg',
         },
         {
             source: 61,
@@ -87,3 +104,10 @@ export const MWSO08: SankeyData = {
         },
     ],
 };
+
+MWSO08.links.forEach((link, index) => {
+    link.paperName = 'MWSO08';
+    link.id = `MWSO08-${index}`;
+});
+
+export { MWSO08 };

@@ -1,13 +1,19 @@
 import { SankeyData } from '../types/sankey';
 
-export const ZGWZ14: SankeyData = {
+const ZGWZ14: SankeyData = {
     nodes: [],
 
     links: [
         {
             source: 136,
             target: 15,
-            value: 2,
+            value: 1,
+        },
+        {
+            source: 136,
+            target: 15,
+            value: 1,
+            valueid: 'repd',
         },
         {
             source: 136,
@@ -17,7 +23,13 @@ export const ZGWZ14: SankeyData = {
         {
             source: 15,
             target: 34,
-            value: 2,
+            value: 1,
+        },
+        {
+            source: 15,
+            target: 34,
+            value: 1,
+            valueid: 'repd',
         },
         {
             source: 15,
@@ -27,7 +39,13 @@ export const ZGWZ14: SankeyData = {
         {
             source: 15,
             target: 43,
-            value: 2,
+            value: 1,
+        },
+        {
+            source: 15,
+            target: 43,
+            value: 1,
+            valueid: 'repd',
         },
         {
             source: 15,
@@ -37,7 +55,13 @@ export const ZGWZ14: SankeyData = {
         {
             source: 15,
             target: 49,
-            value: 2,
+            value: 1,
+        },
+        {
+            source: 15,
+            target: 49,
+            value: 1,
+            valueid: 'repd',
         },
         {
             source: 22,
@@ -83,6 +107,7 @@ export const ZGWZ14: SankeyData = {
             source: 49,
             target: 55,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 64,
@@ -108,11 +133,13 @@ export const ZGWZ14: SankeyData = {
             source: 55,
             target: 77,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 55,
             target: 81,
             value: 1,
+            valueid: 'repd',
         },
     ],
     status: [
@@ -121,3 +148,10 @@ export const ZGWZ14: SankeyData = {
         },
     ],
 };
+
+ZGWZ14.links.forEach((link, index) => {
+    link.paperName = 'ZGWZ14';
+    link.id = `ZGWZ14-${index}`;
+});
+
+export { ZGWZ14 };

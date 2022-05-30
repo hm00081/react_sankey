@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const MEV16: SankeyData = {
+const MEV16: SankeyData = {
     nodes: [],
 
     links: [
@@ -8,111 +8,157 @@ export const MEV16: SankeyData = {
             source: 121,
             target: 9,
             value: 1,
+            valueid: ['targetaa', 'repeb'],
         },
         {
             source: 121,
             target: 11,
             value: 1,
+            valueid: ['targetaa', 'repd', 'repf'],
         },
         {
             source: 121,
             target: 13,
             value: 1,
+            valueid: ['targetaa', 'repd', 'repf'],
         },
         {
             source: 121,
             target: 18,
             value: 1,
+            valueid: ['targetaa', 'repd', 'repf'],
         },
         {
             source: 121,
             target: 19,
             value: 1,
+            valueid: ['targetaa', 'repd', 'repf'],
         },
         {
             source: 121,
             target: 24,
             value: 1,
+            valueid: 'targetaa',
         },
         {
             source: 9,
             target: 36,
             value: 1,
-        }, // a[0]
+            valueid: ['targetaa', 'repeb'],
+        },
         {
             source: 11,
             target: 35,
             value: 1,
-        }, // a[1]
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
         {
             source: 11,
             target: 45,
             value: 1,
-        }, // a[1]
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
         {
             source: 13,
             target: 35,
             value: 1,
-        }, // a[2]
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
         {
             source: 13,
             target: 45,
             value: 1,
-        }, // a[3]
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
         {
             source: 18,
             target: 45,
             value: 1,
-        }, // a[4]
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
         {
             source: 19,
             target: 45,
             value: 1,
-        }, // a[5]
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
         {
             source: 24,
             target: 46,
             value: 1,
-        }, // a[6]
+            valueid: 'targetaa',
+        },
         {
             source: 35,
             target: 60,
             value: 1,
-        }, // a[7]
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
         {
             source: 45,
             target: 60,
             value: 2,
-        }, // a[8]
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
+        {
+            source: 35,
+            target: 55,
+            value: 1,
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
+        {
+            source: 45,
+            target: 55,
+            value: 2,
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
         {
             source: 36,
             target: 59,
             value: 1,
-        }, // a[8]
+            valueid: ['targetaa', 'repeb'],
+        },
         {
             source: 46,
             target: 70,
             value: 1,
-        }, // a[9]
+            valueid: 'targetaa',
+        },
         {
             source: 60,
             target: 77,
             value: 1,
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
+        {
+            source: 55,
+            target: 77,
+            value: 1,
+            valueid: ['targetaa', 'repd', 'repf'],
         },
         {
             source: 59,
             target: 78,
             value: 1,
+            valueid: ['targetaa', 'repeb'],
         },
         {
             source: 60,
             target: 85,
             value: 1,
+            valueid: ['targetaa', 'repd', 'repf'],
+        },
+        {
+            source: 55,
+            target: 85,
+            value: 1,
+            valueid: ['targetaa', 'repd', 'repf'],
         },
         {
             source: 70,
             target: 98,
             value: 1,
+            valueid: 'targetaa',
         },
     ],
 
@@ -128,3 +174,10 @@ export const MEV16: SankeyData = {
         },
     ],
 };
+
+MEV16.links.forEach((link, index) => {
+    link.paperName = 'MEV16';
+    link.id = `MEV16-${index}`;
+});
+
+export { MEV16 };

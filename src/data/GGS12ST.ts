@@ -14,13 +14,12 @@ const GGS12ST: SankeyData = {
             source: 108,
             target: 12,
             value: 1,
-            valueid: 'repea',
+            valueid: 'repeb',
         }, // a[1]
         {
             source: 108,
             target: 23,
             value: 1,
-            valueid: 'repea',
         }, // a[2]
         {
             source: 3,
@@ -32,17 +31,19 @@ const GGS12ST: SankeyData = {
             source: 12,
             target: 42,
             value: 1,
+            valueid: 'repeb',
         }, // a[1]
         {
             source: 12,
             target: 45,
             value: 1,
-            valueid: 'repea',
+            valueid: 'repeb',
         }, // a[2]
         {
             source: 12,
             target: 48,
             value: 1,
+            valueid: 'repeb',
         }, // a[3]
         {
             source: 23,
@@ -53,6 +54,7 @@ const GGS12ST: SankeyData = {
             source: 42,
             target: 59,
             value: 1,
+            valueid: 'repeb',
         }, // a[5]
         {
             source: 45,
@@ -64,7 +66,7 @@ const GGS12ST: SankeyData = {
             source: 45,
             target: 59,
             value: 1,
-            valueid: 'repea',
+            valueid: 'repeb',
         }, // a[6]
         {
             source: 46,
@@ -75,6 +77,7 @@ const GGS12ST: SankeyData = {
             source: 48,
             target: 59,
             value: 1,
+            valueid: 'repeb',
         }, // a[8]
         {
             source: 59,
@@ -86,7 +89,7 @@ const GGS12ST: SankeyData = {
             source: 59,
             target: 77,
             value: 1,
-            valueid: 'repea',
+            valueid: 'repeb',
         }, // a[9]
         {
             source: 75,

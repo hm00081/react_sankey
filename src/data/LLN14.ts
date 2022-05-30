@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const LLN14: SankeyData = {
+const LLN14: SankeyData = {
     nodes: [],
 
     links: [
@@ -8,21 +8,25 @@ export const LLN14: SankeyData = {
             source: 117,
             target: 7,
             value: 1,
+            valueid: ['targetca', 'targetab'],
         },
         {
             source: 117,
             target: 11,
             value: 1,
+            valueid: 'targetab',
         },
         {
             source: 117,
             target: 15,
             value: 1,
+            valueid: 'targetab',
         },
         {
             source: 117,
             target: 18,
             value: 1,
+            valueid: ['targetab', 'repd'],
         },
         {
             source: 117,
@@ -33,21 +37,25 @@ export const LLN14: SankeyData = {
             source: 7,
             target: 34,
             value: 1,
+            valueid: ['targetca', 'targetab'],
         },
         {
             source: 11,
             target: 34,
             value: 1,
+            valueid: 'targetab',
         },
         {
             source: 15,
             target: 34,
             value: 1,
+            valueid: 'targetab',
         },
         {
             source: 18,
             target: 48,
             value: 1,
+            valueid: ['targetab', 'repd'],
         },
         {
             source: 24,
@@ -58,11 +66,13 @@ export const LLN14: SankeyData = {
             source: 34,
             target: 55,
             value: 2,
+            valueid: ['targetca', 'targetab'],
         },
         {
             source: 48,
             target: 55,
             value: 1,
+            valueid: ['targetab', 'repd'],
         },
         {
             source: 46,
@@ -82,12 +92,32 @@ export const LLN14: SankeyData = {
         {
             source: 55,
             target: 77,
-            value: 2,
+            value: 1,
+            valueid: 'targetab',
+        },
+        {
+            source: 55,
+            target: 77,
+            value: 1,
+            valueid: ['targetca', 'targetab'],
         },
         {
             source: 55,
             target: 78,
-            value: 3,
+            value: 1,
+            valueid: 'targetab',
+        },
+        {
+            source: 55,
+            target: 78,
+            value: 1,
+            valueid: ['targetca', 'targetab'],
+        },
+        {
+            source: 55,
+            target: 78,
+            value: 1,
+            valueid: ['targetab', 'repd'],
         },
         {
             source: 55,
@@ -101,18 +131,21 @@ export const LLN14: SankeyData = {
         },
         {
             source: 55,
+            target: 85,
+            value: 1,
+            valueid: ['targetab', 'repd'],
+        },
+        {
+            source: 55,
             target: 88,
             value: 1,
+            valueid: ['targetca', 'targetab'],
         },
         {
             source: 55,
             target: 92,
             value: 1,
-        },
-        {
-            source: 55,
-            target: 98,
-            value: 1,
+            valueid: 'targetab',
         },
     ],
 
@@ -122,3 +155,10 @@ export const LLN14: SankeyData = {
         },
     ],
 };
+
+LLN14.links.forEach((link, index) => {
+    link.paperName = 'LLN14';
+    link.id = `LLN14-${index}`;
+});
+
+export { LLN14 };

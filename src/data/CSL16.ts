@@ -1,18 +1,36 @@
 import { SankeyData } from '../types/sankey';
 
-export const CSL16: SankeyData = {
+const CSL16: SankeyData = {
     nodes: [],
 
     links: [
         {
             source: 142,
             target: 11,
-            value: 3,
+            value: 1,
+            valueid: 'repd',
+        },
+        {
+            source: 142,
+            target: 11,
+            value: 1,
+            valueid: 'repd',
+        },
+        {
+            source: 142,
+            target: 11,
+            value: 1,
         },
         {
             source: 142,
             target: 13,
-            value: 2,
+            value: 1,
+            valueid: 'repd',
+        },
+        {
+            source: 142,
+            target: 13,
+            value: 1,
         },
         {
             source: 142,
@@ -32,17 +50,25 @@ export const CSL16: SankeyData = {
         {
             source: 11,
             target: 39,
-            value: 2,
+            value: 1,
+            valueid: 'repd',
+        },
+        {
+            source: 11,
+            target: 39,
+            value: 1,
         },
         {
             source: 11,
             target: 45,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 13,
             target: 45,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 13,
@@ -78,6 +104,7 @@ export const CSL16: SankeyData = {
             source: 45,
             target: 55,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 39,
@@ -102,7 +129,14 @@ export const CSL16: SankeyData = {
         {
             source: 55,
             target: 77,
-            value: 2,
+            value: 1,
+            valueid: 'repd',
+        },
+        {
+            source: 55,
+            target: 77,
+            value: 1,
+            valueid: 'repd',
         },
         {
             source: 62,
@@ -128,6 +162,7 @@ export const CSL16: SankeyData = {
             source: 55,
             target: 85,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 70,
@@ -141,3 +176,10 @@ export const CSL16: SankeyData = {
         },
     ],
 };
+
+CSL16.links.forEach((link, index) => {
+    link.paperName = 'CSL16';
+    link.id = `CSL16-${index}`;
+});
+
+export { CSL16 };

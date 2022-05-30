@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const GGS12TPS: SankeyData = {
+const GGS12TPS: SankeyData = {
     nodes: [],
 
     links: [
@@ -8,11 +8,13 @@ export const GGS12TPS: SankeyData = {
             source: 109,
             target: 12,
             value: 1,
+            valueid: 'targetbb',
         },
         {
             source: 109,
             target: 16,
             value: 1,
+            valueid: 'targetbb',
         },
         {
             source: 109,
@@ -23,11 +25,13 @@ export const GGS12TPS: SankeyData = {
             source: 12,
             target: 42,
             value: 1,
+            valueid: 'targetbb',
         },
         {
             source: 16,
             target: 43,
             value: 1,
+            valueid: 'targetbb',
         },
         {
             source: 24,
@@ -38,11 +42,13 @@ export const GGS12TPS: SankeyData = {
             source: 42,
             target: 64,
             value: 1,
+            valueid: 'targetbb',
         },
         {
             source: 43,
             target: 64,
             value: 1,
+            valueid: 'targetbb',
         },
         {
             source: 46,
@@ -53,11 +59,13 @@ export const GGS12TPS: SankeyData = {
             source: 64,
             target: 77,
             value: 1,
+            valueid: 'targetbb',
         },
         {
             source: 64,
             target: 79,
             value: 2,
+            valueid: 'targetbb',
         },
         {
             source: 75,
@@ -71,3 +79,10 @@ export const GGS12TPS: SankeyData = {
         },
     ],
 };
+
+GGS12TPS.links.forEach((link, index) => {
+    link.paperName = 'GGS12TPS';
+    link.id = `GGS12TPS-${index}`;
+});
+
+export { GGS12TPS };

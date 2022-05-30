@@ -9,7 +9,7 @@ export const PaperNode: SankeyData = {
         { name: 'thought', type: 'Target', subtype: '0' },
         { name: 'service', type: 'Target', subtype: '0' },
         { name: 'product', type: 'Target', subtype: '0' },
-        { name: 'event', type: 'Target', subtype: '0' },
+        { name: 'event', type: 'Target', subtype: '0' }, // 7
         { name: 'simple', type: 'Target', subtype: '1' },
         { name: 'composite', type: 'Target', subtype: '1' },
         { name: 'derived', type: 'Target', subtype: '1' },
@@ -41,8 +41,8 @@ export const PaperNode: SankeyData = {
         { name: 'aspect_based_sentiment_analysis', type: 'Intermediation', subtype: '0' },
         { name: 'detection_of_fake_or_deceptive_sentiment_information', type: 'Intermediation', subtype: '0' },
         { name: 'hate_speech', type: 'Intermediation', subtype: '0' },
-        { name: 'opinion_summarization', type: 'Intermediation', subtype: '1' },
-        { name: 'sentiment_information_description_a_multi_aspect', type: 'Intermediation', subtype: '1' },
+        { name: 'opinion_summarization', type: 'Intermediation', subtype: '1' }, // 39
+        { name: 'sentiment_information_description_a_multi_aspect', type: 'Intermediation', subtype: '1' }, // 40
         { name: 'emotion_detection_and_classification', type: 'Intermediation', subtype: '2' },
         { name: 'polarity_classification', type: 'Intermediation', subtype: '2' },
         { name: 'personalized_sentiment_analysis', type: 'Intermediation', subtype: '2' },
@@ -56,7 +56,7 @@ export const PaperNode: SankeyData = {
         { name: 'human', type: 'Representation', subtype: '0' },
         { name: 'animal', type: 'Representation', subtype: '0' },
         { name: 'plant', type: 'Representation', subtype: '0' },
-        { name: 'landscape', type: 'Representation', subtype: '0' },
+        { name: 'landscape', type: 'Representation', subtype: '0' }, // 54
         { name: 'compound', type: 'Representation', subtype: '0' },
         { name: 'metal', type: 'Representation', subtype: '0' },
         { name: 'nonmetal', type: 'Representation', subtype: '0' },
@@ -64,7 +64,7 @@ export const PaperNode: SankeyData = {
         { name: 'building&structure', type: 'Representation', subtype: '1' }, // 59 (바퀴)
         { name: 'geometry', type: 'Representation', subtype: '1' },
         { name: 'picture', type: 'Representation', subtype: '1' },
-        { name: 'pattern', type: 'Representation', subtype: '1' },
+        { name: 'pattern', type: 'Representation', subtype: '1' }, // 62
         { name: 'map', type: 'Representation', subtype: '1' },
         { name: 'fiber', type: 'Representation', subtype: '1' },
         { name: 'food', type: 'Representation', subtype: '1' },
@@ -80,7 +80,7 @@ export const PaperNode: SankeyData = {
         { name: 'creation_and_destruction', type: 'Representation', subtype: '3' }, // 75
         { name: 'value', type: 'Vis_var&tech', subtype: '0' }, // 76
         { name: 'color', type: 'Vis_var&tech', subtype: '0' }, // 77
-        { name: 'size', type: 'Vis_var&tech', subtype: '0' },
+        { name: 'size', type: 'Vis_var&tech', subtype: '0' }, // 78
         { name: 'shape', type: 'Vis_var&tech', subtype: '0' }, // 79
         { name: 'position', type: 'Vis_var&tech', subtype: '0' },
         { name: 'orientation', type: 'Vis_var&tech', subtype: '0' },
@@ -94,7 +94,7 @@ export const PaperNode: SankeyData = {
         { name: 'pie_chart', type: 'Vis_var&tech', subtype: '1' },
         { name: 'radar_chart', type: 'Vis_var&tech', subtype: '1' },
         { name: 'tree_map', type: 'Vis_var&tech', subtype: '1' },
-        { name: 'text_cloud', type: 'Vis_var&tech', subtype: '1' },
+        { name: 'tag_cloud', type: 'Vis_var&tech', subtype: '1' }, // 이름 수정
         { name: 'heatmap', type: 'Vis_var&tech', subtype: '1' },
         { name: 'scatter_plot', type: 'Vis_var&tech', subtype: '1' },
         { name: 'mds_map', type: 'Vis_var&tech', subtype: '1' },
@@ -113,8 +113,8 @@ export const PaperNode: SankeyData = {
         { name: 'GGS12ST', type: 'Paper' },
         { name: 'GGS12TPS', type: 'Paper' },
         { name: 'HYZ13', type: 'Paper' }, // 110
-        { name: 'JTM11', type: 'Paper' },
-        { name: 'JSM16', type: 'Paper' },
+        { name: 'JTM11', type: 'Paper' }, // 111
+        { name: 'JSM16', type: 'Paper' }, // 112
         { name: 'JX17', type: 'Paper' },
         { name: 'KSBK15', type: 'Paper' }, // 114
         { name: 'LGX16', type: 'Paper' }, // 115

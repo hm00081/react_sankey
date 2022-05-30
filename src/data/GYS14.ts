@@ -8,18 +8,30 @@ const GYS14: SankeyData = {
             source: 146,
             target: 7,
             value: 1,
-            valueid: 'repb',
+            valueid: ['targetca', 'targetab', 'repb'], // o
         },
         {
             source: 146,
             target: 11,
-            value: 4,
-            valueid: 'repb',
+            value: 1,
+            valueid: ['targetca', 'targetab', 'repb'], // o
+        },
+        {
+            source: 146,
+            target: 11,
+            value: 3,
+            valueid: ['targetab', 'repb'], // o
         },
         {
             source: 146,
             target: 18,
-            value: 3,
+            value: 2,
+            valueid: ['targetab', 'repb'], // o
+        },
+        {
+            source: 146,
+            target: 18,
+            value: 1,
             valueid: 'repb',
         },
         {
@@ -32,25 +44,25 @@ const GYS14: SankeyData = {
             source: 7,
             target: 39,
             value: 1,
-            valueid: 'repb',
+            valueid: ['targetca', 'targetab', 'repb'],
         },
         {
             source: 11,
             target: 39,
             value: 1,
-            valueid: 'repb',
+            valueid: ['targetca', 'targetab', 'repb'],
         },
         {
             source: 11,
             target: 45,
             value: 1,
-            valueid: 'repb',
+            valueid: ['targetab', 'repb'],
         },
         {
             source: 11,
             target: 47,
             value: 2,
-            valueid: 'repb',
+            valueid: ['targetab', 'repb'],
         },
         {
             source: 18,
@@ -62,7 +74,7 @@ const GYS14: SankeyData = {
             source: 18,
             target: 47,
             value: 2,
-            valueid: 'repb',
+            valueid: ['targetab', 'repb'],
         },
         {
             source: 23,
@@ -74,7 +86,13 @@ const GYS14: SankeyData = {
             source: 39,
             target: 54,
             value: 1,
-            valueid: 'repb',
+            valueid: ['targetca', 'targetab', 'repb'],
+        },
+        {
+            source: 45,
+            target: 54,
+            value: 1,
+            valueid: ['targetab', 'repb'],
         },
         {
             source: 45,
@@ -98,37 +116,67 @@ const GYS14: SankeyData = {
             source: 47,
             target: 70,
             value: 2,
-            valueid: 'repb',
+            valueid: ['targetab', 'repb'],
         },
         {
             source: 54,
             target: 76,
-            value: 4,
+            value: 3,
+            valueid: ['targetab', 'repb'],
+        },
+        {
+            source: 54,
+            target: 76,
+            value: 1,
             valueid: 'repb',
         },
         {
             source: 54,
             target: 77,
-            value: 4,
+            value: 3,
+            valueid: ['targetab', 'repb'],
+        },
+        {
+            source: 54,
+            target: 77,
+            value: 1,
             valueid: 'repb',
         },
         {
             source: 54,
             target: 78,
-            value: 2,
+            value: 1,
+            valueid: ['targetab', 'repb'],
+        },
+        {
+            source: 54,
+            target: 78,
+            value: 1,
             valueid: 'repb',
         },
         {
             source: 54,
             target: 80,
-            value: 4,
+            value: 3,
+            valueid: ['targetab', 'repb'],
+        },
+        {
+            source: 54,
+            target: 80,
+            value: 1,
             valueid: 'repb',
         },
         {
             source: 54,
             target: 92,
-            value: 4,
-            valueid: 'repb',
+            value: 3,
+            valueid: ['targetab', 'repb'],
+        },
+        {
+            source: 54,
+            target: 92,
+            value: 1,
+            valueid: ['targetca', 'targetab', 'repb'],
         },
         {
             source: 54,
@@ -139,7 +187,13 @@ const GYS14: SankeyData = {
         {
             source: 70,
             target: 98,
-            value: 3,
+            value: 2,
+            valueid: ['targetab', 'repb'],
+        },
+        {
+            source: 70,
+            target: 98,
+            value: 1,
             valueid: 'repb',
         },
     ],

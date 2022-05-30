@@ -1,6 +1,6 @@
 import { SankeyData } from '../types/sankey';
 
-export const MVM17: SankeyData = {
+const MVM17: SankeyData = {
     nodes: [],
 
     links: [
@@ -23,11 +23,13 @@ export const MVM17: SankeyData = {
             source: 123,
             target: 17,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 123,
             target: 19,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 123,
@@ -78,11 +80,13 @@ export const MVM17: SankeyData = {
             source: 17,
             target: 48,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 17,
             target: 49,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 19,
@@ -132,7 +136,7 @@ export const MVM17: SankeyData = {
         {
             source: 60,
             target: 77,
-            value: 2,
+            value: 1,
         },
         {
             source: 60,
@@ -143,21 +147,24 @@ export const MVM17: SankeyData = {
             source: 55,
             target: 76,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 55,
             target: 78,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 55,
             target: 85,
             value: 1,
+            valueid: 'repd',
         },
         {
             source: 60,
             target: 79,
-            value: 1,
+            value: 2,
         },
     ],
     status: [
@@ -166,3 +173,10 @@ export const MVM17: SankeyData = {
         },
     ],
 };
+
+MVM17.links.forEach((link, index) => {
+    link.paperName = 'MVM17';
+    link.id = `MVM17-${index}`;
+});
+
+export { MVM17 };
